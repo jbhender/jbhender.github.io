@@ -1,0 +1,95 @@
+---
+title: "An Introduction to R for Health Policy Researchers"
+author: "James Henderson"
+date: "3/6/2017"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    toc_depth: 2
+    theme: spacelab
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+#setwd('~/Box\ Sync/CSCAR/IHPI-seminar/')
+```
+
+## Welcome
+I look forward to working with you all at the IHPI Methods Seminar,
+**Friday March 10, 10am-12noon**. To maximize our time during the workshop,
+please prepare using the checklist below.
+
+## Checklist
+1. Download and install R: https://cran.mtu.edu/
+2. Download and install Rstudio: https://www.rstudio.com/products/rstudio/download/
+3. Download data for seminar examples: 
+https://www.healthdata.gov/dataset/community-health-status-indicators-chsi-combat-obesity-heart-disease-and-cancer
+4. Create an 'Rworkshop' folder on your dekstop and move the data to that folder.
+5. Open RStudio and set the working directory to the 'Rworkshop' folder you just created.
+6. I will send workshop files on Thursday.
+
+## Download and Install R
+
+1. Visit: https://cran.mtu.edu/
+
+![](PrepImages/R-Landing.png)
+
+2. Choose the download appropriate for your computer.
+3. Windows users should install the R binary by clicking 'install R for the first time'.
+
+![](PrepImages/RforWindows1.png)
+4. A link to the download and installation instructions are on the next page.
+
+![](PrepImages/RforWindows2.png)
+
+## Download and Install RStudio
+We will use RStudio in the workshop.
+While R comes with its own graphical user interface, the RStudio interface
+provides additional functionality and simplies many tasks. Make sure you install
+R **before** installing RStudio!
+
+1. Visit: https://www.rstudio.com/products/rstudio/download/
+2. You want to install the free RStudio Desktop
+
+![](PrepImages/RStudio2.png)
+
+3. Download the appropriate installer and follow the prompts.
+
+![](PrepImages/RStudio3.png)
+## Download Data
+Examples in the workshop will use the Community Health Status Indicators dataset 
+from Health.gov. Download the data by visiting:
+https://www.healthdata.gov/dataset/community-health-status-indicators-chsi-combat-obesity-heart-disease-and-cancer
+
+![](PrepImages/CHSI.png)
+Make sure to unzip the download, you should see a folder 'chsi_dataset'.
+
+## Create 'Rworkshop' folder
+
+Please Create a new folder 'Rworkshop' on your *desktop* and move the 'chis_dataset' folder
+to this location. 
+
+## Set working directory
+
+We will use the 'Rworkshop' folder as the working directory for reading and
+writing files. We will review this at the start of the workshop, but it would be
+useful to do in advance.
+
+1. Open RStudio - the appearance may differ somewhat from the screenshot.
+
+![The arrow shows the current working directory.](PrepImages/RStudioWD.png)
+
+2. Use the 'Files' tab on the left or click the arrow to bring up file navigation.
+3. Navigate to the Desktop and check the box next to the Rworkshop folder.
+4. Select 'More' and choose 'Set as Working Directory'
+
+![](PrepImages/setwd.png)
+5. Check that you were sucessful by typing `getwd()` in the console to the left.
+You should see the full path to the 'Rworkshop' folder.
+
+![](PrepImages/getwd.png)
+
+
+
+### You're all set -- see you Friday!!
