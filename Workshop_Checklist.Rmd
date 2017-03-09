@@ -31,6 +31,7 @@ https://www.healthdata.gov/dataset/community-health-status-indicators-chsi-comba
     + <a href="Analysis-and-Graphics.R">Analysis-and-Graphics.R</a>
     + Optionally:
         + <a href="Methods-Seminar-Presentation.Rmd"> Presentation source file</a>
+        + <a href="ggplot2-primer.R"> ggplot2-primer.R</a>
 
 ## Download and Install R
 
@@ -95,11 +96,10 @@ You should see the full path to the 'Rworkshop' folder.
 
 ## Links to workshop files 
 Please download the two R scripts below.
-
 + <a href="Methods-Seminar-10March2017.R">Methods-Seminar-10March2017.R</a>
 + <a href="Analysis-and-Graphics.R">Analysis-and-Graphics.R</a>
 + Optionally:
     + <a href="Methods-Seminar-Presentation.Rmd"> Presentation source file</a>
-
+    + <a href="ggplot2-primer.R"> ggplot2-primer.R</a>
 
 ### You're all set -- see you Friday!!
