@@ -1,7 +1,7 @@
 ---
 title: "An Introduction to R for Health Policy Researchers"
 author: "James Henderson"
-date: "3/6/2017"
+date: "3/9/2017"
 output: 
   html_document:
     toc: true
@@ -12,7 +12,6 @@ output:
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-#setwd('~/Box\ Sync/CSCAR/IHPI-seminar/')
 ```
 
 ## Welcome
@@ -27,7 +26,11 @@ please prepare using the checklist below.
 https://www.healthdata.gov/dataset/community-health-status-indicators-chsi-combat-obesity-heart-disease-and-cancer
 4. Create an 'Rworkshop' folder on your desktop and move the data to that folder.
 5. Open RStudio and set the working directory to the 'Rworkshop' folder you just created.
-6. I will send workshop files on Thursday.
+6. Download the workshop files (right click to save): 
+    + <a href="Methods-Seminar-10March2017.R">Methods-Seminar-10March2017.R</a>
+    + <a href="Analysis-and-Graphics.R">Analysis-and-Graphics.R</a>
+    + Optionally:
+        + <a href="Methods-Seminar-Presentation.Rmd"> Presentation source file</a>
 
 ## Download and Install R
 
