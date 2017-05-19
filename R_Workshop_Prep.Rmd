@@ -20,7 +20,7 @@ To maximize our time during the workshop,
 please prepare using the checklist below.
 
 ## Checklist
-1. Download and install R: https://cran.mtu.edu/
+1. Download and install R: https://cran.r-project.org/
 2. Download and install RStudio: https://www.rstudio.com/products/rstudio/download/
 3. Create an 'Rworkshop' folder on your desktop and move the data to that folder.
 4. Open RStudio and set the working directory to the 'Rworkshop' folder you just created.
@@ -29,7 +29,7 @@ please prepare using the checklist below.
 
 ## Download and Install R
 
-1. Visit: https://cran.mtu.edu/
+1. Visit: https://cran.r-project.edu/
 
 ![](PrepImages/R-Landing.png)
 
