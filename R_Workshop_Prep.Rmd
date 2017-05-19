@@ -29,7 +29,7 @@ please prepare using the checklist below.
 
 ## Download and Install R
 
-1. Visit: https://cran.r-project.edu/
+1. Visit: https://cran.r-project.org/
 
 ![](PrepImages/R-Landing.png)
 
