@@ -1,7 +1,7 @@
 ---
 title: "Installing R"
 author: "James Henderson"
-date: "5/18/2017"
+date: "6/12/2017"
 output: 
   html_document:
     toc: true
@@ -25,8 +25,8 @@ please prepare using the checklist below.
 3. Create an 'Rworkshop' folder on your desktop and move the data to that folder.
 4. Open RStudio and set the working directory to the 'Rworkshop' folder you just created.
 6. Download the workshop files (right click to save): 
-    + Links to files will appear here as the workshop approaches.
-
+    + <a href='https://jbhender.github.io/Intro_2_R.html'> Day 1: Introduction to R </a>
+    + <a href='https://github.com/jbhender/Workshops/tree/master/Intro_2_R/attitudes.csv' > attitudes.csv </a>
 ## Download and Install R
 
 1. Visit: https://cran.r-project.org/
@@ -82,5 +82,7 @@ You should see the full path to the 'Rworkshop' folder.
 ![](PrepImages/getwd.png)
 
 ## Links to workshop files 
-Links to workshop files will be placed here as they become available. Please check
-back a day or two before the workshop begins. 
+Links to workshop files will be placed here as they become available. 
+Download the 'attitudes.csv' file and **move it** to an 'RWorkshop' folder on your desktop:
+
+- <a href='https://github.com/jbhender/Workshops/tree/master/Intro_2_R/attitudes.csv' > attitudes.csv </a>
