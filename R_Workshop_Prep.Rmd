@@ -1,6 +1,6 @@
 ---
 title: "Installing R"
-author: "James Henderson"
+author: "James Henderson, PhD / CSCAR Data Science Consultant"
 date: "6/12/2017"
 output: 
   html_document:
@@ -26,7 +26,10 @@ please prepare using the checklist below.
 4. Open RStudio and set the working directory to the 'Rworkshop' folder you just created.
 6. Download the workshop files (right click to save): 
     + <a href='https://jbhender.github.io/Intro_2_R.html'> Day 1: Introduction to R </a>
-    + <a href='https://github.com/jbhender/Workshops/tree/master/Intro_2_R/attitudes.csv' > attitudes.csv </a>
+    + For day 1 <a href='https://github.com/jbhender/Workshops/tree/master/Intro_2_R/attitudes.csv' > attitudes.csv </a>
+    + For day 1 (Intro to R) and day 3 (regression):
+    <a href='https://jbhender.github.io/cars.csv' > cars.csv </a>
+
 ## Download and Install R
 
 1. Visit: https://cran.r-project.org/
