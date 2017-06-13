@@ -89,4 +89,8 @@ You should see the full path to the 'Rworkshop' folder.
 Links to workshop files will be placed here as they become available. 
 Download the 'attitudes.csv' file and **move it** to an 'RWorkshop' folder on your desktop:
 
-- <a href='https://github.com/jbhender/Workshops/tree/master/Intro_2_R/attitudes.csv' > attitudes.csv </a>
+  + <a href='https://jbhender.github.io/Intro_2_R.html'> Day 1: Introduction to R </a>
+  + For day 1 <a href='https://github.com/jbhender/Workshops/tree/master/Intro_2_R/attitude.csv' > attitude.csv </a>
+  + For day 1 (Intro to R) and day 3 (regression):
+    <a href='https://jbhender.github.io/cars.csv' > cars.csv </a>
+  + Rscript for day 2: <a href='./Day2_notes.R'> Day2_notes.R </a>
