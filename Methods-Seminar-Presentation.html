@@ -221,7 +221,7 @@ ls()</pre>
 <li>Scripts end in <code>.R</code></li>
 <li>While you <strong>can</strong> type commands directly in the console, analyses should be written in R scripts so you can modify and reproduce as needed.</li>
 <li>If you haven&#39;t already, open the <code>Method-Seminar-10March2017.R</code> script in RStudio.</li>
-<li>Run the entire contents of a script with the <code>source()</code> command:</li>
+<li>Run the entire contents of a script with the <code>source()</code> command; i.e. <code>source(&#39;./Method-Seminar-10March2017.R&#39;)</code></li>
 </ul>
 
 </article></slide><slide class=''><hgroup><h2>Headers and comments</h2></hgroup><article  id="headers-and-comments">
@@ -267,10 +267,9 @@ search()</pre>
 ## [4] &quot;package:grDevices&quot; &quot;package:utils&quot;     &quot;package:datasets&quot; 
 ## [7] &quot;package:methods&quot;   &quot;Autoloads&quot;         &quot;package:base&quot;</pre>
 
-<pre class = 'prettyprint lang-r'>tail(ls(&#39;package:base&#39;))</pre>
+<pre class = 'prettyprint lang-r'>tail(ls(&#39;package:base&#39;))[1:2]</pre>
 
-<pre >## [1] &quot;xtfrm.numeric_version&quot; &quot;xtfrm.POSIXct&quot;         &quot;xtfrm.POSIXlt&quot;        
-## [4] &quot;xtfrm.Surv&quot;            &quot;xzfile&quot;                &quot;zapsmall&quot;</pre>
+<pre >## [1] &quot;xtfrm.numeric_version&quot; &quot;xtfrm.POSIXct&quot;</pre>
 
 </article></slide><slide class=''><hgroup><h2>Accessing help</h2></hgroup><article  id="accessing-help">
 
@@ -351,7 +350,7 @@ class(leadDeath)</pre>
 
 <pre >## function (fmt, ...) 
 ## .Internal(sprintf(fmt, ...))
-## &lt;bytecode: 0x7fd44505e3c8&gt;
+## &lt;bytecode: 0x7fef290111c8&gt;
 ## &lt;environment: namespace:base&gt;</pre>
 
 <pre class = 'prettyprint lang-r'>head(read.table)</pre>
@@ -644,7 +643,9 @@ help(read.xport)</pre>
 <ul>
 <li></li>
 <li>You can use <code>foregin::read.xport</code> and <code>foreign::read.ssd</code> to import SAS data.</li>
-</ul></article></slide>
+</ul>
+
+</article></slide><slide class=''><hgroup><h2></h2></hgroup><article  id="section"></article></slide>
 
 
   <slide class="backdrop"></slide>

@@ -91,7 +91,8 @@ parameters.
 be written in R scripts so you can modify and reproduce as needed.
 + If you haven't already, open the `Method-Seminar-10March2017.R` script 
 in RStudio. 
-+ Run the entire contents of a script with the `source()` command: 
++ Run the entire contents of a script with the `source()` command; i.e. 
+`source('./Method-Seminar-10March2017.R')`
 
 ## Headers and comments 
 + Create a standard header for your R scripts that explains what they do.
