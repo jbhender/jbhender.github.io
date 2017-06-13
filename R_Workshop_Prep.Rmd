@@ -24,13 +24,17 @@ please prepare using the checklist below.
 2. Download and install RStudio: https://www.rstudio.com/products/rstudio/download/
 3. Create an 'Rworkshop' folder on your desktop and move the data to that folder.
 4. Open RStudio and set the working directory to the 'Rworkshop' folder you just created.
-6. Download the workshop files (right click to save): 
-    + <a href='https://jbhender.github.io/Intro_2_R.html'> Day 1: Introduction to R </a>
-    + For day 1 <a href='https://github.com/jbhender/Workshops/tree/master/Intro_2_R/attitude.csv' > attitude.csv </a>
-    + For day 1 (Intro to R) and day 3 (regression):
-    <a href='https://jbhender.github.io/cars.csv' > cars.csv </a>
-    + Rscript for day 2: <a href='./Day2_notes.R'> Day2_notes.R </a>
+6. Download the workshop files (right click to save):   
 
+  + Day 1:
+    + <a href='https://jbhender.github.io/Intro_2_R.html'>Introduction to R </a>
+    + <a href='https://github.com/jbhender/Workshops/tree/master/Intro_2_R/attitude.csv' > attitude.csv </a>
+  + Day 2: R script - <a href='./Day2_notes.R'> Day2_notes.R </a>
+  + Day 3: 
+    + <a href='./slides061417.pdf'> Slides </a> (pdf)
+    + <a href='./Regression_Labs_R_061417.docx'> Labs </a> (Word)
+    + Data - <a href='./cars.csv'> cars.csv </a>
+      
 ## Download and Install R
 
 1. Visit: https://cran.r-project.org/
@@ -89,8 +93,12 @@ You should see the full path to the 'Rworkshop' folder.
 Links to workshop files will be placed here as they become available. 
 Download the 'attitudes.csv' file and **move it** to an 'RWorkshop' folder on your desktop:
 
-  + <a href='https://jbhender.github.io/Intro_2_R.html'> Day 1: Introduction to R </a>
-  + For day 1 <a href='https://github.com/jbhender/Workshops/tree/master/Intro_2_R/attitude.csv' > attitude.csv </a>
-  + For day 1 (Intro to R) and day 3 (regression):
-    <a href='https://jbhender.github.io/cars.csv' > cars.csv </a>
-  + Rscript for day 2: <a href='./Day2_notes.R'> Day2_notes.R </a>
+  + Day 1:
+    + <a href='https://jbhender.github.io/Intro_2_R.html'>Introduction to R </a>
+    + <a href='https://github.com/jbhender/Workshops/tree/master/Intro_2_R/attitude.csv' > attitude.csv </a>
+  + Day 2: R script - <a href='./Day2_notes.R'> Day2_notes.R </a>
+  + Day 3: 
+    + <a href='./slides061417.pdf'> Slides </a> (pdf)
+    + <a href='./Regression_Labs_R_061417.docx'> Labs </a> (Word)
+    + Data - <a href='./cars.csv'> cars.csv </a>
+      
