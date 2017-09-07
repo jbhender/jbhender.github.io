@@ -167,7 +167,7 @@ $(document).ready(function () {
 <p>To create a local copy of an existing repository:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">git</span> clone <span class="st">&quot;url for repo&quot;</span></code></pre></div>
 <p>For example, to clone the “Stats506_F17” repository from gihtub.com:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">git</span> clone https://github.com/jbhender/Stats506_17</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">git</span> clone https://github.com/jbhender/Stats506_F17</code></pre></div>
 </div>
 <div id="repositories" class="section level2">
 <h2>Repositories</h2>
@@ -176,8 +176,9 @@ $(document).ready(function () {
 <div id="git-for-remote-repositories" class="section level3">
 <h3>Git for remote repositories</h3>
 <p>The following commands are useful for working with a remote repository.</p>
-<p>To link a local and remote repository, use <code>git remote</code>:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">git</span> remote -u origin master </code></pre></div>
+<p>To link a local and remote repository, use <code>git remote</code> (this is based on github):</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">git</span> remote add origin url_to_remote_repo.git
+<span class="fu">git</span> remote -u origin master</code></pre></div>
 <p>If you haven’t made any local commits and want to bring your local copy up to date with the remote repository use, <code>git pull</code>. To retrieve remote changes without merging into the local repository use <code>git fetch</code> followed by <code>git status</code> or <code>git diff</code> to see changes that have been made. You can then use <code>git merge</code> or <code>git pull</code> to finish merging.</p>
 </div>
 <div id="caution" class="section level3">
