@@ -197,7 +197,7 @@ $(document).ready(function () {
 <p>Setting your user name an email allows you to omit explicitly specifying them when using <code>git push</code> and <code>git pull</code> to interact with your remote repository.</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">git</span> config --global user.name <span class="st">&quot;jbhender&quot;</span>
 <span class="fu">git</span> config --global user.email <span class="st">&quot;jbhender@umich.edu&quot;</span></code></pre></div>
-<p>To set your default editor to <code>emacs</code> (substitute editor of your choice) use:</p>
+<p>To set your default editor to <code>emacs</code> (substitute your choice of editor) use:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">git</span> config --global core.editor emacs</code></pre></div>
 <p>This could also be done in the shell by exporting the <code>EDITOR</code> environment variable,</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">export</span> <span class="va">EDITOR=</span>emacs
@@ -211,11 +211,22 @@ $(document).ready(function () {
 <span class="bu">echo</span> <span class="st">&quot;*.csv&quot;</span> <span class="op">&gt;</span> .gitignore</code></pre></div>
 <p>from the command line will create a <code>.gitignore</code> file in <code>My_Repo</code> telling git to ignore all files with the <code>.csv</code> extension.</p>
 </div>
-<div id="resources" class="section level3">
-<h3>Resources</h3>
+</div>
+<div id="markdown" class="section level2">
+<h2>Markdown</h2>
+<p>Markdown is a plain text formatting language that is designed to create (x)html documents using special characters and indentation to specify the desired format while remaining easy to read in its raw format.</p>
+<p>There are many “flavors” of markdown. Let’s look at a quick tutorial on <a href="https://guides.github.com/features/mastering-markdown/">Github flavored markdown</a>.</p>
+<p>This document was written in <a href="http://rmarkdown.rstudio.com/">Rmarkdown</a> using RStudio. You can see the source at <a href="https://raw.githubusercontent.com/jbhender/Stats506/master/Git.Rmd">my Stats 506</a>.</p>
+<p>You will learn more about Rmarkdown later in the course. For now, you should familarize yourself with the basic formatting options specified at the page we viewed <a href="a%20href=%22https://guides.github.com/features/mastering-markdown/%22">earlier</a>.</p>
+</div>
+<div id="resources" class="section level2">
+<h2>Resources</h2>
 <p>Read more about configuring git <a href="https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration">here</a>.</p>
 <p>For routine use of git from your personal computer, you may want to connect to your remote repository using <code>ssh</code>. Using ssh keys you can connect to GitHub without supplying your password for each interaction. Read more <a href="https://help.github.com/articles/connecting-to-github-with-ssh/">here</a>.</p>
 </div>
+<div id="using-git-for-homework" class="section level2">
+<h2>Using <code>git</code> for homework</h2>
+<p>I encourage you to create an account at <a href="https://www.github.com">github</a> or <a href="https://www.bitbucket.org">bitbucket</a> and to use <code>git</code> for your work in this class. However, please refrain from posting solutions to problem sets for this course prior to the due date. After the due date, I suggest you do post your (possibley corrected) code and inlcude a concise description of what you’ve learned in a <code>Readme.md</code> written in markdown. Your repository can serve as a sort of “digital portfolio” for your computing and analysis skills.</p>
 </div>
 
 
