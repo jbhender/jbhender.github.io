@@ -152,7 +152,7 @@ $(document).ready(function () {
 
 <div id="about-stata" class="section level2">
 <h2>About Stata</h2>
-<p><a href="https://en.wikipedia.org/wiki/Stata">Stata</a> is a statitical software package most frequently used for data analysis in academic research. It is especially popular in health services research, epidemiology, and various social sciences.</p>
+<p><a href="https://en.wikipedia.org/wiki/Stata">Stata</a> is a statistical software package most frequently used for data analysis in academic research. It is especially popular in health services research, epidemiology, and various social sciences.</p>
 <p>Two commands that make Stata particularly appealing in these fields are:</p>
 <ul>
 <li><p><a href="https://www3.nd.edu/~rwilliam/stats/Margins01.pdf">margins</a> for post-estimation summaries such as adjusted predictions and marginal effects,</p></li>
@@ -160,18 +160,20 @@ $(document).ready(function () {
 </ul>
 <div id="licensing" class="section level3">
 <h3>Licensing</h3>
-<p>Stata is commercial software that requires a license is required for use. As a UM student you can use Stata on the SCS servers by typing <code>stata</code> at the command line. There are a limited number of licenses available, so please do not leave Stata open when not in use. Also be aware that all the licenses could be in use at busy times, such as the night before an assignment for this course is due.</p>
+<p>Stata is commercial software that requires a license for use. As a UM student you can use Stata on the SCS servers by typing <code>stata</code> at the command line. There are a limited number of licenses available, so please do not leave Stata open when not in use. Also be aware that all the licenses could be in use at busy times, such as the night before an assignment for this course is due.</p>
 </div>
 <div id="markdown" class="section level3">
 <h3>Markdown</h3>
-<p>Stata does support <a href="https://www.stata.com/new-in-stata/markdown/">markdown</a> from version 15, but the most recent version of Stata on the SCS servers is 15:</p>
+<p>Stata does support <a href="https://www.stata.com/new-in-stata/markdown/">markdown</a> from version 15, but the most recent version of Stata on the SCS servers is 14:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">which</span> stata
 <span class="fu">ls</span> /usr/local/bin/ <span class="kw">|</span> <span class="fu">grep</span> <span class="st">&quot;stata&quot;</span>   </code></pre></div>
+<p>Stata 15 is available as a module on the Flux cluster.</p>
+<p><strong>Disclaimer</strong>: You are not required to use Stata markdown.</p>
 </div>
 <div id="one-data-two-types" class="section level3">
 <h3>One Data, Two Types</h3>
-<p>Stata primarily works with a single rectangular data set with observations in rows and variables in columns. Variables can be referred to by name.</p>
-<p>Stata variables come in two primary <em>types</em> - <em>numeric</em> and <em>string</em>. Strings are stored using as <code>str#</code> with <code>#</code> indicating the maximum length.</p>
+<p>Stata primarily works with a single rectangular data set with observations in rows and variables in columns. Variables can be referred to by name and always reference this “master” dataset.</p>
+<p>Stata variables come in two primary <em>types</em> - <em>numeric</em> and <em>string</em>. Strings are stored as <code>str#</code> with <code>#</code> indicating the maximum length.</p>
 <p>Numeric variables come in the following storage types:</p>
 <table>
 <thead>
@@ -190,7 +192,7 @@ $(document).ready(function () {
 <tr class="even">
 <td>int</td>
 <td>2</td>
-<td>big integers (up to <span class="math inline">\(2^16-1\)</span>)</td>
+<td>big integers (up to <span class="math inline">\(2^{16}-1\)</span>)</td>
 </tr>
 <tr class="odd">
 <td>long</td>
@@ -236,7 +238,7 @@ help regress</code></pre>
 <h3>Basic commands</h3>
 <ul>
 <li><code>use</code>, <code>sysuse</code>, <code>webuse</code> - load a Stata native <code>.dta</code> file into memory</li>
-<li><code>import delimited</code> - read delimted data files</li>
+<li><code>import delimited</code> - read delimited data files</li>
 <li><code>clear</code> - clear the current data</li>
 <li><code>save</code></li>
 <li><code>help</code></li>
@@ -250,7 +252,7 @@ help regress</code></pre>
 </div>
 <div id="stata-scripts-or-.do-files" class="section level3">
 <h3>Stata scripts or <code>.do</code> files</h3>
-<p>A <em>script</em> is a set of instructions to a computing language for carrying out a particular purpose such as data preperation or analysis. Stata scripts use the extension <code>.do</code> and will generally be your primary way of interacting with and using Stata.</p>
+<p>A <em>script</em> is a set of instructions to a computing language for carrying out a particular purpose such as data preparation or analysis. Stata scripts use the extension <code>.do</code> and will generally be your primary way of interacting with and using Stata.</p>
 <p>You can execute a do file by typing, i.e. <code>stata -b my_analysis.do</code> at the command line or <code>do my_analysis</code> within an interactive Stata console.</p>
 <p>Scripts serve several purposes:</p>
 <ol style="list-style-type: decimal">
@@ -262,7 +264,7 @@ help regress</code></pre>
 <p>Here are some opinions on style in Stata:</p>
 <ul>
 <li><p><a href="https://michaelshill.net/2015/07/31/in-stata-coding-style-is-the-essential/">Style is the Essential</a></p></li>
-<li><p><a href="http://www.stata-journal.com/sjpdf.html?articlenum=pr0018">Suggestions on Stata Programming Style</a></p></li>
+<li><p><a href="http://www.stata-journal.com/sjpdf.html?articlenum=pr0018">Suggestions on Stata Programming Style</a>)</p></li>
 </ul>
 </div>
 <div id="data-management" class="section level3">
@@ -278,9 +280,10 @@ help regress</code></pre>
 <li><code>label values</code></li>
 <li><p><code>label data</code></p></li>
 <li><code>encode</code>, <code>decode</code> - use to switch between string and integer representation for categorical variables</li>
-<li><p><code>recode</code> - to recode into different values, i.e <span class="math inline">\(0 \to 1, 1 \to 0\)</span></p></li>
+<li><p><code>recode</code> - to re-code into different values, i.e <span class="math inline">\(0 \to 1, 1 \to 0\)</span></p></li>
 </ul>
-<p>The data mangagement demonstration from class can be found at: <a href="https://raw.githubusercontent.com/jbhender/Stats506/master/Stata/RECS/RECS_prep_subset1.do">RECS_prep_subset1.do</a>.</p>
+<p>The data management demonstration from class can be found at: <a href="https://raw.githubusercontent.com/jbhender/Stats506/master/Stata/RECS/RECS_prep_subset1.do">RECS_prep_subset1.do</a>.</p>
+<p>See <a href="http://dept.stat.lsa.umich.edu/~kshedden/Courses/Stat506/stata_intro/">Professor Shedden’s Stata Intro</a> for how to obtain the RECS data.</p>
 <div id="boolean-operators" class="section level4">
 <h4>Boolean Operators</h4>
 <p>Boolean operators are useful for generating values conditionally on other values. Here are the basics:</p>
@@ -325,33 +328,33 @@ help regress</code></pre>
 <p>We will review the regression example from <a href="http://dept.stat.lsa.umich.edu/~kshedden/Courses/Stat506/stata_intro/">Professor Shedden’s Stata Intro</a>.</p>
 <p>The key Stata commands in the demonstration are:</p>
 <ul>
-<li><code>regress &lt;dv&gt; &lt;ivlist&gt;, options</code> - for computing regression</li>
+<li><code>regress &lt;dv&gt; &lt;ivlist&gt;, options</code> - for computing regression estimates</li>
 <li><code>display</code> - for evaluating an expression</li>
 <li><code>r()</code> and <code>e()</code> - for extracting results from the most recent command</li>
 <li><code>c.</code>, <code>i.</code> - for instructing Stata how to treat variables</li>
 <li><code>#</code>, <code>##</code> - for specifying interaction terms</li>
 </ul>
-<p>The script from the in-class demonstration can be found at: <a href="https://github.com/jbhender/Stats506/blob/master/Stata/RECS/RECS_Consump_Analysis.do">RECS_survey</a></p>
+<p>The script from the in-class demonstration can be found at: <a href="https://github.com/jbhender/Stats506/blob/master/Stata/RECS/RECS_Consump_Analysis.do">RECS_Consump_Analysis.do</a></p>
 <p>Some important data analysis principals:</p>
 <ul>
 <li>Pay attention to the scale of your variables</li>
-<li>Summarize on a natural easy to understand scale</li>
-<li>Center variables before creating interactions to reduce collinearity.</li>
+<li>Summarize on a natural and easy-to-understand scale</li>
+<li>Center variables before creating interactions to reduce colinearity.</li>
 </ul>
 </div>
 <div id="macros-programming-statements" class="section level3">
 <h3>Macros &amp; Programming Statements</h3>
-<p>In Stata “variable” always refer to a column of the dataset. However, in programming it is also useful to have access to variables of differing dimensions.</p>
+<p>In Stata “variable” always refers to a column of the dataset. However, in programming it is also useful to have access to variables in the general sense.</p>
 <p>“Macros” serve this role in Stata and are somewhat similar to shell variables in bash and other Linux shells. A macro is a string that is interspersed into a Stata program and evaluated when that program is executed. The key to understanding and using Stata macros is knowing when they are evaluated.</p>
 <p>A local macro can be defined by:</p>
 <pre class="stata"><code>local life_questions 42</code></pre>
-<p>The value of a macro is retrieved by encapuslation between a backtick “`” and an apostrophe “’”:</p>
+<p>The value of a macro is retrieved by encapsulation between a back tick “`” and an apostrophe “’”:</p>
 <pre class="stata"><code>display `life_questions'</code></pre>
 <p>Macros are frequently used in loops:</p>
 <pre class="stata"><code>foreach var in varlist yearmade-kwh {
   summarize `var'
 }</code></pre>
-<p>Examples of Stata loops can be found in the data managment script linked above and the data merge example here: <a href="https://raw.githubusercontent.com/jbhender/Stats506/master/Stata/RECS/RECS_merge.do">RECS_merge.do</a>.</p>
+<p>Examples of Stata loops can be found in the data management script linked above and the data merge example here: <a href="https://raw.githubusercontent.com/jbhender/Stats506/master/Stata/RECS/RECS_merge.do">RECS_merge.do</a>.</p>
 </div>
 </div>
 <div id="extending-stata" class="section level2">
