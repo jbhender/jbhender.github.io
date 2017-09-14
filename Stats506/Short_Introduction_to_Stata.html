@@ -150,6 +150,7 @@ $(document).ready(function () {
 </div>
 
 
+<p><a href="https://jbhender.github.io/Stats506/">Course Homepage</a></p>
 <div id="about-stata" class="section level2">
 <h2>About Stata</h2>
 <p><a href="https://en.wikipedia.org/wiki/Stata">Stata</a> is a statistical software package most frequently used for data analysis in academic research. It is especially popular in health services research, epidemiology, and various social sciences.</p>
@@ -264,7 +265,7 @@ help regress</code></pre>
 <p>Here are some opinions on style in Stata:</p>
 <ul>
 <li><p><a href="https://michaelshill.net/2015/07/31/in-stata-coding-style-is-the-essential/">Style is the Essential</a></p></li>
-<li><p><a href="http://www.stata-journal.com/sjpdf.html?articlenum=pr0018">Suggestions on Stata Programming Style</a>)</p></li>
+<li><p><a href="http://www.stata-journal.com/sjpdf.html?articlenum=pr0018">Suggestions on Stata Programming Style</a></p></li>
 </ul>
 </div>
 <div id="data-management" class="section level3">
@@ -282,8 +283,16 @@ help regress</code></pre>
 <li><code>encode</code>, <code>decode</code> - use to switch between string and integer representation for categorical variables</li>
 <li><p><code>recode</code> - to re-code into different values, i.e <span class="math inline">\(0 \to 1, 1 \to 0\)</span></p></li>
 </ul>
+<div id="data-management-demonstration" class="section level4">
+<h4>Data Management Demonstration</h4>
+<p>In class we demonstrated the above commands using the Resedidential Energy Consumption Survey (RECS) from 2009. On the CSC servers, you can obtain a local copy of the data using:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">wget</span> http://www.eia.gov/consumption/residential/data/2009/csv/recs2009_public.csv</code></pre></div>
+<p>You can get short descriptions of these data here:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">wget</span> http://www.eia.gov/consumption/residential/data/2009/csv/public_layout.csv</code></pre></div>
+<p>More detailed descriptions are available as an Excel file <a href="http://www.eia.gov/consumption/residential/data/2009/xls/recs2009_public_codebook.xlsx">here</a>.</p>
 <p>The data management demonstration from class can be found at: <a href="https://raw.githubusercontent.com/jbhender/Stats506/master/Stata/RECS/RECS_prep_subset1.do">RECS_prep_subset1.do</a>.</p>
-<p>See <a href="http://dept.stat.lsa.umich.edu/~kshedden/Courses/Stat506/stata_intro/">Professor Shedden’s Stata Intro</a> for how to obtain the RECS data.</p>
+<p>See <a href="http://dept.stat.lsa.umich.edu/~kshedden/Courses/Stat506/stata_intro/">Professor Shedden’s Stata Intro</a> for additional examples using the RECS data.</p>
+</div>
 <div id="boolean-operators" class="section level4">
 <h4>Boolean Operators</h4>
 <p>Boolean operators are useful for generating values conditionally on other values. Here are the basics:</p>
@@ -334,7 +343,7 @@ help regress</code></pre>
 <li><code>c.</code>, <code>i.</code> - for instructing Stata how to treat variables</li>
 <li><code>#</code>, <code>##</code> - for specifying interaction terms</li>
 </ul>
-<p>The script from the in-class demonstration can be found at: <a href="https://github.com/jbhender/Stats506/blob/master/Stata/RECS/RECS_Consump_Analysis.do">RECS_Consump_Analysis.do</a></p>
+<p>The script from the in-class demonstration can be found at: <a href="https://raw.githubusercontent.com/jbhender/Stats506/master/Stata/RECS/RECS_Consump_Analysis.do">RECS_Consump_Analysis.do</a></p>
 <p>Some important data analysis principals:</p>
 <ul>
 <li>Pay attention to the scale of your variables</li>
@@ -348,7 +357,7 @@ help regress</code></pre>
 <p>“Macros” serve this role in Stata and are somewhat similar to shell variables in bash and other Linux shells. A macro is a string that is interspersed into a Stata program and evaluated when that program is executed. The key to understanding and using Stata macros is knowing when they are evaluated.</p>
 <p>A local macro can be defined by:</p>
 <pre class="stata"><code>local life_questions 42</code></pre>
-<p>The value of a macro is retrieved by encapsulation between a back tick “`” and an apostrophe “’”:</p>
+<p>The value of a macro is retrieved by encapsulation between a back tick ` and an apostrophe ’:</p>
 <pre class="stata"><code>display `life_questions'</code></pre>
 <p>Macros are frequently used in loops:</p>
 <pre class="stata"><code>foreach var in varlist yearmade-kwh {
@@ -365,6 +374,13 @@ help regress</code></pre>
 </div>
 <div id="resources" class="section level2">
 <h2>Resources</h2>
+<p>Links to the in-class demonstrations:</p>
+<ul>
+<li><p>Data management: <a href="https://raw.githubusercontent.com/jbhender/Stats506/master/Stata/RECS/RECS_prep_subset1.do">RECS_prep_subset1.do</a></p></li>
+<li><p>Regression: <a href="https://raw.githubusercontent.com/jbhender/Stats506/master/Stata/RECS/RECS_Consump_Analysis.do">RECS_Consump_Analysis.do</a></p></li>
+<li><p>Merging data: <a href="https://raw.githubusercontent.com/jbhender/Stats506/master/Stata/RECS/RECS_merge.do">RECS_merge.do</a>.</p></li>
+<li><p>Post-estimation summaries using margins: <a href="https://raw.githubusercontent.com/jbhender/Stats506/master/Stata/RECS/RECS_ES.do">RECS_ES.do</a></p></li>
+</ul>
 <p>You may find the following resources useful in learning to use Stata:</p>
 <ul>
 <li><a href="https://www.stata.com/features/documentation/">Stata documenation</a></li>
@@ -374,6 +390,7 @@ help regress</code></pre>
 <li><p><a href="http://dept.stat.lsa.umich.edu/~kshedden/Courses/Stat506/stata_intro/">Professor Shedden’s Stata Intro</a></p></li>
 <li><p><a href="https://github.com/josherrickson/workshop-stata-intro-book/tree/master/stata_markdown">Dr. Errickson’s CSCAR Workshop Notes</a></p></li>
 </ul>
+<p><a href="https://jbhender.github.io/Stats506/">Course Homepage</a></p>
 </div>
 
 
