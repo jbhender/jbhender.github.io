@@ -344,6 +344,7 @@ help regress</code></pre>
 <li><code>#</code>, <code>##</code> - for specifying interaction terms</li>
 </ul>
 <p>The script from the in-class demonstration can be found at: <a href="https://raw.githubusercontent.com/jbhender/Stats506/master/Stata/RECS/RECS_Consump_Analysis.do">RECS_Consump_Analysis.do</a></p>
+<p>The script is likely more useful and readable, but a log from the live demonstration is also available here: <a href="./RECS_Consump_Analysis_14Sep2017.txt">RECS_Consump_Analysis_14Sep2017.txt</a></p>
 <p>Some important data analysis principals:</p>
 <ul>
 <li>Pay attention to the scale of your variables</li>
@@ -359,6 +360,7 @@ help regress</code></pre>
 <pre class="stata"><code>local life_questions 42</code></pre>
 <p>The value of a macro is retrieved by encapsulation between a back tick ` and an apostrophe ’:</p>
 <pre class="stata"><code>display `life_questions'</code></pre>
+<p>The live demonstration of macros from class is available here <a href="./macros_14Sep2017.txt">macros_14Sep2017.txt</a></p>
 <p>Macros are frequently used in loops:</p>
 <pre class="stata"><code>foreach var in varlist yearmade-kwh {
   summarize `var'
@@ -377,7 +379,8 @@ help regress</code></pre>
 <p>Links to the in-class demonstrations:</p>
 <ul>
 <li><p>Data management: <a href="https://raw.githubusercontent.com/jbhender/Stats506/master/Stata/RECS/RECS_prep_subset1.do">RECS_prep_subset1.do</a></p></li>
-<li><p>Regression: <a href="https://raw.githubusercontent.com/jbhender/Stats506/master/Stata/RECS/RECS_Consump_Analysis.do">RECS_Consump_Analysis.do</a></p></li>
+<li><p>Macros: <a href="./macros_14Sep2017.txt">macros_14Sep2017.txt</a></p></li>
+<li><p>Regression: <a href="https://raw.githubusercontent.com/jbhender/Stats506/master/Stata/RECS/RECS_Consump_Analysis.do">RECS_Consump_Analysis.do</a> <a href="./RECS_Consump_Analysis_14Sep2017.txt">RECS_Consump_Analysis_14Sep2017.txt</a></p></li>
 <li><p>Merging data: <a href="https://raw.githubusercontent.com/jbhender/Stats506/master/Stata/RECS/RECS_merge.do">RECS_merge.do</a>.</p></li>
 <li><p>Post-estimation summaries using margins: <a href="https://raw.githubusercontent.com/jbhender/Stats506/master/Stata/RECS/RECS_ES.do">RECS_ES.do</a></p></li>
 </ul>
