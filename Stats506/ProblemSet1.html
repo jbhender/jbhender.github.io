@@ -119,7 +119,7 @@ $(document).ready(function () {
 <li><p>For problems 2 and 3 submit one file per question with the parts clearly labeled using comments.</p></li>
 <li><p>Also submit a single PDF file containing your answers to all the questions that are posed below.</p></li>
 </ul></li>
-<li><p>Your code should be clearly written and it should be possible to assess it by reading it. Use appropriate variable names and comments. Your style will be graded using the <a href="./StyleRubric.html">style rubric</a>.</p></li>
+<li><p>Your code should be clearly written and it should be possible to assess it by reading it. Use appropriate variable names and comments. Your style will be graded using the <a href="%22./StyleRubric.html%22">style rubric</a>.</p></li>
 <li><p>All work for this probem set should be done using Stata. Do not do any data input/output or pre/post processing of results using tools other than Stata.</p></li>
 <li><p>Some of these exercises will require you to use Stata commands or techniques that were not covered in class or in the course notes. You can use the web as needed to identify appropriate approaches. Part of the purpose of these exercises is to be resourceful and self sufficient. Questions are welcome at all times, but please make an attempt to locate relevant information yourself first.</p></li>
 </ul>
@@ -132,7 +132,16 @@ $(document).ready(function () {
 <li><p><strong>Converting between long and wide data formats.</strong> First, read this <a href="http://www.theanalysisfactor.com/wide-and-long-data/">blog post</a> about wide vs long format data. You may also want to read the Stata help for the <code>reshape</code> command. Next, visit this page <a href="https://stats.idre.ucla.edu/stata/modules/" class="uri">https://stats.idre.ucla.edu/stata/modules/</a> and find the links ‘Reshaping Data from Wide to Long’ and ‘Reshaping Data from Long to Wide’. Work through the examples and write a script (<code>.do</code>) documenting your work. Use comments to clearly organize the script into parts and provide brief explanations about what each reshape call is accomplishing.</p></li>
 <li><p>Visit <a href="https://stats.idre.ucla.edu/other/dae/" class="uri">https://stats.idre.ucla.edu/other/dae/</a> and choose and any <strong>one</strong> Stata example to work through and document.</p></li>
 <li><p>Repeat part (b) for a second tutorial. Optionally, you may choose a tutorial from another source.</p></li>
-</ol></li>
+</ol>
+<p>Here are copies of the data sets used in the examples:</p>
+<ul>
+<li><a href="./kids.dta">kids.dta</a> or <a href="https://stats.idre.ucla.edu/stat/stata/modules/kids" class="uri">https://stats.idre.ucla.edu/stat/stata/modules/kids</a></li>
+<li><a href="./dadmomlong.dta">dadmomlong.dta</a></li>
+<li><a href="./dadmomwide.dta">dadmomwide.dta</a> or <a href="https://stats.idre.ucla.edu/stat/stata/modules/dadmomw" class="uri">https://stats.idre.ucla.edu/stat/stata/modules/dadmomw</a></li>
+</ul></li>
+</ol>
+<p>My thanks to the student who provided the links.</p>
+<ol start="2" style="list-style-type: decimal">
 <li><p>Use the RECS data discussed in class to answer this question. Produce nicely formatted tables or graph to justify your answers.</p>
 <ol style="list-style-type: lower-alpha">
 <li><p>Which state has the highest proportion of wood shingle roofs? Which state(s) the lowest?</p></li>
@@ -140,7 +149,7 @@ $(document).ready(function () {
 </ol></li>
 <li><p>For this question you will analyze data from the 2009 NHANES survey. You may ignore the survey weighting in your analysis and treat this as a simple random sample.</p>
 <ol style="list-style-type: lower-alpha">
-<li><p>Download the Audiometry data (AUX_D) from <a href="https://wwwn.cdc.gov/nchs/nhanes/search/datapage.aspx?Component=Examination&amp;CycleBeginYear=2005">here</a> and the demographics file (DEMO_D) from <a href="https://wwwn.cdc.gov/Nchs/Nhanes/Search/DataPage.aspx?Component=Demographics&amp;CycleBeginYear=2005">here</a>. Determine how to load them into Stata and then merge on the common identifier <code>seqn</code>. Drop all cases without audiometry data.</p></li>
+<li><p>Download the Audiometry data (AUX_D) from <a href="https://wwwn.cdc.gov/nchs/nhanes/search/datapage.aspx?Component=Examination&amp;CycleBeginYear=2005">here</a> and the demographics file (DEMO_D) from here. Determine how to load them into Stata and then merge on the common identifier <code>seqn</code>. Drop all cases without audiometry data.</p></li>
 <li><p>Read the information under the headings ‘Eligible Sample’ and ‘Protocol and Procedure’ at the first link above. For each hearing threshold test, compare the old and young sub-populations stratified by left and right ear. You may compare each frequency separately and only need to use the first test at each frequency. Based on these data, is hearing loss due to age more common at particular frequencies? Is either left or right ear more prone to hearing loss? Produce a nicely formatted table or graph to justify your answer.</p></li>
 <li><p>For this question you should consider only the right (not left) ear and can again analyze each frequency separately. Is either gender more prone to age-related hearing loss?</p></li>
 </ol></li>
