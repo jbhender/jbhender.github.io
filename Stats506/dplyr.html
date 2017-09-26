@@ -599,7 +599,7 @@ recs_type_state</code></pre>
 ## 2    IL        ApartmentMany  944531.9
 ## 3    IL SingleFamilyAttached  144198.4
 ## 4    IL SingleFamilyDetached 3121970.1</code></pre>
-<p>In our previous call to mutate, we didn’t guard against this. We can do something safer to get more robust results.</p>
+<p>In our previous call to mutate, we didn’t guard against this. We can do something safer to get more robust results. One way to do this would be to use the <code>rowwise</code> function which ensures vectorized R functions such as <code>sum</code> are interpreted to act row by row. This illustrated under the “pipes” tab.</p>
 </div>
 </div>
 <div id="pipes" class="section level2">
@@ -641,6 +641,37 @@ home_type_prop</code></pre>
 ##  9             MA         24.4            21        1.6                  5.7                   47
 ## 10 IA, MN, ND, SD          3.9            14        5.2                  5.7                   71
 ## # ... with 17 more rows</code></pre>
+<p>Here is the same example using <code>rowwise</code> to avoid <code>NA</code> from missing values in our sum (assuming that is the behavior we want.)</p>
+<pre class="r"><code>home_type_prop_rowwise = recs_tib %&gt;% 
+  transmute(State=REPORTABLE_DOMAIN, Type=TYPEHUQ, Weight = NWEIGHT) %&gt;%  
+  mutate(State=decode_all_states(State), Type=decode_all_house_types(Type)) %&gt;%
+  group_by(State, Type) %&gt;%
+  summarize(Homes=sum(Weight)) %&gt;%
+  tidyr::spread(Type,Homes) %&gt;%
+  rowwise() %&gt;%  # to guard against NA when summing &quot;Total&quot;
+  mutate(Total = sum(ApartmentFew, ApartmentMany, MobileHome,
+                 SingleFamilyAttached, SingleFamilyDetached, na.rm=TRUE),
+         ApartmentFew         = 100*ApartmentFew/Total,
+         ApartmentMany        = 100*ApartmentMany/Total,
+         MobileHome           = 100*MobileHome/Total,
+         SingleFamilyAttached = 100*SingleFamilyAttached/Total,
+         SingleFamilyDetached = 100*SingleFamilyDetached/Total
+        ) %&gt;%
+  select(-Total) %&gt;%
+  arrange(desc(SingleFamilyAttached))
+
+## In an R script, options() sets global options.  
+## These seem to be wiped between code chunks in R-Markdown.
+getOption('digits')</code></pre>
+<pre><code>## [1] 7</code></pre>
+<pre class="r"><code>options(list('digits'=2,dplyr.width=Inf))
+getOption('digits')</code></pre>
+<pre><code>## [1] 2</code></pre>
+<pre class="r"><code>home_type_prop_rowwise %&gt;% filter(State==&quot;IL&quot;)</code></pre>
+<pre><code>## # A tibble: 1 x 6
+##   State ApartmentFew ApartmentMany MobileHome SingleFamilyAttached SingleFamilyDetached
+##   &lt;chr&gt;        &lt;dbl&gt;         &lt;dbl&gt;      &lt;dbl&gt;                &lt;dbl&gt;                &lt;dbl&gt;
+## 1    IL           11            20         NA                    3                   66</code></pre>
 </div>
 </div>
 
