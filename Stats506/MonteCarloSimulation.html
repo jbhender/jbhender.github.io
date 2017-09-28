@@ -285,7 +285,7 @@ ymat</code></pre>
 ## [1,]    0    3
 ## [2,]    0    3
 ## [3,]    0    3</code></pre>
-<p>In this case, if <code>X</code> has dimensions <code>m</code> and <code>n</code> and <code>v</code> length <code>k</code> we see that <code>(X-v)[i,j] = X[i,j] - v[{(i-1)*m+j mod k} + 1]</code>.</p>
+<p>In this case, if <code>X</code> has dimensions <code>m</code> and <code>n</code> and <code>v</code> length <code>k</code> we see that <code>(X-v)[i,j] = X[i,j] - v[{(j-1)*m+i mod k} + 1]</code>.</p>
 <p>This is useful for centering each row of a matrix,</p>
 <pre class="r"><code>xmat_c = xmat - rowMeans(xmat)</code></pre>
 <p>or computing row-wise variances,</p>
@@ -310,7 +310,7 @@ tm2 = proc.time() - tm2
 
 cat(&quot;Apply:&quot;, tm1[3], &quot;s, Vectorized:&quot;, tm2[3], &quot;s, Ratio:&quot;,
     round(tm1[3]/tm2[3],1),'.\n')</code></pre>
-<pre><code>## Apply: 1.848 s, Vectorized: 0.054 s, Ratio: 34.2 .</code></pre>
+<pre><code>## Apply: 1.805 s, Vectorized: 0.042 s, Ratio: 43 .</code></pre>
 </div>
 <div id="correlation-coefficients" class="section level3">
 <h3>Correlation Coefficients</h3>
@@ -371,18 +371,20 @@ cat(sprintf(&quot;1: %5.3f s \n2: %5.3f s \n3: %5.3f s \n4: %5.3f s \n5: %5.3f s
             tm1[3],tm2[3],tm3[3],tm4[3],tm5[3]
             )
     )</code></pre>
-<pre><code>## 1: 0.308 s 
-## 2: 0.322 s 
-## 3: 0.260 s 
-## 4: 0.016 s 
-## 5: 0.011 s</code></pre>
-<p>The fourth approach using linear algebra and broadcasting and the fifth approach using <code>cor</code> directly and discarding all of the unwanted correlations are by far the most efficient here. However, we should keep in mind that this was a single trial and not a formal comparison with replicates.</p>
-<p>We should also be aware that one of the reasons the other approaches are slower is the time needed to allocate memory for intermediate objects. The time needed to allocate memory can be influenced by something called <em>garbage collection</em> 🗑 ♻️. In languages like R that bind names to values, garbage collection refers to freeing up memory that is no longer needed because there are no longer any names pointing to it.</p>
+<pre><code>## 1: 0.306 s 
+## 2: 0.315 s 
+## 3: 0.251 s 
+## 4: 0.015 s 
+## 5: 0.010 s</code></pre>
+<p>The fourth approach using linear algebra and broadcasting, along with the fifth approach using <code>cor()</code> directly and discarding all of the unwanted correlations, are by far the most efficient here. However, we should keep in mind that this was a single trial and not a formal comparison with replicates. We should also be aware that one of the reasons the other approaches are slower is the time needed to allocate memory for intermediate objects.</p>
+<div id="garbage-collection" class="section level4">
+<h4>Garbage Collection</h4>
+<p>The time needed to allocate memory can be influenced by something called <em>garbage collection</em> 🗑 ♻️. In languages like R that bind names to values, garbage collection refers to freeing up memory that is no longer needed because there are no longer any names pointing to it.</p>
 <p>Garbage collection is triggered automatically when R needs more memory. As this could happen in the middle of something you are timing, you may get more consistent results if you explicitly force garbage collection prior to starting the timer. However, you rarely need to consider this elsewhere and not everyone agrees it is a best practice.</p>
 <pre class="r"><code>gc()</code></pre>
 <pre><code>##           used (Mb) gc trigger (Mb) max used (Mb)
-## Ncells  655178 35.0    1168576 62.5   940480 50.3
-## Vcells 2393752 18.3    8459077 64.6 10573847 80.7</code></pre>
+## Ncells  657118 35.1    1168576 62.5   940480 50.3
+## Vcells 2397206 18.3    8463035 64.6 10567287 80.7</code></pre>
 <pre class="r"><code># First approach, calculate as a loop
 tm1 = proc.time()
 r1 = NULL
@@ -393,8 +395,8 @@ tm1 = proc.time() - tm1
 
 gc()</code></pre>
 <pre><code>##           used (Mb) gc trigger (Mb) max used (Mb)
-## Ncells  655218 35.0    1168576 62.5  1168576 62.5
-## Vcells 2393792 18.3    8459077 64.6 10573847 80.7</code></pre>
+## Ncells  657143 35.1    1168576 62.5  1168576 62.5
+## Vcells 2397221 18.3    8463035 64.6 10567287 80.7</code></pre>
 <pre class="r"><code># Second approach, functional style with apply
 tm2 = proc.time()
 r2 = apply(xmat, 1, function(v) cor(v, yvec))
@@ -402,8 +404,8 @@ tm2 = proc.time() - tm2
 
 gc()</code></pre>
 <pre><code>##           used (Mb) gc trigger (Mb) max used (Mb)
-## Ncells  655283 35.0    1168576 62.5  1168576 62.5
-## Vcells 2393909 18.3    8459077 64.6 10573847 80.7</code></pre>
+## Ncells  657208 35.1    1168576 62.5  1168576 62.5
+## Vcells 2397338 18.3    8463035 64.6 10567287 80.7</code></pre>
 <pre class="r"><code># Third approach, use linear algebra
 tm3 = proc.time()
 rmn = rowMeans(xmat)
@@ -417,8 +419,8 @@ tm3 = proc.time() - tm3
 
 gc()</code></pre>
 <pre><code>##           used (Mb) gc trigger (Mb) max used (Mb)
-## Ncells  655369 35.1    1168576 62.5  1168576 62.5
-## Vcells 2393998 18.3    8459077 64.6 10573847 80.7</code></pre>
+## Ncells  657294 35.2    1168576 62.5  1168576 62.5
+## Vcells 2397427 18.3    8463035 64.6 10567287 80.7</code></pre>
 <pre class="r"><code># Fourth approach, use linear algebra with broadcasting
 tm4 = proc.time()
 rmn = rowMeans(xmat)
@@ -433,8 +435,8 @@ tm4 = proc.time() - tm4
 
 gc()</code></pre>
 <pre><code>##           used (Mb) gc trigger (Mb) max used (Mb)
-## Ncells  655461 35.1    1168576 62.5  1168576 62.5
-## Vcells 2394091 18.3    8459077 64.6 10573847 80.7</code></pre>
+## Ncells  657386 35.2    1168576 62.5  1168576 62.5
+## Vcells 2397520 18.3    8463035 64.6 10567287 80.7</code></pre>
 <pre class="r"><code># Fifth and final approach, use cor and discard pairs without y
 tm5 = proc.time()
 r5 = cor(rbind(yvec,xmat))[1,]
@@ -447,16 +449,17 @@ cat(sprintf(&quot;1: %5.3f s \n2: %5.3f s \n3: %5.3f s \n4: %5.3f s \n5: %5.3f s
             tm1[3],tm2[3],tm3[3],tm4[3],tm5[3]
             )
     )</code></pre>
-<pre><code>## 1: 0.289 s 
-## 2: 0.296 s 
-## 3: 0.182 s 
+<pre><code>## 1: 0.274 s 
+## 2: 0.278 s 
+## 3: 0.189 s 
 ## 4: 0.013 s 
-## 5: 0.009 s</code></pre>
+## 5: 0.010 s</code></pre>
 <p><strong>Exercise(s):</strong></p>
 <ul>
 <li>Suggest a way to further speed up the final approach. Test it.</li>
 <li>Investigate the differences of the fourth and fifth approaches for different combinations of m and n.</li>
 </ul>
+</div>
 </div>
 </div>
 <div id="functional-programming-in-monte-carlo-studies" class="section level2">
@@ -490,7 +493,7 @@ estimate_nominal_coverage =
   # conf_level - the nominal coverage probability 
   # ...        - additional parameters to pass to rgen
   
-  xmat = rgen(n * mcrep, ...)       # Simulate data
+  xmat = rgen(n * mcrep, ...)  # Simulate data
   dim(xmat) = c(mcrep, n)      # Each row is a dataset
   mn = apply(xmat, 1, mean)    # Sample mean of each row
   std = apply(xmat, 1, sd)     # Sample SD of each row
@@ -512,7 +515,7 @@ estimate_nominal_coverage(rpois, target=4, lambda = 4)  </code></pre>
 estimate_nominal_coverage(rt, target=0, df=2)  </code></pre>
 <pre><code>## [1] 0.9496</code></pre>
 <p>This could be useful, say, for exploring how the mean impacts the coverage probability for a particular distribution.</p>
-<pre class="r"><code>lambdas = exp(-seq(1,10,1))  # rate paramters to explore
+<pre class="r"><code>lambdas = exp(-seq(1,10,1))  # rate parameters to explore
 coverage_probs = c()         # store the results
 for (i in 1:length(lambdas)) {
   rate = lambdas[i]
