@@ -310,7 +310,7 @@ tm2 = proc.time() - tm2
 
 cat(&quot;Apply:&quot;, tm1[3], &quot;s, Vectorized:&quot;, tm2[3], &quot;s, Ratio:&quot;,
     round(tm1[3]/tm2[3],1),'.\n')</code></pre>
-<pre><code>## Apply: 1.805 s, Vectorized: 0.042 s, Ratio: 43 .</code></pre>
+<pre><code>## Apply: 1.761 s, Vectorized: 0.046 s, Ratio: 38.3 .</code></pre>
 </div>
 <div id="correlation-coefficients" class="section level3">
 <h3>Correlation Coefficients</h3>
@@ -335,8 +335,9 @@ tm1 = proc.time() - tm1
 tm2 = proc.time()
 r2 = apply(xmat, 1, function(v) cor(v, yvec))
 tm2 = proc.time() - tm2
-
-# Third approach, use linear algebra
+all.equal(r1, r2)</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="r"><code># Third approach, use linear algebra
 tm3 = proc.time()
 rmn = rowMeans(xmat)
 xmat_c = xmat - outer(rmn, array(1, n))
@@ -346,8 +347,9 @@ yvec_s = {yvec - mean(yvec)} / sd(yvec)
 r3 = xmat_s %*% yvec_s / {n - 1}
 r3 = as.vector(r3)
 tm3 = proc.time() - tm3
-
-# Fourth approach, use linear algebra with broadcasting
+all.equal(r1, r3)</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="r"><code># Fourth approach, use linear algebra with broadcasting
 tm4 = proc.time()
 rmn = rowMeans(xmat)
 xmat_c = xmat - rmn
@@ -358,33 +360,37 @@ yvec_s = {yvec - mean(yvec)} / sd(yvec)
 r4 = xmat_s %*% yvec_s / {n - 1}
 r4 = as.vector(r4)
 tm4 = proc.time() - tm4
-
-# Fifth and final approach, use cor and discard pairs without y
+all.equal(r1, r4)</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="r"><code># Fifth and final approach, use cor and discard pairs without y
+# Note: The version presented in class contained an error.
 tm5 = proc.time()
-r5 = cor(rbind(yvec,xmat))[1,]
+y_xmat = cbind(yvec,t(xmat))
+r5 = cor(y_xmat)[-1,1]
+attr(r5,'names') = NULL
 tm5 = proc.time() - tm5
-
-all.equal(r1,r2,r3,r4,r5)</code></pre>
+all.equal(r1, r5)</code></pre>
 <pre><code>## [1] TRUE</code></pre>
 <pre class="r"><code># Format and print the results
 cat(sprintf(&quot;1: %5.3f s \n2: %5.3f s \n3: %5.3f s \n4: %5.3f s \n5: %5.3f s \n&quot;,
             tm1[3],tm2[3],tm3[3],tm4[3],tm5[3]
             )
     )</code></pre>
-<pre><code>## 1: 0.306 s 
-## 2: 0.315 s 
-## 3: 0.251 s 
-## 4: 0.015 s 
-## 5: 0.010 s</code></pre>
-<p>The fourth approach using linear algebra and broadcasting, along with the fifth approach using <code>cor()</code> directly and discarding all of the unwanted correlations, are by far the most efficient here. However, we should keep in mind that this was a single trial and not a formal comparison with replicates. We should also be aware that one of the reasons the other approaches are slower is the time needed to allocate memory for intermediate objects.</p>
+<pre><code>## 1: 0.303 s 
+## 2: 0.309 s 
+## 3: 0.256 s 
+## 4: 0.016 s 
+## 5: 4.293 s</code></pre>
+<p>The fourth approach using linear algebra and broadcasting is by far the most efficient here. All approaches are much more efficient than computing <code>choose(10001,2)</code> correlations when we only need 10,000.</p>
+<p>While we should keep in mind that this was a single trial and not a formal comparison with replicates, a difference of this size is still meaningful. We should also be aware that one of the reasons the other approaches are slower is the time needed to allocate memory for (larger) intermediate objects.</p>
 <div id="garbage-collection" class="section level4">
 <h4>Garbage Collection</h4>
 <p>The time needed to allocate memory can be influenced by something called <em>garbage collection</em> 🗑 ♻️. In languages like R that bind names to values, garbage collection refers to freeing up memory that is no longer needed because there are no longer any names pointing to it.</p>
 <p>Garbage collection is triggered automatically when R needs more memory. As this could happen in the middle of something you are timing, you may get more consistent results if you explicitly force garbage collection prior to starting the timer. However, you rarely need to consider this elsewhere and not everyone agrees it is a best practice.</p>
 <pre class="r"><code>gc()</code></pre>
-<pre><code>##           used (Mb) gc trigger (Mb) max used (Mb)
-## Ncells  657118 35.1    1168576 62.5   940480 50.3
-## Vcells 2397206 18.3    8463035 64.6 10567287 80.7</code></pre>
+<pre><code>##           used (Mb) gc trigger  (Mb)  max used  (Mb)
+## Ncells  657034 35.1    1168576  62.5    940480  50.3
+## Vcells 2717025 20.8   98686888 753.0 103146225 787.0</code></pre>
 <pre class="r"><code># First approach, calculate as a loop
 tm1 = proc.time()
 r1 = NULL
@@ -394,18 +400,18 @@ for (i in 1:m) {
 tm1 = proc.time() - tm1
 
 gc()</code></pre>
-<pre><code>##           used (Mb) gc trigger (Mb) max used (Mb)
-## Ncells  657143 35.1    1168576 62.5  1168576 62.5
-## Vcells 2397221 18.3    8463035 64.6 10567287 80.7</code></pre>
+<pre><code>##           used (Mb) gc trigger  (Mb)  max used  (Mb)
+## Ncells  657086 35.1    1168576  62.5   1168576  62.5
+## Vcells 2717086 20.8   78949510 602.4 103146225 787.0</code></pre>
 <pre class="r"><code># Second approach, functional style with apply
 tm2 = proc.time()
 r2 = apply(xmat, 1, function(v) cor(v, yvec))
 tm2 = proc.time() - tm2
 
 gc()</code></pre>
-<pre><code>##           used (Mb) gc trigger (Mb) max used (Mb)
-## Ncells  657208 35.1    1168576 62.5  1168576 62.5
-## Vcells 2397338 18.3    8463035 64.6 10567287 80.7</code></pre>
+<pre><code>##           used (Mb) gc trigger  (Mb)  max used  (Mb)
+## Ncells  657151 35.1    1168576  62.5   1168576  62.5
+## Vcells 2717204 20.8   63159608 481.9 103146225 787.0</code></pre>
 <pre class="r"><code># Third approach, use linear algebra
 tm3 = proc.time()
 rmn = rowMeans(xmat)
@@ -418,9 +424,9 @@ r3 = as.vector(r3)
 tm3 = proc.time() - tm3
 
 gc()</code></pre>
-<pre><code>##           used (Mb) gc trigger (Mb) max used (Mb)
-## Ncells  657294 35.2    1168576 62.5  1168576 62.5
-## Vcells 2397427 18.3    8463035 64.6 10567287 80.7</code></pre>
+<pre><code>##           used (Mb) gc trigger  (Mb)  max used  (Mb)
+## Ncells  657237 35.2    1168576  62.5   1168576  62.5
+## Vcells 2717294 20.8   50527686 385.5 103146225 787.0</code></pre>
 <pre class="r"><code># Fourth approach, use linear algebra with broadcasting
 tm4 = proc.time()
 rmn = rowMeans(xmat)
@@ -433,30 +439,18 @@ r4 = xmat_s %*% yvec_s / {n - 1}
 r4 = as.vector(r4)
 tm4 = proc.time() - tm4
 
-gc()</code></pre>
-<pre><code>##           used (Mb) gc trigger (Mb) max used (Mb)
-## Ncells  657386 35.2    1168576 62.5  1168576 62.5
-## Vcells 2397520 18.3    8463035 64.6 10567287 80.7</code></pre>
-<pre class="r"><code># Fifth and final approach, use cor and discard pairs without y
-tm5 = proc.time()
-r5 = cor(rbind(yvec,xmat))[1,]
-tm5 = proc.time() - tm5
-
-all.equal(r1,r2,r3,r4,r5)</code></pre>
-<pre><code>## [1] TRUE</code></pre>
-<pre class="r"><code># Format and print the results
-cat(sprintf(&quot;1: %5.3f s \n2: %5.3f s \n3: %5.3f s \n4: %5.3f s \n5: %5.3f s \n&quot;,
-            tm1[3],tm2[3],tm3[3],tm4[3],tm5[3]
+# Format and print the results
+cat(sprintf(&quot;1: %5.3f s \n2: %5.3f s \n3: %5.3f s \n4: %5.3f s \n&quot;,
+            tm1[3],tm2[3],tm3[3],tm4[3]
             )
     )</code></pre>
-<pre><code>## 1: 0.274 s 
-## 2: 0.278 s 
-## 3: 0.189 s 
-## 4: 0.013 s 
-## 5: 0.010 s</code></pre>
+<pre><code>## 1: 0.273 s 
+## 2: 0.284 s 
+## 3: 0.183 s 
+## 4: 0.013 s</code></pre>
 <p><strong>Exercise(s):</strong></p>
 <ul>
-<li>Suggest a way to further speed up the final approach. Test it.</li>
+<li>Suggest a way to further speed up the broadcasting approach. Test it.</li>
 <li>Investigate the differences of the fourth and fifth approaches for different combinations of m and n.</li>
 </ul>
 </div>
