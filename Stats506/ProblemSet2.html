@@ -113,7 +113,7 @@ $(document).ready(function () {
 <div id="instructions" class="section level2">
 <h2>Instructions</h2>
 <ul>
-<li><p>Use Rmarkdown to create a PDF files containing your answers to each of the questions posed below. Embed your R code either by setting “echo = TRUE” or by using fenced code blocks “```”.</p></li>
+<li><p>Use Rmarkdown to create PDF files (one per question) containing your answers to each of the questions posed below. Embed your R code either by setting “echo = TRUE” or by using fenced code blocks “```”.</p></li>
 <li><p>Your code should be clearly written and it should be possible to assess it by reading it. Use appropriate variable names and comments. Your style will be graded using the <a href="%22./StyleRubric.html%22">style rubric</a>.</p></li>
 <li><p>All work for this problem set should be done using R. Do not do any data input/output or pre/post processing of results using tools other than R.</p></li>
 <li><p>Some of these exercises will require you to use commands or techniques that were not covered in class or in the course notes. You can use the web as needed to identify appropriate approaches. Questions are welcome at all times, but please make an attempt to locate relevant information yourself first.</p></li>
@@ -122,9 +122,8 @@ $(document).ready(function () {
 <div id="problems" class="section level2">
 <h2>Problems</h2>
 <ol style="list-style-type: decimal">
-<li><p>Repeat problem 2 from the first problem set using R. Use a dplyr pipe to construct the data frame. Present both a nicely formatted table and a graphical display.</p></li>
-<li><p>In this problem, you will examine data from field notes recording interactions between individuals in an animal community. This data has been simulated to resemble (in some respects) a real data set recently encountered. The names in the simulated data were selected at random from a list of all babies issued social security numbers in the US during a specific year in the 1980s. Download the data for this problem from the links below. The first column of the interactions data contains names of individual focus animals, the second a particular class of interaction, and the third a comma separated list of others involved in the interaction. The other two files provide unique names for the focal individuals (those in the first column) and all individuals in the community (including the focal individuals).</p>
-data
+<li><p>Repeat problem 2 from the first problem set using R. Use a dplyr pipe to construct the table. Present both a nicely formatted table and a graphical display.</p></li>
+<li><p>In this problem, you will examine simulated data from field notes recording interactions between individuals in an animal community. This data has been simulated to resemble (in some respects) a real data set I recently encountered. The names in the simulated data were selected at random from a list of all babies issued social security numbers in the US during a specific year in the 1980s. Download the data for this problem from the links below. The first column of the interactions data contains names of individual focus animals, the second a particular class of interaction, and the third a comma separated list of others involved in the interaction. The other two files provide unique names for the focal individuals (those in the first column) and all individuals in the community (including the focal individuals).</p>
 <ul>
 <li><p><a href="Stats506_F17_ps2_interactions.csv">interactions</a></p></li>
 <li><p><a href="Stats506_F17_ps2_all_names.csv">all_names</a></p></li>
@@ -140,7 +139,7 @@ data
 <li><p>Write a function to generate n iid samples from the square <span class="math inline">\(\{(x_1, x_2): |x_1| \le 1, |x_2| \le 1\}\)</span>.</p></li>
 <li><p>Generate data from this function and form a Monte Carlo estimate of the area of the unit circle <span class="math inline">\(\{(x_1, x_2): x_1^2 + x_2^2 \le 1\}\)</span>. What well known constant are you estimating?</p></li>
 <li><p>Report your results from part b with a 95% confidence interval. Does your interval cover the true value?</p></li>
-<li><p>Repeat part b with <span class="math inline">\(n\)</span> large enough to estimate three significant digits accurately with 99% confidence.</p></li>
+<li><p>Repeat part b with <span class="math inline">\(n\)</span> large enough to estimate two significant digits accurately with 99% confidence. Briefly explain how you chose <span class="math inline">\(n\)</span> and report your estimate witha a 99% CI. How many digits is it accurate to?</p></li>
 <li><p>Repeat this exercise using the square <span class="math inline">\(\{(x_1, x_2): 0 \le x_1 \le 1, 0 \le x_2 \le 1\}\)</span> and the portion of the unit circle in the positive quadrant. How do you need to adjust your Monte Carlo estimate to get an estimator of the same constant? How do you need to modify your confidence interval? (Hint: <span class="math inline">\(\textrm{var}(aX) = a^2\textrm{var}(X)\)</span>.)</p></li>
 </ol></li>
 <li><p>Design a Monte Carlo study to compare the coverage probabilities and width of the following two confidence intervals for the median:</p>
