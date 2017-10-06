@@ -2,9 +2,11 @@
 * Statistics 506, Fall 2017
 * Example solution to question 3, problem set 1.
 *
-* Files: 
+* Files: AUX_D.XPT, DEMO_D.XPT
 *  imported from the web address below
-*
+*  https://wwwn.cdc.gov/nchs/nhanes/search/datapage.aspx?Component=Examination&CycleBeginYear=2005
+*  https://wwwn.cdc.gov/Nchs/Nhanes/Search/DataPage.aspx?Component=Demographics&CycleBeginYear=2005
+*  
 * Authors: James Henderson
 * Date: Oct 5, 2017
 * ---------------------------------------------------------------------------- *        
