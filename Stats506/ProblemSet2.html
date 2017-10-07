@@ -104,7 +104,7 @@ $(document).ready(function () {
 
 <h1 class="title toc-ignore">Problem Set 2</h1>
 <h4 class="author"><em>Statistics 506, Fall 2017</em></h4>
-<h4 class="date"><em>Due Thursday October 19 via Canvas</em></h4>
+<h4 class="date"><em>Due Tuesday October 17 via Canvas</em></h4>
 
 </div>
 
@@ -114,7 +114,7 @@ $(document).ready(function () {
 <h2>Instructions</h2>
 <ul>
 <li><p>Use Rmarkdown to create PDF files (one per question) containing your answers to each of the questions posed below. Embed your R code either by setting “echo = TRUE” or by using fenced code blocks “```”.</p></li>
-<li><p>Your code should be clearly written and it should be possible to assess it by reading it. Use appropriate variable names and comments. Your style will be graded using the <a href="./StyleRubric.html">style rubric</a>.</p></li>
+<li><p>Your code should be clearly written and it should be possible to assess it by reading it. Use appropriate variable names and comments. Your style will be graded using the <a href="%22./StyleRubric.html%22">style rubric</a>.</p></li>
 <li><p>All work for this problem set should be done using R. Do not do any data input/output or pre/post processing of results using tools other than R.</p></li>
 <li><p>Some of these exercises will require you to use commands or techniques that were not covered in class or in the course notes. You can use the web as needed to identify appropriate approaches. Questions are welcome at all times, but please make an attempt to locate relevant information yourself first.</p></li>
 </ul>
@@ -145,7 +145,7 @@ $(document).ready(function () {
 <li><p>Design a Monte Carlo study to compare the coverage probabilities and width of the following two confidence intervals for the median:</p>
 <ol style="list-style-type: lower-roman">
 <li><p>the non-parametric bootstrap with 1,000 bootstrap samples;</p></li>
-<li><p>the robust estimator <span class="math inline">\(\bar\theta \pm z_{\alpha/2}\bar\sigma\)</span> where <span class="math inline">\(\bar \theta\)</span> is the sample median and <span class="math inline">\(\bar\sigma\)</span> is 1.35 times the median absolute deviation.</p></li>
+<li><p>the robust estimator <span class="math inline">\(\bar\theta \pm z_{\alpha/2}\bar\sigma/\sqrt{n}\)</span> where <span class="math inline">\(\bar \theta\)</span> is the sample median and <span class="math inline">\(\bar\sigma\)</span> is 1.49 times the median absolute deviation.</p></li>
 </ol></li>
 </ol>
 <p>Compare the estimators for a variety (4-6) of distributions and (3-5) sample sizes and report your results.</p>
