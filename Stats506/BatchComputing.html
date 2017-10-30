@@ -242,15 +242,25 @@ The script <code>GammaMLE_test.R</code> tests the core functions for the Monte C
 <p>Once you have a valid PBS script in your home directory on flux, you can “submit” it to the scheduler using <code>qsub</code>:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">qsub</span> run_myScript0.pbs</code></pre></div>
 <p>You should think of “q” in commands discussed here as short for <a href="https://www.google.com/search?q=queue+image&amp;tbm=isch&amp;tbo=u&amp;source=univ&amp;sa=X&amp;ved=0ahUKEwiTuZSwr4zXAhUG8IMKHWB9DicQ7AkIPw&amp;biw=1671&amp;bih=935">“queue”</a>. Once your job is submitted, a “scheduler” will decide when to run it. This can happen either quickly, after a very long time, or never depending on what resources you request and what resources are currently available.</p>
+<p>You can use <code>showq</code> to see your job’s status in the queue you submitted against or get addtional details using the <code>qstat</code> command. To see a list of all your jobs (potentially in more than one queue) use:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">qstat</span> -u</code></pre></div>
+<p>You can delete a specific job using the jobid. For example, if a job I no longer wish to run has <code>jobid=25505879</code>:</p>
+<pre><code>qdel 25505879</code></pre>
 </div>
 <div id="interactive-jobs" class="section level3">
 <h3>Interactive jobs</h3>
-<p>While the computation nodes are designed and best used for batch computing, they can also be used interactively. This can be useful for things such as debugging when the problem you encounter only occurs when running on the compute nodes. <a href="http://arc-ts.umich.edu/document/interactive-pbs-jobs/">Interactive jobs</a> can be submitted using <code>qsub -I</code> with a list of resources requested.</p>
+<p>While the computation nodes are designed and best used for batch computing, they can also be used interactively. This can be useful for debugging when the problem you encounter only occurs when running on the compute nodes. <a href="http://arc-ts.umich.edu/document/interactive-pbs-jobs/">Interactive jobs</a> can be submitted using <code>qsub -I</code> with a list of resources requested:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">qsub</span> -I -A stats_flux -q flux -l nodes=1:ppn=2, pmem=1gb,walltime=0:00:20,qos=flux</code></pre></div>
+<p>You can do this using a normal PBS file with the <code>-I</code> flag:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">qsub</span> -I run_myScript0.pbs</code></pre></div>
 <p>Another way to run jobs interactively is using the <a href="https://www.connect.arc-ts.umich.edu">ARC connect service</a> from within a web-browser.</p>
 </div>
 <div id="job-arrays" class="section level3">
 <h3>Job Arrays</h3>
 <p>To submit multiple jobs using the same pbs script, consider <a href="http://arc-ts.umich.edu/software/torque/job-arrays/">job arrays</a>.</p>
+<p>There is a special flag <code>-t</code> for specifying job arrays. You can access the value of the array id using the shell variable <code>PBS_ARRAYID</code>. Job arrays can be useful for splitting a long-running computation into smaller chunks. This can help with scheduling as it is often easier to get several short jobs to run than a single long job.</p>
+<p>Job arrays have a single job id with brackets <code>[]</code> to denote elements of the array, i.e. <code>25505879[]</code>.</p>
+<p>For an example, inspect <code>runGammeMLE-mc.pbs</code>.</p>
 <p><a href="./index.html">Stats 506 Homepage</a></p>
 </div>
 </div>
