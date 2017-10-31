@@ -140,9 +140,9 @@ $(document).ready(function () {
 </ol>
 <hr />
 <ol start="3" style="list-style-type: decimal">
-<li><p>In this question you will use web-scraping to supplement the <code>NYCflights14</code> data with distance between all airports. To get you started, I have written a <a href="./AirportCodeWebScrape.R">script</a> using the R package <a href="https://blog.rstudio.com/2014/11/24/rvest-easy-web-scraping-with-r/"><code>rvest</code></a> to scrape the distances between all destination airports in the <code>NYCflights14</code> data from this site.</p>
+<li><p>In this question you will use web-scraping to supplement the <code>NYCflights14</code> data with distance between all airports. To get you started, I have written a <a href="./AirportCodesWebScrape.R">script</a> using the R package <a href="https://blog.rstudio.com/2014/11/24/rvest-easy-web-scraping-with-r/"><code>rvest</code></a> to scrape the distances between all destination airports in the <code>NYCflights14</code> data from this site.</p>
 <ol style="list-style-type: lower-alpha">
-<li><p>Using my script as a model, write a script to scrape the distances between the three origin airports and also from each origin airport to each destination airport. I suggest you test your script using just the three origin airports, then include the destination airports once you have it working. Your script should not find distances between destination airports as these are provided <a href="./AirportCodesDists.RData">here</a>.</p></li>
+<li><p>Using my script as a model, write a script to scrape the distances between the three origin airports and also from each origin airport to each destination airport. I suggest you test your script using just the three origin airports, then include the destination airports once you have it working. Your script should not find distances between destination airports as these are provided <a href="./AirportCodeDists.RData">here</a>.</p></li>
 <li><p>Combine the distances from part a, with the distances provided between all destination airports. Reshape these data into a 112 by 112 pairwise distance matrix.</p></li>
 <li><p>Use multidimensional scaling to produce a two-dimensional map for these 112 airports.</p></li>
 </ol></li>
