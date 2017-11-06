@@ -572,7 +572,7 @@ nyc14[,.(<span class="dt">del30_pct =</span> <span class="dv">100</span>*<span c
 </div>
 <div id="chaining" class="section level3">
 <h3>Chaining</h3>
-<p>As with standard <code>data.frame indexing</code>, we can compose <code>data.table</code> bracketed expressions using chaining.</p>
+<p>As with standard <code>data.frame</code> indexing, we can compose <code>data.table</code> bracketed expressions using chaining.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## Find max departure delay by flight among all flights from LGA to DTW
 ## Then, select flights within the shortest 10% of max_delay
 nyc14[origin==<span class="st">'LGA'</span> &amp;<span class="st"> </span>dest==<span class="st">'DTW'</span>, .(<span class="dt">max_delay =</span> <span class="kw">max</span>(dep_delay)), 
@@ -585,6 +585,52 @@ nyc14[origin==<span class="st">'LGA'</span> &amp;<span class="st"> </span>dest==
 ## 2:      EV   5405        -5
 ## 3:      DL    796        -8
 ## 4:      EV   5596       -10</code></pre>
+<p>If you prefer pipes <code>%&gt;%</code> for clarity, you can use them by appending a <code>.</code> before the opening bracket:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Same as above, but using magrittr::%&gt;%</span>
+  nyc14[origin==<span class="st">'LGA'</span> &amp;<span class="st"> </span>dest==<span class="st">'DTW'</span>, .(<span class="dt">max_delay =</span> <span class="kw">max</span>(dep_delay)), by =<span class="st"> </span>.(carrier, flight)] %&gt;%
+<span class="st">    </span>.[, .(carrier, flight, max_delay, <span class="dt">max_delay_q10 =</span> <span class="kw">quantile</span>(max_delay, .<span class="dv">1</span>))] %&gt;%
+<span class="st">    </span>.[max_delay &lt;<span class="st"> </span>max_delay_q10, -<span class="st">&quot;max_delay_q10&quot;</span>, with=<span class="ot">FALSE</span>]</code></pre></div>
+<pre><code>##    carrier flight max_delay
+## 1:      DL   1107        -2
+## 2:      EV   5405        -5
+## 3:      DL    796        -8
+## 4:      EV   5596       -10</code></pre>
+<p>Here is a quick timing comparison between chaining, piping, and an equivalent <code>dplyr</code> expression. The differences are negligible for this data size.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># data.table chaining</span>
+f_chain &lt;-<span class="st"> </span>function(){
+  nyc14[origin==<span class="st">'LGA'</span> &amp;<span class="st"> </span>dest==<span class="st">'DTW'</span>, .(<span class="dt">max_delay =</span> <span class="kw">max</span>(dep_delay)), 
+      by =<span class="st"> </span>.(carrier, flight)
+     ][, .(carrier, flight, max_delay, <span class="dt">max_delay_q10 =</span> <span class="kw">quantile</span>(max_delay, .<span class="dv">1</span>)) 
+     ][max_delay &lt;<span class="st"> </span>max_delay_q10, -<span class="st">&quot;max_delay_q10&quot;</span>, with=<span class="ot">FALSE</span>
+     ]
+}
+
+<span class="co"># data.table with pipe</span>
+f_pipe &lt;-<span class="st"> </span>function(){
+  nyc14[origin==<span class="st">'LGA'</span> &amp;<span class="st"> </span>dest==<span class="st">'DTW'</span>, .(<span class="dt">max_delay =</span> <span class="kw">max</span>(dep_delay)), by =<span class="st"> </span>.(carrier, flight)] %&gt;%
+<span class="st">    </span>.[, .(carrier, flight, max_delay, <span class="dt">max_delay_q10 =</span> <span class="kw">quantile</span>(max_delay, .<span class="dv">1</span>))] %&gt;%
+<span class="st">    </span>.[max_delay &lt;<span class="st"> </span>max_delay_q10, -<span class="st">&quot;max_delay_q10&quot;</span>, with=<span class="ot">FALSE</span>]
+}
+
+<span class="co"># dplyr pipe</span>
+f_dplyr &lt;-<span class="st"> </span>function(){
+   nyc14 %&gt;%<span class="st"> </span>
+<span class="st">    </span><span class="kw">filter</span>(origin==<span class="st">'LGA'</span> &amp;<span class="st"> </span>dest==<span class="st">'DTW'</span>) %&gt;%
+<span class="st">    </span><span class="kw">group_by</span>(carrier, flight) %&gt;%
+<span class="st">    </span><span class="kw">summarize</span>(<span class="dt">max_delay =</span> <span class="kw">max</span>(dep_delay)) %&gt;%
+<span class="st">    </span><span class="kw">ungroup</span>() %&gt;%
+<span class="st">    </span><span class="kw">mutate</span>(<span class="dt">max_delay_q10 =</span> <span class="kw">quantile</span>(max_delay, .<span class="dv">1</span>)) %&gt;%
+<span class="st">    </span><span class="kw">filter</span>(max_delay &lt;<span class="st"> </span>max_delay_q10) %&gt;%
+<span class="st">    </span><span class="kw">select</span>(-max_delay_q10)
+}
+
+<span class="co"># compare timing</span>
+<span class="kw">microbenchmark</span>(f_chain, f_pipe, f_dplyr, <span class="dt">times=</span>1e3L) </code></pre></div>
+<pre><code>## Unit: nanoseconds
+##     expr min lq   mean median uq   max neval
+##  f_chain  26 33 75.513     35 39 11949  1000
+##   f_pipe  23 31 45.389     33 36   451  1000
+##  f_dplyr  25 31 48.424     33 36  7176  1000</code></pre>
 </div>
 <div id="sd" class="section level3">
 <h3><code>.SD</code></h3>
@@ -596,7 +642,7 @@ nyc14[dest==<span class="st">'DTW'</span>, .N, by=carrier]</code></pre></div>
 ## 2:      EV 1584
 ## 3:      MQ 1331</code></pre>
 <p>There is another special symbol <code>.SD</code> which references the entire <em>subset of data</em> for each group. It is itself a <code>data.table</code> as we can see using the code below.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">nyc14[dest==<span class="st">'DTW'</span>, .(<span class="dt">rows=</span><span class="kw">nrow</span>(.SD), <span class="dt">cols=</span><span class="kw">ncol</span>(.SD), <span class="dt">n=</span>.N) , by=carrier]</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">nyc14[dest==<span class="st">'DTW'</span>, .(<span class="dt">rows=</span><span class="kw">nrow</span>(.SD), <span class="dt">cols=</span><span class="kw">ncol</span>(.SD), <span class="dt">n=</span>.N), by=carrier]</code></pre></div>
 <pre><code>##    carrier rows cols    n
 ## 1:      DL 3095   10 3095
 ## 2:      EV 1584   10 1584
@@ -756,7 +802,7 @@ nyc14[dest==<span class="st">'DTW'</span>, <span class="kw">lapply</span>(.SD, m
 </div>
 <div id="copies" class="section level2">
 <h2>Copies</h2>
-<p>One of the goals of the <code>data.table</code> package is to use less memory. This is achieved in part by preferring “shallow” copies by reference over “deep copies” by value when appropriate. When an object is copied by <em>reference</em> it shares physical memory address with the object it is copied from. This is more efficient, but can lead to confusion because changing the value in memory, changes what is pointed to by both objects.</p>
+<p>One of the goals of the <code>data.table</code> package is to use less memory. This is achieved in part by preferring “shallow” copies by reference over “deep copies” by value when appropriate. When an object is copied by <em>reference</em> it shares physical memory address with the object it is copied from. This is more efficient, but <em>may</em> lead to confusion as changing the value in memory also changes what is pointed to by both objects.</p>
 <p>In the example below, we create a <code>data.table</code> <code>DT1</code> and then create a copy <code>DT2</code>. Typical R objects would be copied by value, but <code>DT2</code> is copied by reference. We can ask for a copy by value explicitly using <code>copy()</code>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">DT1 =<span class="st"> </span><span class="kw">data.table</span>(<span class="dt">A=</span><span class="dv">5</span>:<span class="dv">1</span>, <span class="dt">B=</span>letters[<span class="dv">5</span>:<span class="dv">1</span>])
 DT2 =<span class="st"> </span>DT1         <span class="co"># Copy by reference</span>
@@ -880,6 +926,166 @@ nyc14[arr_delay&lt;<span class="dv">0</span>, arr_delay :<span class="er">=</spa
 ## 253314:       83      431           240           -16
 ## 253315:       75      502            68           -15
 ## 253316:      110      659           121           -20</code></pre>
+<p>The last set of empty brackets above is a short-hand for a subsequent call to <code>print(nyc14)</code>.</p>
+</div>
+<div id="keys-and-indexing" class="section level2">
+<h2>Keys and Indexing</h2>
+<p>The material on in this section is based on the vignette <a href="https://cran.r-project.org/web/packages/data.table/vignettes/datatable-keys-fast-subset.html">here</a>.</p>
+<p>Above we used “indexing” in a generic sense to mean “subsetting”. What we mean by “indexing” here is more specific and <a href="https://en.wikipedia.org/wiki/Database_index">technical</a>: we create an <em>indexed</em> data table by designating specific columns as <em>keys</em> and sorting the table by these keys to create more efficient lookups and aggregations.</p>
+<p>We can designate one or more columns as a <em>key</em> in <code>data.table</code> using <code>setkey()</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">setkey</span>(nyc14, origin) <span class="co">#also, setkeyv(nyc14, &quot;origin&quot;) if character is preferred.</span>
+<span class="kw">key</span>(nyc14)</code></pre></div>
+<pre><code>## [1] &quot;origin&quot;</code></pre>
+<p>In <code>data.table</code> when we designate columns as keys, the rows are re-ordered by <em>reference</em> in <em>increasing</em> order. In other words, the original columns are left <em>as is</em> in memory but a new column <code>key</code> is created to store the order of the <code>data.table</code>. This works something like this:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Example of keys on a data-frame</span>
+df =<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">ID =</span> <span class="kw">sample</span>(LETTERS,<span class="dv">100</span>,<span class="dt">replace=</span><span class="ot">TRUE</span>), <span class="dt">value=</span><span class="kw">rpois</span>(<span class="dv">100</span>, <span class="dv">10</span>))
+df$key =<span class="st"> </span><span class="kw">order</span>(df$ID)
+<span class="kw">head</span>(df)</code></pre></div>
+<pre><code>##   ID value key
+## 1  P     8   4
+## 2  D    13  50
+## 3  B    11  61
+## 4  A     8  80
+## 5  O     9  88
+## 6  Y     5   3</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(df[df$key, ])</code></pre></div>
+<pre><code>##    ID value key
+## 4   A     8  80
+## 50  A    12  73
+## 61  A     8   1
+## 80  A    17  48
+## 88  A     8  17
+## 3   B    11  61</code></pre>
+<p>After a key has been set, we can compute in the “i”-statement using lists:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">nyc14[.(<span class="st">&quot;LGA&quot;</span>)]</code></pre></div>
+<pre><code>##        month dep_time dep_delay arr_time arr_delay carrier flight origin
+##     1:     1      722        -8     1014       -26      AA     29    LGA
+##     2:     1      553        -7      739        -6      AA    301    LGA
+##     3:     1      623        -7      815         0      AA    303    LGA
+##     4:     1      652        -8      833       -17      AA    305    LGA
+##     5:     1      738        -2      940        15      AA    307    LGA
+##    ---                                                                  
+## 84429:    10      609        24      843        -5      UA   1714    LGA
+## 84430:    10     1459         1     1747       -30      UA   1744    LGA
+## 84431:    10     1102        -8     1311        16      MQ   3591    LGA
+## 84432:    10     1106        -4     1325        15      MQ   3592    LGA
+## 84433:    10      824        -5     1045         1      MQ   3599    LGA
+##        dest air_time distance
+##     1:  PBI      157     1035
+##     2:  ORD      142      733
+##     3:  ORD      143      733
+##     4:  ORD      139      733
+##     5:  ORD      145      733
+##    ---                       
+## 84429:  IAH      198     1416
+## 84430:  IAH      201     1416
+## 84431:  RDU       83      431
+## 84432:  DTW       75      502
+## 84433:  SDF      110      659</code></pre>
+<p>We can have more than one column contribute to the order used to form the key.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># key by origin and destination</span>
+<span class="kw">setkey</span>(nyc14,origin,dest)
+<span class="kw">key</span>(nyc14)</code></pre></div>
+<pre><code>## [1] &quot;origin&quot; &quot;dest&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Get flighs of any origin to DTW</span>
+nyc14[.(<span class="kw">unique</span>(origin),<span class="st">'DTW'</span>)]</code></pre></div>
+<pre><code>##       month dep_time dep_delay arr_time arr_delay carrier flight origin
+##    1:     1     1054        -6     1300         4      DL   2508    EWR
+##    2:     1      905        -7     1121         3      DL   1807    EWR
+##    3:     1     1225        10     1428         9      EV   4118    EWR
+##    4:     1     2055        -4     2305        11      EV   4247    EWR
+##    5:     1     1639        39     1853        51      EV   4381    EWR
+##   ---                                                                  
+## 6006:    10     1613        -2     1757       -23      DL   2231    LGA
+## 6007:    10      939        -6     1138        -2      MQ   3478    LGA
+## 6008:    10     1912        -3     2104        -6      MQ   3603    LGA
+## 6009:    10     1346        -4     1535       -10      MQ   3631    LGA
+## 6010:    10     1106        -4     1325        15      MQ   3592    LGA
+##       dest air_time distance
+##    1:  DTW      101      488
+##    2:  DTW      102      488
+##    3:  DTW      103      488
+##    4:  DTW      102      488
+##    5:  DTW      116      488
+##   ---                       
+## 6006:  DTW       82      502
+## 6007:  DTW       80      502
+## 6008:  DTW       82      502
+## 6009:  DTW       82      502
+## 6010:  DTW       75      502</code></pre>
+<p>We can of course combine this with ‘j’ and ‘by’ statements.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Find the median departure delay for all flights to DTW</span>
+nyc14[.(<span class="kw">unique</span>(origin),<span class="st">'DTW'</span>), 
+      .(<span class="dt">med_dep_delay =</span> <span class="kw">as.numeric</span>(<span class="kw">median</span>(dep_delay)), <span class="dt">n=</span>.N),
+      by=.(origin, dest, flight)
+     ] %&gt;%
+<span class="st">  </span>.[<span class="kw">order</span>(origin, med_dep_delay, -n)] %&gt;%<span class="st"> </span><span class="co"># Order</span>
+<span class="st">  </span>.[n&gt;<span class="dv">42</span>]  <span class="co"># Limit to at least ~1 flight per week</span></code></pre></div>
+<pre><code>##     origin dest flight med_dep_delay   n
+##  1:    EWR  DTW   5203          -3.5  70
+##  2:    EWR  DTW   4297          -3.0 188
+##  3:    EWR  DTW   5067          -3.0  67
+##  4:    EWR  DTW   1080          -3.0  63
+##  5:    EWR  DTW   1129          -3.0  47
+##  6:    EWR  DTW   4246          -2.0  78
+##  7:    EWR  DTW   1214          -2.0  45
+##  8:    EWR  DTW   4118           0.0 196
+##  9:    EWR  DTW   3837           0.0  55
+## 10:    EWR  DTW   4382           1.0 213
+## 11:    EWR  DTW   4898           5.0  63
+## 12:    EWR  DTW   4247           6.0  88
+## 13:    EWR  DTW   4381          12.0 146
+## 14:    LGA  DTW   3478          -6.0 282
+## 15:    LGA  DTW   2810          -6.0 184
+## 16:    LGA  DTW   3340          -5.0  77
+## 17:    LGA  DTW    731          -4.0 254
+## 18:    LGA  DTW   3530          -4.0 148
+## 19:    LGA  DTW   3631          -4.0 132
+## 20:    LGA  DTW   3689          -4.0 131
+## 21:    LGA  DTW   3603          -3.0 257
+## 22:    LGA  DTW    831          -3.0 240
+## 23:    LGA  DTW    181          -3.0 170
+## 24:    LGA  DTW   2449          -3.0 120
+## 25:    LGA  DTW   1131          -2.0 284
+## 26:    LGA  DTW   2131          -2.0 247
+## 27:    LGA  DTW   1231          -2.0 231
+## 28:    LGA  DTW    189          -2.0  93
+## 29:    LGA  DTW   2231          -1.0 296
+## 30:    LGA  DTW   2331          -1.0 241
+## 31:    LGA  DTW   3592           0.0 119
+##     origin dest flight med_dep_delay   n</code></pre>
+<p>What is the advantage of indexing by setting a key?</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Generate two columns of data with 10 million rows</span>
+N =<span class="st"> </span><span class="fl">1e8</span>
+DT =<span class="st"> </span><span class="kw">data.table</span>(<span class="dt">group =</span> <span class="kw">sample</span>(<span class="dv">1</span>:<span class="dv">26</span>, N, <span class="dt">replace=</span><span class="ot">TRUE</span>))
+DT =<span class="st"> </span>DT[ ,.(<span class="dt">count=</span><span class="kw">rpois</span>(.N,group)), keyby=group]
+
+<span class="co"># See size of this data</span>
+<span class="kw">print</span>(<span class="kw">object.size</span>(DT),<span class="dt">units=</span><span class="st">'MB'</span>)</code></pre></div>
+<pre><code>## 762.9 Mb</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## Unkeyd approach
+tm0 =<span class="st"> </span><span class="kw">system.time</span>({
+  ans0 &lt;-<span class="st"> </span>DT[group==<span class="dv">1</span> |<span class="st"> </span>group==<span class="dv">26</span>, .(<span class="dt">lambda_hat =</span> <span class="kw">mean</span>(count)), by=group]
+})
+
+## Alternate unkeyed approach
+tm1 =<span class="st"> </span><span class="kw">system.time</span>({
+  ans1 &lt;-<span class="st"> </span>DT[, .(<span class="dt">lambda_hat =</span> <span class="kw">mean</span>(count)), by=group][group==<span class="dv">1</span> |<span class="st"> </span>group==<span class="dv">26</span>]
+})
+
+<span class="co"># Set key</span>
+<span class="kw">setkey</span>(DT,group)
+
+<span class="co"># keyed approach</span>
+tm2 =<span class="st"> </span><span class="kw">system.time</span>({
+  ans2 &lt;-<span class="st"> </span>DT[.(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">26</span>)),.(<span class="dt">lambda_hat =</span> <span class="kw">mean</span>(count)), by=group]
+})
+
+<span class="co"># Compare timings (seconds)</span>
+<span class="kw">rbind</span>(tm0,tm1,tm2)[,<span class="st">'elapsed'</span>]</code></pre></div>
+<pre><code>##   tm0   tm1   tm2 
+## 1.633 0.971 0.153</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rm</span>(DT,tm0,tm1,tm2)</code></pre></div>
 </div>
 <div id="resources" class="section level2">
 <h2>Resources</h2>
@@ -890,6 +1096,7 @@ nyc14[arr_delay&lt;<span class="dv">0</span>, arr_delay :<span class="er">=</spa
 <li><p>A short introduction from Dr. Clark’s <a href="https://m-clark.github.io/data-processing-and-visualization/08_datatable.html">workshop</a></p></li>
 <li><p>See “Large Memory and out-of-memory data” on CRAN’s <a href="https://cran.r-project.org/web/views/HighPerformanceComputing.html">HPC task view</a></p></li>
 <li><p>The <a href="https://github.com/hadley/dtplyr"><code>dtplyr</code></a> package provides <code>dplyr</code> methods for <code>data.table</code> objects (objects of <em>class</em> data.table). That is <code>dtplyr</code> is the <code>data.table</code> <em>backend</em> for <code>dplyr</code> – the part facing away from the interactive user.</p></li>
+<li><p><a href="./DplyrVsDT.pdf">Practice Exam Questions</a> <a href="./DplyrVsDT_solutions.html">Solutions</a> will be posted after class.</p></li>
 </ul>
 </div>
 
