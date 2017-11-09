@@ -136,9 +136,13 @@ $(document).ready(function () {
     .[, .(origin, n = n, pct = n / sum(n)), by=dest] %&gt;%
     .[pct &gt; .75] %&gt;%
     .[order(-pct, dest)]</code></pre>
-<pre><code>a. Provide a one-sentence summary of what is being computed.</code></pre>
-<p>_ This code finds all destination cities for which more than 75% of the flights are from a single origin airport. _</p>
-<pre><code>b. Provide a translation using `dplyr` syntax.</code></pre>
+<ol style="list-style-type: lower-alpha">
+<li>Provide a one-sentence summary of what is being computed.</li>
+</ol>
+<p><em>This code finds all destination cities for which more than 75% of the flights are from a single origin airport.</em></p>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>Provide a translation using <code>dplyr</code> syntax.</li>
+</ol>
 <pre class="r"><code>nyc14 %&gt;%
   group_by(dest, origin) %&gt;%
   summarize(n=n()) %&gt;%
@@ -173,7 +177,7 @@ $(document).ready(function () {
     summarize(n = n()) %&gt;%
     arrange(origin,-n)</code></pre>
 <ol style="list-style-type: lower-alpha">
-<li><p>Provide a one-sentence summary of what is being computed. _ For each carrier and origin airport, this code counts the number of destination cities with at least 80 observed flights. _</p></li>
+<li><p>Provide a one-sentence summary of what is being computed. <em>For each carrier and origin airport, this code counts the number of destination cities with at least 80 observed flights.</em></p></li>
 <li><p>Provide a translation using <code>data.table</code> syntax.</p></li>
 </ol>
 <pre class="r"><code>nyc14[, .(n=.N), by = .(origin, dest, carrier)
@@ -239,7 +243,7 @@ tab3 =
 <ol style="list-style-type: lower-alpha">
 <li>Provide a one-sentence summary of what is being computed.</li>
 </ol>
-<p>_ This code computes the number of flights from NYC to HOU each month by carrier. _</p>
+<p><em>This code computes the number of flights from NYC to HOU each month by carrier.</em></p>
 <ol start="2" style="list-style-type: lower-alpha">
 <li>Provide a translation using <code>data.table</code> syntax.</li>
 </ol>
