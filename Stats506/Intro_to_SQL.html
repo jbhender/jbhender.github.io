@@ -126,7 +126,7 @@ $(document).ready(function () {
 <h2>SQL and Relational Databases</h2>
 <p>A <a href="https://en.wikipedia.org/wiki/Relational_database">relational database</a> is a set of rectangular data frames called <em>tables</em> linked by <em>keys</em> relating one table to another. Software implementations of such data structures are known as <em>relational database management systems</em> (RDBMS). Most RDBMS use <em>structured query language</em> (<a href="https://en.wikipedia.org/wiki/SQL">SQL</a>) to modify or search the relational database.</p>
 <p>SQL provides a syntax for interfacing with relational data. It is largely a declarative language in that we use SQL to specify <em>what</em> we wish to accomplish, leaving the <em>how</em> to the RDBMS. While there are standards for SQL implementations put out by the International Organization for Standardization (ISO) and the American National Standards Institute (ANSI), there are several open source and commercial implementations that each have unique features.</p>
-<p>I will try to focus on the commonalities, but will be using an <a href="https://en.wikipedia.org/wiki/SQLite">SQLlite</a> engine in R for providing examples. One unique feature of SQLlite is that it does not follow the client-server model, in which a physical computer storing the data an executing queries within the RDMBS, aka the <em>server</em>, is separate from the machine requesting the queries aka the <em>client</em>. The client-server model is popular in business and health care as it allows security and monitoring of how the data is queried. It is also popular for many large open data projects (i.e <a href="https://www.ensembl.org/info/data/mysql.html">ensemble</a>) where it is beneficial for data to be centrally maintained and frequently accessed on the fly.</p>
+<p>I will try to focus on the commonalities, but will be using an <a href="https://en.wikipedia.org/wiki/SQLite">SQLlite</a> engine in R for providing examples. One unique feature of SQLite is that it does not follow the client-server model. In this model, a physical computer storing the data and executing queries within the RDMBS, the <em>server</em>, is separate from the machine requesting the queries known as the <em>client</em>. The client-server model is popular in business, health care, and other domains as it allows security and monitoring of how the data is queried. It is also popular for many large open data projects (i.e <a href="https://www.ensembl.org/info/data/mysql.html">ensemble</a>) where it is beneficial for data to be centrally maintained and frequently accessed on the fly.</p>
 <p>In order to write SQL queries within R I will be using the package <a href="https://cran.r-project.org/web/packages/dbplyr/vignettes/dbplyr.html">dbplyr</a> which provides an SQL back end to <code>dplyr</code> functions, but also allows SQL queries to be parsed as strings.</p>
 <div id="lahman-examples" class="section level3">
 <h3>Lahman Examples</h3>
@@ -143,7 +143,7 @@ lahman &lt;- lahman_sqlite()
 lahman %&gt;% tbl(&quot;BATTING&quot;)</code></pre>
 <pre><code>## # Source:   table&lt;BATTING&gt; [?? x 22]
 ## # Database: sqlite 3.19.3
-## #   [/var/folders/t6/m1sbk4dn10181ns0jx_ss0s00000gn/T//RtmpcENay0/lahman.sqlite]
+## #   [/var/folders/t6/m1sbk4dn10181ns0jx_ss0s00000gn/T//Rtmp9gdUYt/lahman.sqlite]
 ##     playerID yearID stint teamID  lgID     G    AB     R     H   X2B   X3B
 ##        &lt;chr&gt;  &lt;int&gt; &lt;int&gt;  &lt;chr&gt; &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
 ##  1 abercda01   1871     1    TRO    NA     1     4     0     0     0     0
@@ -222,9 +222,9 @@ SELECT col1, col2, col3
 ## #   deathDate &lt;dbl&gt;, birthDate &lt;dbl&gt;</code></pre>
 <p>Above we use a <code>LIMIT</code> clause to grab just the first 5 rows of our table. This is good practice when developing new queries as it prevents large wait times only to discover a bug.</p>
 </div>
-<div id="where-and-having" class="section level3">
-<h3>Where and Having</h3>
-<p>Here we will explore the limiting clause <code>WHERE</code> in greater detail. This will also work with <code>HAVING</code> which works on summary statistics rather than individual rows.</p>
+<div id="limiting-clauses" class="section level3">
+<h3>Limiting Clauses</h3>
+<p>Here we will explore the limiting clause <code>WHERE</code> in greater detail. Most of what we discuss in this section will also work with <code>HAVING</code> which operates on summary statistics rather than individual rows.</p>
 <div id="boolean-logic" class="section level4">
 <h4>Boolean Logic</h4>
 <p>We can use Boolean comparisons in a <code>WHERE</code> clause as shown in the example below. We find all player-seasons since 2000 in which the player was credited with an RBI 100 or more times.</p>
@@ -244,7 +244,7 @@ rbi100 =
 print(rbi100)</code></pre>
 <pre><code>## # Source:   SQL [?? x 3]
 ## # Database: sqlite 3.19.3
-## #   [/var/folders/t6/m1sbk4dn10181ns0jx_ss0s00000gn/T//RtmpcENay0/lahman.sqlite]
+## #   [/var/folders/t6/m1sbk4dn10181ns0jx_ss0s00000gn/T//Rtmp9gdUYt/lahman.sqlite]
 ##     playerID yearID   RBI
 ##        &lt;chr&gt;  &lt;int&gt; &lt;int&gt;
 ##  1  aloumo01   2000   114
@@ -331,7 +331,7 @@ lahman %&gt;%
 </div>
 <div id="combining-limiting-clauses" class="section level3">
 <h3>Combining limiting clauses</h3>
-<p>Limiting <code>WHERE</code> clauses can be combined using <code>AND</code> and <code>OR</code>.</p>
+<p>Limiting <code>WHERE</code> clauses can be combined using <code>AND</code> and <code>OR</code>. Statements can be negated using <code>NOT</code>.</p>
 <pre class="sql"><code>SELECT nameGiven as Given, nameLast Last, birthYear AS born, birthCountry as Place
   FROM master
  WHERE birthCountry == &quot;P.R.&quot; AND birthYear LIKE &quot;199%&quot;</code></pre>
@@ -519,7 +519,7 @@ SELECT m.nameFirst First, m.nameLast Last, sum(RBI) as RBI_TOTAL
 ))</code></pre>
 <pre><code>## # Source:   SQL [?? x 3]
 ## # Database: sqlite 3.19.3
-## #   [/var/folders/t6/m1sbk4dn10181ns0jx_ss0s00000gn/T//RtmpcENay0/lahman.sqlite]
+## #   [/var/folders/t6/m1sbk4dn10181ns0jx_ss0s00000gn/T//Rtmp9gdUYt/lahman.sqlite]
 ##       First        Last RBI_TOTAL
 ##       &lt;chr&gt;       &lt;chr&gt;     &lt;int&gt;
 ##  1   Miguel     Cabrera       800
@@ -557,7 +557,7 @@ HAVING yearID == max(YearID)
 ))</code></pre>
 <pre><code>## # Source:   SQL [?? x 3]
 ## # Database: sqlite 3.19.3
-## #   [/var/folders/t6/m1sbk4dn10181ns0jx_ss0s00000gn/T//RtmpcENay0/lahman.sqlite]
+## #   [/var/folders/t6/m1sbk4dn10181ns0jx_ss0s00000gn/T//Rtmp9gdUYt/lahman.sqlite]
 ##     playerID   schoolID yearID
 ##        &lt;chr&gt;      &lt;chr&gt;  &lt;int&gt;
 ##  1 aardsda01       rice   2003
@@ -625,7 +625,7 @@ WHERE awardID LIKE &quot;Rookie%&quot;
 )) </code></pre>
 <pre><code>## # Source:   SQL [?? x 6]
 ## # Database: sqlite 3.19.3
-## #   [/var/folders/t6/m1sbk4dn10181ns0jx_ss0s00000gn/T//RtmpcENay0/lahman.sqlite]
+## #   [/var/folders/t6/m1sbk4dn10181ns0jx_ss0s00000gn/T//Rtmp9gdUYt/lahman.sqlite]
 ##     playerID            awardID yearID  lgID   tie notes
 ##        &lt;chr&gt;              &lt;chr&gt;  &lt;int&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;
 ##  1 robinja02 Rookie of the Year   1947    ML  &lt;NA&gt;  &lt;NA&gt;
@@ -639,14 +639,14 @@ WHERE awardID LIKE &quot;Rookie%&quot;
 ##  9  byrdha01 Rookie of the Year   1952    AL  &lt;NA&gt;  &lt;NA&gt;
 ## 10 blackjo02 Rookie of the Year   1952    NL  &lt;NA&gt;  &lt;NA&gt;
 ## # ... with more rows</code></pre>
-<p>Finally, we use a <em>left join</em> of the tables for ROY awards and last college attended to match winners to their schools. We need a left join as many of the winners may never have played collegiately.</p>
+<p>Finally, we use a <em>left join</em> of the tables for ROY awards and last college attended to match winners to their schools. We need a left join as many of the winners may never have played collegiate baseball.</p>
 <pre class="sql"><code>SELECT roy.playerID playerID, roy.yearID year, lgID league, schoolID
   FROM AwardsPlayers roy
   LEFT JOIN 
     (SELECT *  --Final College Attended
       FROM CollegePlaying
       GROUP BY playerID
-      HAVING yearID == max(YearID)
+      HAVING yearID == max(YearID)s
     ) c
  ON c.playerID = roy.playerID
  WHERE awardID LIKE &quot;Rookie%&quot;</code></pre>
@@ -667,7 +667,7 @@ SELECT roy.playerID playerID, roy.yearID year, lgID league, schoolID
 ))</code></pre>
 <pre><code>## # Source:   SQL [?? x 4]
 ## # Database: sqlite 3.19.3
-## #   [/var/folders/t6/m1sbk4dn10181ns0jx_ss0s00000gn/T//RtmpcENay0/lahman.sqlite]
+## #   [/var/folders/t6/m1sbk4dn10181ns0jx_ss0s00000gn/T//Rtmp9gdUYt/lahman.sqlite]
 ##     playerID  year league schoolID
 ##        &lt;chr&gt; &lt;int&gt;  &lt;chr&gt;    &lt;chr&gt;
 ##  1 robinja02  1947     ML     ucla
@@ -734,7 +734,7 @@ SELECT schoolID, count(c.playerID) as ROY_awards
 <ul>
 <li><p><a href="https://www.w3schools.com/sql/">SQL Tutorials</a></p></li>
 <li><p><a href="https://rstudio-pubs-static.s3.amazonaws.com/52230_5ae0d25125b544caab32f75f0360e775.html">SQL Joins using data.table</a></p></li>
-<li><p><a href="http://db.rstudio.com/dplyr/">Databases uisng dplyr</a></p></li>
+<li><p><a href="http://db.rstudio.com/dplyr/">Databases using dplyr</a></p></li>
 </ul>
 </div>
 
