@@ -1,0 +1,247 @@
+                                                           The SAS System                        10:45 Monday, November 13, 2017   1
+
+                                                        The MEANS Procedure
+
+                             Analysis Variable : CDD65 Cooling degree days in 2009, base temperature 65F
+ 
+                         Census
+                         Region    N Obs        N            Mean         Std Dev         Minimum         Maximum
+                   ----------------------------------------------------------------------------------------------
+                              1     2266     2266     625.6924095     257.2641067      81.0000000         1357.00
+
+                              2     2843     2843     733.7850862     360.2584779               0         1700.00
+
+                              3     4090     4090         2394.39         1048.55     146.0000000         5480.00
+
+                              4     2884     2884         1319.47         1157.11               0         5202.00
+                   ----------------------------------------------------------------------------------------------
+                                                           The SAS System                        10:45 Monday, November 13, 2017   2
+
+--------------------------------------------------------- Census Region=1 ----------------------------------------------------------
+
+                                                        The MEANS Procedure
+
+                            Analysis Variable : CDD65 Cooling degree days in 2009, base temperature 65F
+ 
+                                   N            Mean         Std Dev         Minimum         Maximum
+                               ---------------------------------------------------------------------
+                                2266     625.6924095     257.2641067      81.0000000         1357.00
+                               ---------------------------------------------------------------------
+
+
+--------------------------------------------------------- Census Region=2 ----------------------------------------------------------
+
+                            Analysis Variable : CDD65 Cooling degree days in 2009, base temperature 65F
+ 
+                                   N            Mean         Std Dev         Minimum         Maximum
+                               ---------------------------------------------------------------------
+                                2843     733.7850862     360.2584779               0         1700.00
+                               ---------------------------------------------------------------------
+
+
+--------------------------------------------------------- Census Region=3 ----------------------------------------------------------
+
+                            Analysis Variable : CDD65 Cooling degree days in 2009, base temperature 65F
+ 
+                                   N            Mean         Std Dev         Minimum         Maximum
+                               ---------------------------------------------------------------------
+                                4090         2394.39         1048.55     146.0000000         5480.00
+                               ---------------------------------------------------------------------
+
+
+--------------------------------------------------------- Census Region=4 ----------------------------------------------------------
+
+                            Analysis Variable : CDD65 Cooling degree days in 2009, base temperature 65F
+ 
+                                   N            Mean         Std Dev         Minimum         Maximum
+                               ---------------------------------------------------------------------
+                                2884         1319.47         1157.11               0         5202.00
+                               ---------------------------------------------------------------------
+                                                           The SAS System                        10:45 Monday, November 13, 2017   3
+
+------------------------------ Census Region=1 Housing unit classified as urban or rural by Census=R -------------------------------
+
+                                                        The MEANS Procedure
+
+                            Analysis Variable : CDD65 Cooling degree days in 2009, base temperature 65F
+ 
+                                   N            Mean         Std Dev         Minimum         Maximum
+                               ---------------------------------------------------------------------
+                                 297     413.4410774     190.1907224      81.0000000         1032.00
+                               ---------------------------------------------------------------------
+
+
+------------------------------ Census Region=1 Housing unit classified as urban or rural by Census=U -------------------------------
+
+                            Analysis Variable : CDD65 Cooling degree days in 2009, base temperature 65F
+ 
+                                   N            Mean         Std Dev         Minimum         Maximum
+                               ---------------------------------------------------------------------
+                                1969     657.7079736     250.8150343     119.0000000         1357.00
+                               ---------------------------------------------------------------------
+
+
+------------------------------ Census Region=2 Housing unit classified as urban or rural by Census=R -------------------------------
+
+                            Analysis Variable : CDD65 Cooling degree days in 2009, base temperature 65F
+ 
+                                   N            Mean         Std Dev         Minimum         Maximum
+                               ---------------------------------------------------------------------
+                                 700     677.8771429     375.8630382               0         1550.00
+                               ---------------------------------------------------------------------
+
+
+------------------------------ Census Region=2 Housing unit classified as urban or rural by Census=U -------------------------------
+
+                            Analysis Variable : CDD65 Cooling degree days in 2009, base temperature 65F
+ 
+                                   N            Mean         Std Dev         Minimum         Maximum
+                               ---------------------------------------------------------------------
+                                2143     752.0471302     353.1899253      44.0000000         1700.00
+                               ---------------------------------------------------------------------
+
+
+------------------------------ Census Region=3 Housing unit classified as urban or rural by Census=R -------------------------------
+
+                            Analysis Variable : CDD65 Cooling degree days in 2009, base temperature 65F
+ 
+                                   N            Mean         Std Dev         Minimum         Maximum
+                               ---------------------------------------------------------------------
+                                1108         2051.58     824.7679204     146.0000000         4338.00
+                               ---------------------------------------------------------------------
+
+
+                                                           The SAS System                        10:45 Monday, November 13, 2017   4
+
+------------------------------ Census Region=3 Housing unit classified as urban or rural by Census=U -------------------------------
+
+                                                        The MEANS Procedure
+
+                            Analysis Variable : CDD65 Cooling degree days in 2009, base temperature 65F
+ 
+                                   N            Mean         Std Dev         Minimum         Maximum
+                               ---------------------------------------------------------------------
+                                2982         2521.76         1093.44     379.0000000         5480.00
+                               ---------------------------------------------------------------------
+
+
+------------------------------ Census Region=4 Housing unit classified as urban or rural by Census=R -------------------------------
+
+                            Analysis Variable : CDD65 Cooling degree days in 2009, base temperature 65F
+ 
+                                   N            Mean         Std Dev         Minimum         Maximum
+                               ---------------------------------------------------------------------
+                                 322         1296.77         1436.65               0         5092.00
+                               ---------------------------------------------------------------------
+
+
+------------------------------ Census Region=4 Housing unit classified as urban or rural by Census=U -------------------------------
+
+                            Analysis Variable : CDD65 Cooling degree days in 2009, base temperature 65F
+ 
+                                   N            Mean         Std Dev         Minimum         Maximum
+                               ---------------------------------------------------------------------
+                                2562         1322.32         1117.35               0         5202.00
+                               ---------------------------------------------------------------------
+                                                           The SAS System                        10:45 Monday, November 13, 2017   5
+
+------------------------------ Census Region=1 Housing unit classified as urban or rural by Census=R -------------------------------
+
+                                                        The MEANS Procedure
+
+  Variable   Label                                                   N           Mean        Std Dev        Minimum        Maximum
+  --------------------------------------------------------------------------------------------------------------------------------
+  CDD65      Cooling degree days in 2009, base temperature 65F     297    413.4410774    190.1907224     81.0000000        1032.00
+  HDD65      Heating degree days in 2009, base temperature 65F     297        6838.46        1028.76        4830.00        9762.00
+  --------------------------------------------------------------------------------------------------------------------------------
+
+
+------------------------------ Census Region=1 Housing unit classified as urban or rural by Census=U -------------------------------
+
+  Variable   Label                                                   N           Mean        Std Dev        Minimum        Maximum
+  --------------------------------------------------------------------------------------------------------------------------------
+  CDD65      Cooling degree days in 2009, base temperature 65F    1969    657.7079736    250.8150343    119.0000000        1357.00
+  HDD65      Heating degree days in 2009, base temperature 65F    1969        5751.69    909.6267608        4085.00        9637.00
+  --------------------------------------------------------------------------------------------------------------------------------
+
+
+------------------------------ Census Region=2 Housing unit classified as urban or rural by Census=R -------------------------------
+
+  Variable   Label                                                   N           Mean        Std Dev        Minimum        Maximum
+  --------------------------------------------------------------------------------------------------------------------------------
+  CDD65      Cooling degree days in 2009, base temperature 65F     700    677.8771429    375.8630382              0        1550.00
+  HDD65      Heating degree days in 2009, base temperature 65F     700        6566.80        1657.51        3846.00       11933.00
+  --------------------------------------------------------------------------------------------------------------------------------
+
+
+------------------------------ Census Region=2 Housing unit classified as urban or rural by Census=U -------------------------------
+
+  Variable   Label                                                   N           Mean        Std Dev        Minimum        Maximum
+  --------------------------------------------------------------------------------------------------------------------------------
+  CDD65      Cooling degree days in 2009, base temperature 65F    2143    752.0471302    353.1899253     44.0000000        1700.00
+  HDD65      Heating degree days in 2009, base temperature 65F    2143        6193.82        1275.42        4058.00       10776.00
+  --------------------------------------------------------------------------------------------------------------------------------
+
+
+------------------------------ Census Region=3 Housing unit classified as urban or rural by Census=R -------------------------------
+
+  Variable   Label                                                   N           Mean        Std Dev        Minimum        Maximum
+  --------------------------------------------------------------------------------------------------------------------------------
+  CDD65      Cooling degree days in 2009, base temperature 65F    1108        2051.58    824.7679204    146.0000000        4338.00
+  HDD65      Heating degree days in 2009, base temperature 65F    1108        2810.46        1223.11    197.0000000        6576.00
+  --------------------------------------------------------------------------------------------------------------------------------
+
+
+------------------------------ Census Region=3 Housing unit classified as urban or rural by Census=U -------------------------------
+
+  Variable   Label                                                   N           Mean        Std Dev        Minimum        Maximum
+  --------------------------------------------------------------------------------------------------------------------------------
+  CDD65      Cooling degree days in 2009, base temperature 65F    2982        2521.76        1093.44    379.0000000        5480.00
+  HDD65      Heating degree days in 2009, base temperature 65F    2982        2298.12        1462.01     27.0000000        5724.00
+  --------------------------------------------------------------------------------------------------------------------------------
+                                                           The SAS System                        10:45 Monday, November 13, 2017   6
+
+------------------------------ Census Region=4 Housing unit classified as urban or rural by Census=R -------------------------------
+
+                                                        The MEANS Procedure
+
+  Variable   Label                                                   N           Mean        Std Dev        Minimum        Maximum
+  --------------------------------------------------------------------------------------------------------------------------------
+  CDD65      Cooling degree days in 2009, base temperature 65F     322        1296.77        1436.65              0        5092.00
+  HDD65      Heating degree days in 2009, base temperature 65F     322        4548.61        2547.15              0       10287.00
+  --------------------------------------------------------------------------------------------------------------------------------
+
+
+------------------------------ Census Region=4 Housing unit classified as urban or rural by Census=U -------------------------------
+
+  Variable   Label                                                   N           Mean        Std Dev        Minimum        Maximum
+  --------------------------------------------------------------------------------------------------------------------------------
+  CDD65      Cooling degree days in 2009, base temperature 65F    2562        1322.32        1117.35              0        5202.00
+  HDD65      Heating degree days in 2009, base temperature 65F    2562        2881.49        2055.63              0       12525.00
+  --------------------------------------------------------------------------------------------------------------------------------
+                                                           The SAS System                        10:45 Monday, November 13, 2017   7
+
+                                                         The FREQ Procedure
+
+                                                 Year range when household moved in
+ 
+                                                                          Cumulative    Cumulative
+                                 OCCUPYYRANGE    Frequency     Percent     Frequency      Percent
+                                 -----------------------------------------------------------------
+                                            1          51        0.42            51         0.42  
+                                            2         173        1.43           224         1.85  
+                                            3         346        2.86           570         4.72  
+                                            4         703        5.82          1273        10.54  
+                                            5        1004        8.31          2277        18.84  
+                                            6        2318       19.18          4595        38.03  
+                                            7        2220       18.37          6815        56.40  
+                                            8        5268       43.60         12083       100.00  
+                                                           The SAS System                        10:45 Monday, November 13, 2017   8
+
+                                     Obs    REGIONC    _TYPE_    _FREQ_    mean_kwh    std_kwh
+
+                                      1        .          0       12083    11288.16    7641.19
+                                      2        1          1        2266     7933.82    5263.17
+                                      3        2          1        2843    11292.78    7567.51
+                                      4        3          1        4090    14762.98    7945.89
+                                      5        4          1        2884     8991.27    6758.34

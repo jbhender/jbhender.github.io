@@ -1,0 +1,66 @@
+                                                           The SAS System                        11:56 Monday, November 13, 2017   1
+
+                                       REPORTABLE_
+                                Obs       DOMAIN      _TYPE_    _FREQ_        total        rt2_total
+
+                                  1          .           0       12083    113616229.00    6568740.95
+                                  2          1           1         437      3035605.00     121051.13
+                                  3          2           1         501      2475492.00     118360.32
+                                  4          3           1         839      7187555.00     284056.82
+                                  5          4           1         204      3154926.00      77152.73
+                                  6          5           1         285      4916869.00     293128.97
+                                  7          6           1         248      4757452.00     163378.25
+                                  8          7           1         386      7003952.00     415010.33
+                                  9          8           1         274      3819736.00     108727.83
+                                 10          9           1         242      2272274.00      75467.84
+                                 11         10           1         699      3908223.00     154542.76
+                                 12         11           1         308      1816199.00      81758.84
+                                 13         12           1         686      2339684.00     122114.83
+                                 14         13           1         281      2971489.00      94856.08
+                                 15         14           1         228      3420171.00     188475.80
+                                 16         15           1         440      3469250.00     198844.75
+                                 17         16           1         349      5376327.00     670156.41
+                                 18         17           1         948      6987647.00     474842.02
+                                 19         18           1         365      4637274.00     150518.34
+                                 20         19           1         249      2447066.00      35252.96
+                                 21         20           1         239      4242993.00     127075.12
+                                 22         21           1         991      8527938.00     660455.47
+                                 23         22           1         295      1910146.00     174180.40
+                                 24         23           1         150      2010446.00     186084.92
+                                 25         24           1         226      2276865.00     116428.74
+                                 26         25           1         141      1707819.00     167651.37
+                                 27         26           1        1606     12214891.00    1027121.18
+                                 28         27           1         466      4727940.00     282046.76
+                                                           The SAS System                        11:56 Monday, November 13, 2017   2
+
+                                                                                             % Wood
+                                                                                            Shingled
+                                State(s)                                                     Roofs
+
+                                Tennessee                                                      1.4  
+                                New Jersey                                                     2.4  
+                                Michigan                                                       2.8  
+                                Arkansas, Louisiana, Oklahoma                                  3.0  
+                                Virginia                                                       3.2  
+                                Alabama, Kentucky, Mississippi                                 3.2  
+                                Wisconsin                                                      3.3  
+                                Illinois                                                       3.4  
+                                New York                                                       4.0  
+                                Iowa, Minnesota, North Dakota, South Dakota                    4.0  
+                                Connecticut, Maine, New Hampshire, Rhode Island, Vermont       4.0  
+                                Kansas, Nebraska                                               4.5  
+                                Massachusetts                                                  4.8  
+                                Arizona                                                        5.1  
+                                Missouri                                                       5.2  
+                                Delaware, District of Columbia, Maryland, West Virginia        5.5  
+                                Georgia                                                        5.7  
+                                Indiana, Ohio                                                  5.9  
+                                Pennsylvania                                                   6.0  
+                                Alaska, Hawaii, Oregon, Washington                             6.0  
+                                Florida                                                        6.8  
+                                Texas                                                          7.7  
+                                California                                                     8.4  
+                                Colorado                                                       9.1  
+                                Idaho, Montana, Utah, Wyoming                                  9.3  
+                                Nevada, New Mexico                                             9.8  
+                                North Carolina, South Carolina                                12.5  

@@ -1,0 +1,1159 @@
+                                                           The SAS System                        09:12 Monday, November 13, 2017   1
+
+                                                       The CONTENTS Procedure
+
+             Data Set Name        WORK.RECS                                                Observations          12083
+             Member Type          DATA                                                     Variables             940  
+             Engine               V9                                                       Indexes               0    
+             Created              11/13/2017 09:12:06                                      Observation Length    7208 
+             Last Modified        11/13/2017 09:12:06                                      Deleted Observations  0    
+             Protection                                                                    Compressed            NO   
+             Data Set Type                                                                 Sorted                NO   
+             Label                                                                                                    
+             Data Representation  SOLARIS_X86_64, LINUX_X86_64, ALPHA_TRU64, LINUX_IA64                               
+             Encoding             latin1  Western (ISO)                                                               
+
+
+                                                 Engine/Host Dependent Information
+
+                      Data Set Page Size          131072                                                     
+                      Number of Data Set Pages    673                                                        
+                      First Data Page             2                                                          
+                      Max Obs per Page            18                                                         
+                      Obs in First Data Page      14                                                         
+                      Number of Data Set Repairs  0                                                          
+                      Filename                    /tmp/SAS_work4DD70000EC98_mario.dsc.umich.edu/recs.sas7bdat
+                      Release Created             9.0401M1                                                   
+                      Host Created                Linux                                                      
+                      Inode Number                82837508                                                   
+                      Access Permission           rw-r--r--                                                  
+                      Owner Name                  jbhender                                                   
+                      File Size (bytes)           88342528                                                   
+
+
+                                            Alphabetic List of Variables and Attributes
+ 
+  # Variable        Type Len Informat Label
+
+536 ACOTHERS        Num    8          Central air conditioner cools other homes, business, or farm                                 
+542 ACROOMS         Num    8          Number of rooms cooled                                                                       
+615 ADQINSUL        Num    8          Level of insulation (respondent reported)                                                    
+626 AGEAUD          Num    8          Year of home energy audit                                                                    
+239 AGECDRYER       Num    8          Age of clothes dryer                                                                         
+538 AGECENAC        Num    8          Age of central air conditioner                                                               
+231 AGECWASH        Num    8          Age of clothes washer                                                                        
+172 AGEDW           Num    8          Age of dishwasher                                                                            
+162 AGEFRZR         Num    8          Age of most-used freezer                                                                     
+169 AGEFRZR2        Num    8          Age of second most-used freezer                                                              
+762 AGEHHMEMCAT2    Num    8          Age category of second household member                                                      
+763 AGEHHMEMCAT3    Num    8          Age category of third household member                                                       
+764 AGEHHMEMCAT4    Num    8          Age category of fourth household member                                                      
+765 AGEHHMEMCAT5    Num    8          Age category of fifth household member                                                       
+766 AGEHHMEMCAT6    Num    8          Age category of sixth household member                                                       
+767 AGEHHMEMCAT7    Num    8          Age category of seventh household member                                                     
+768 AGEHHMEMCAT8    Num    8          Age category of eighth household member                                                      
+769 AGEHHMEMCAT9    Num    8          Age category of ninth household member                                                       
+770 AGEHHMEMCAT10   Num    8          Age category of tenth household member                                                       
+771 AGEHHMEMCAT11   Num    8          Age category of eleventh household member                                                    
+772 AGEHHMEMCAT12   Num    8          Age category of twelfth household member                                                     
+773 AGEHHMEMCAT13   Num    8          Age category of thirteenth household member                                                  
+774 AGEHHMEMCAT14   Num    8          Age category of fourteenth household member                                                  
+                                                           The SAS System                        09:12 Monday, November 13, 2017   2
+
+                                                       The CONTENTS Procedure
+
+                                            Alphabetic List of Variables and Attributes
+ 
+  # Variable        Type Len Informat Label
+
+617 AGEINS          Num    8          Year of added insulation                                                                     
+140 AGERFRI1        Num    8          Age of most-used refrigerator                                                                
+149 AGERFRI2        Num    8          Age of second most-used refrigerator                                                         
+155 AGERFRI3        Num    8          Age of third most-used refrigerator                                                          
+622 AGEWS           Num    8          Year of caulking or weather stripping                                                        
+ 12 AIA_Zone        Num    8 BEST12.  AIA Climate Zone, based on average temperatures from 1981 - 2010                             
+530 AIRCOND         Num    8          Air conditioning equipment used                                                              
+125 AMTMICRO        Num    8          Microwave usage                                                                              
+321 ANSMACH         Num    8          Answering machine used                                                                       
+318 AQUARIUM        Num    8          Large heated aquarium used                                                                   
+776 ATHOME          Num    8          Household member at home on typical week days                                                
+ 55 ATTCCL2         Num    8          All or partial attic cooling                                                                 
+ 54 ATTCCOOL        Num    8          Cooling used in attic                                                                        
+ 51 ATTCHEAT        Num    8          Heating used in attic                                                                        
+ 52 ATTCHT2         Num    8          All or partial attic heating                                                                 
+ 48 ATTIC           Num    8          Attic in housing unit                                                                        
+ 49 ATTICFIN        Num    8          Finished attic                                                                               
+ 57 ATTICUSE        Num    8          Portion of attic exclusively used by housing unit in apartment building with 2-4 units       
+625 AUDIT           Num    8          Home energy audit                                                                            
+547 AUTOCOOLDAY     Num    8          Programmable thermostat adjusts temperature during the day                                   
+546 AUTOCOOLNITE    Num    8          Programmable thermostat adjusts temperature at night                                         
+467 AUTOHEATDAY     Num    8          Programmable thermostat lowers temperature during the day                                    
+466 AUTOHEATNITE    Num    8          Programmable thermostat lowers temperature at night                                          
+ 45 BASECL2         Num    8          All or partial basement cooling                                                              
+ 44 BASECOOL        Num    8          Cooling used in basement                                                                     
+ 39 BASEFIN         Num    8          Finished basement                                                                            
+ 41 BASEHEAT        Num    8          Heating used in basement                                                                     
+ 42 BASEHT2         Num    8          All or partial basement heating                                                              
+ 47 BASEUSE         Num    8          Portion of basement exclusively used by housing unit in apartment building with 2-4 units    
+323 BATCHRG         Num    8          Charging patterns for rechargeable tools and appliances                                      
+322 BATTOOLS        Num    8          Number of rechargeable tools and appliances used                                             
+ 31 BEDROOMS        Num    8          Number of bedrooms                                                                           
+846 BTUEL           Num    8 BEST10.  Total Site Electricity usage, in thousand BTU, 2009                                          
+848 BTUELCOL        Num    8          Electricity usage for air-conditioning, central and window/wall (room), in thousand BTU, 2009
+851 BTUELOTH        Num    8          Electricity usage for other purposes (all end-uses except                                    
+                                      SPH, COL, WTH, and RFG), in thousand BTU, 2009                                               
+850 BTUELRFG        Num    8          Electricity usage for refrigerators, in thousand BTU, 2009                                   
+847 BTUELSPH        Num    8          Electricity usage for space heating, in thousand BTU, 2009                                   
+849 BTUELWTH        Num    8          Electricity usage for water heating, in thousand BTU, 2009                                   
+886 BTUFO           Num    8 BEST10.  Total Fuel Oil usage, in thousand BTU, 2009                                                  
+889 BTUFOOTH        Num    8          Fuel Oil usage for other purposes (all end-uses except SPH and WTH), in thousand BTU, 2009   
+887 BTUFOSPH        Num    8          Fuel Oil usage for space heating, in thousand BTU, 2009                                      
+888 BTUFOWTH        Num    8          Fuel Oil usage for water heating, in thousand BTU, 2009                                      
+898 BTUKER          Num    8 BEST10.  Total Kerosene usage, in thousand BTU, 2009                                                  
+901 BTUKEROTH       Num    8 BEST10.  Kerosene usage for other purposes (all end-uses except SPH and WTH), in thousand BTU, 2009   
+899 BTUKERSPH       Num    8 BEST10.  Kerosene usage for space heating, in thousand BTU, 2009                                      
+900 BTUKERWTH       Num    8 BEST10.  Kerosene usage for water heating, in thousand BTU, 2009                                      
+874 BTULP           Num    8 BEST10.  Total LPG/LPG/Propane usage, in thousand BTU, 2009                                           
+877 BTULPOTH        Num    8          LPG/Propane usage for other purposes (all end-uses except SPH and WTH), in thousand BTU, 2009
+875 BTULPSPH        Num    8          LPG/Propane usage for space heating, in thousand BTU, 2009                                   
+876 BTULPWTH        Num    8          LPG/Propane usage for water heating, in thousand BTU, 2009                                   
+862 BTUNG           Num    8 BEST10.  Total Natural Gas usage, in thousand BTU, 2009                                               
+                                                           The SAS System                        09:12 Monday, November 13, 2017   3
+
+                                                       The CONTENTS Procedure
+
+                                            Alphabetic List of Variables and Attributes
+ 
+  # Variable        Type Len Informat Label
+
+865 BTUNGOTH        Num    8          Natural Gas usage for other purposes (all end-uses except SPH and WTH), in thousand BTU, 2009
+863 BTUNGSPH        Num    8          Natural Gas usage for space heating, in thousand BTU, 2009                                   
+864 BTUNGWTH        Num    8          Natural Gas usage for water heating, in thousand BTU, 2009                                   
+906 BTUWOOD         Num    8 BEST12.  Total Wood usage, in thousand BTU, 2009 (Wood consumption                                    
+                                      is not included in TOTALBTU or TOTALDOL)                                                     
+243 CABLESAT1       Num    8          Cable box or satellite box connected to the most-used TV                                     
+259 CABLESAT2       Num    8          Cable box or satellite box connected to the second most-used TV                              
+275 CABLESAT3       Num    8          Cable box or satellite box connected to the third most-used TV                               
+451 CARRYEL         Num    3          Portable electric heaters used for secondary space heating                                   
+452 CARRYKER        Num    3          Portable kerosene heaters used for secondary space heating                                   
+783 CASHBEN         Num    8          Household members received welfare payments or cash assistance in 2009                       
+590 CATHCEIL        Num    8          Cathedral ceilings                                                                           
+  8 CDD65           Num    8          Cooling degree days in 2009, base temperature 65F                                            
+934 CDD80           Num    8          Cooling degree days in 2009, base temperature 80F                                            
+ 10 CDD30YR         Num    8          Cooling degree days, 30-year average 1981-2010, base 65F                                     
+ 36 CELLAR          Num    8          Basement in housing unit                                                                     
+535 CENACHP         Num    8          Central air conditioner is a heat pump                                                       
+453 CHIMNEY         Num    3          Fireplace used for secondary space heating                                                   
+327 CHRGPLGE        Num    8          Chargers for rechargeable electronic devices left plugged into wall                          
+324 CHRGPLGT        Num    8          Chargers for rechargeable tools and appliances left plugged into wall                        
+134 COFFEE          Num    8          Coffee maker used                                                                            
+244 COMBODVR1       Num    8          DVR built into the cable box or satellite box connected to the most-used TV                  
+260 COMBODVR2       Num    8          DVR built into the cable box or satellite box connected to the second most-used TV           
+276 COMBODVR3       Num    8          DVR built into the cable box or satellite box connected to the third most-used TV            
+248 COMBOVCRDVD1    Num    8          Combo VCR/DVD connected to the most-used TV                                                  
+264 COMBOVCRDVD2    Num    8          Combo VCR/DVD connected to the second most-used TV                                           
+280 COMBOVCRDVD3    Num    8          Combo VCR/DVD connected to the third most-used TV                                            
+289 COMPUTER        Num    8          Computer used at home                                                                        
+ 38 CONCRETE        Num    8          Housing unit over a concrete slab                                                            
+ 16 CONDCOOP        Num    8          Housing unit part of condominium or cooperative                                              
+ 20 CONVERSION      Num    8          Converted 2-4 unit apartment building                                                        
+533 COOLTYPE        Num    8          Type of air conditioning equipment used                                                      
+532 COOLTYPENOAC    Num    8          Type of unused air conditioning equipment                                                    
+314 COPIER          Num    8          Separate copy machine used                                                                   
+907 CORDSWD         Num    8 BEST12.  Total Wood usage, in cords, 2009 (Wood consumption is not included in TOTALBTU or TOTALDOL)  
+ 37 CRAWL           Num    8          Housing unit over a crawl space                                                              
+858 CUFEETNG        Num    8 BEST10.  Total Natural Gas usage, in hundred cubic feet, 2009                                         
+861 CUFEETNGOTH     Num    8          Natural Gas usage for other purposes (all end-uses                                           
+                                      except SPH and WTH), in hundred cubic feet, 2009                                             
+859 CUFEETNGSPH     Num    8          Natural Gas usage for space heating, in hundred cubic feet, 2009                             
+860 CUFEETNGWTH     Num    8          Natural Gas usage for water heating, in hundred cubic feet, 2009                             
+226 CWASHER         Num    8          Clothes washer used in home                                                                  
+ 11 Climate_Region_ Num    8          Building America Climate Region (collapsed for public file)                                  
+    Pub                                                                                                                            
+126 DEFROST         Num    8          Microwave used for defrosting                                                                
+459 DIFEQUIP        Num    3          Other equipment used for secondary space heating                                             
+460 DIFFUEL         Num    8          Fuel used by other secondary space heating equipment                                         
+246 DIGITSTB1       Num    8          Digital converter box connected to the most-used TV                                          
+262 DIGITSTB2       Num    8          Digital converter box connected to the second most-used TV                                   
+278 DIGITSTB3       Num    8          Digital converter box connected to the third most-used TV                                    
+316 DIPSTICK        Num    8          Automotive block or engine heater or battery blanket used                                    
+170 DISHWASH        Num    8          Dishwasher used                                                                              
+                                                           The SAS System                        09:12 Monday, November 13, 2017   4
+
+                                                       The CONTENTS Procedure
+
+                                            Alphabetic List of Variables and Attributes
+ 
+  # Variable        Type Len Informat Label
+
+  3 DIVISION        Num    8          Census Division                                                                              
+531 DNTAC           Num    8          No air conditioning equipment, or unused air conditioning equipment                          
+427 DNTHEAT         Num    8          No space heating equipment, or unused space heating equipment                                
+  1 DOEID           Char   5          Unique identifier for each respondent                                                        
+854 DOLELCOL        Num    8          Electricity cost for air-conditioning, central and window/wall (room), in whole dollars, 2009
+857 DOLELOTH        Num    8          Electricity cost for other purposes (all end-uses except                                     
+                                      SPH, COL, WTH, and RFG), in wholedollars, 2009                                               
+856 DOLELRFG        Num    8          Electricity cost for refrigerators, in whole dollars, 2009                                   
+853 DOLELSPH        Num    8          Electricity cost for space heating, in whole dollars, 2009                                   
+855 DOLELWTH        Num    8          Electricity cost for water heating, in whole dollars, 2009                                   
+893 DOLFOOTH        Num    8          Cost of Fuel Oil for other purposes (all end-uses except SPH and WTH), in whole dollars, 2009
+891 DOLFOSPH        Num    8          Cost of Fuel Oil for space heating, in whole dollars, 2009                                   
+892 DOLFOWTH        Num    8          Cost of Fuel Oil for water heating, in whole dollars, 2009                                   
+905 DOLKEROTH       Num    8 BEST10.  Cost of Kerosene for other purposes (all end-uses except SPH and WTH), in whole dollars, 2009
+903 DOLKERSPH       Num    8 BEST10.  Cost of Kerosene for space heating, in whole dollars, 2009                                   
+904 DOLKERWTH       Num    8 BEST10.  Cost of Kerosene for water heating, in whole dollars, 2009                                   
+852 DOLLAREL        Num    8 BEST10.  Total Electricity cost, in whole dollars, 2009                                               
+890 DOLLARFO        Num    8 BEST10.  Total cost of Fuel Oil, in whole dollars, 2009                                               
+902 DOLLARKER       Num    8 BEST10.  Total cost of Kerosene, in whole dollars, 2009                                               
+878 DOLLARLP        Num    8 BEST10.  Total cost of LPG/Propane, in whole dollars, 2009                                            
+866 DOLLARNG        Num    8 BEST10.  Total Natural Gas cost, in whole dollars, 2009                                               
+881 DOLLPOTH        Num    8          Cost of LPG/Propane for other purposes (all end-uses                                         
+                                      except SPH and WTH), in whole dollars, 2009                                                  
+879 DOLLPSPH        Num    8          Cost of LPG/Propane for space heating, in whole dollars, 2009                                
+880 DOLLPWTH        Num    8          Cost of LPG/Propane for water heating, in whole dollars, 2009                                
+869 DOLNGOTH        Num    8          Natural Gas cost for other purposes (all end-uses except SPH and WTH), in whole dollars, 2009
+867 DOLNGSPH        Num    8          Natural Gas cost for space heating, in whole dollars, 2009                                   
+868 DOLNGWTH        Num    8          Natural Gas cost for water heating, in whole dollars, 2009                                   
+609 DOOR1SUM        Num    8          Number of sliding glass doors in heated areas                                                
+620 DRAFTY          Num    8          Is home too drafty in the winter? (respondent reported)                                      
+236 DRYER           Num    8          Clothes dryer used in home                                                                   
+237 DRYRFUEL        Num    8          Fuel used by clothes dryer                                                                   
+238 DRYRUSE         Num    8          Frequency clothes dryer used                                                                 
+534 DUCTS           Num    8          Ducts for space heating and air conditioning                                                 
+250 DVD1            Num    8          DVD player connected to the most-used TV                                                     
+266 DVD2            Num    8          DVD player connected to the second most-used TV                                              
+282 DVD3            Num    8          DVD player connected to the third most-used TV                                               
+245 DVR1            Num    8          Separate DVR connected to the most-used TV                                                   
+261 DVR2            Num    8          Separate DVR connected to the second most-used TV                                            
+277 DVR3            Num    8          Separate DVR connected to the third most-used TV                                             
+171 DWASHUSE        Num    8          Frequency dishwasher used                                                                    
+940 DesignDBT1      Num    8          Dry bulb design temperature (F) expected to be exceeded 1% of the time                       
+939 DesignDBT99     Num    8          Dry bulb design temperature (F) expected to be exceeded 99% of the time                      
+759 EDUCATION       Num    8          Highest education completed by householder                                                   
+664 ELCOOL          Num    3          Electricity used for air conditioning                                                        
+663 ELECAUX         Num    3          Electricity used for secondary space heating                                                 
+326 ELECCHRG        Num    8          Charging patterns for rechargeable electronic devices                                        
+325 ELECDEV         Num    8          Number of rechargeable electronic devices used                                               
+666 ELFOOD          Num    3          Electricity used for cooking                                                                 
+667 ELOTHER         Num    3          Electricity used, other than for space heating, water heating, air conditioning, or cooking  
+662 ELWARM          Num    3          Electricity used for space heating                                                           
+665 ELWATER         Num    3          Electricity used for water heating                                                           
+                                                           The SAS System                        09:12 Monday, November 13, 2017   5
+
+                                                       The CONTENTS Procedure
+
+                                            Alphabetic List of Variables and Attributes
+ 
+  # Variable        Type Len Informat Label
+
+755 EMPLOYHH        Num    8          Employment status of householder                                                             
+461 EQMAMT          Num    8          Portion of space heating provided by main space heating equipment                            
+                                      (for homes with main and secondary heating only)                                             
+433 EQUIPAGE        Num    8          Age of main space heating equipment                                                          
+438 EQUIPAUX        Num    8          Secondary space heating equipment used                                                       
+430 EQUIPM          Num    8          Type of main space heating equpiment used                                                    
+428 EQUIPNOHEAT     Num    8          Unused space heating equipment type                                                          
+232 ESCWASH         Num    8          Energy Star clothes washer                                                                   
+173 ESDISHW         Num    8          Energy Star dishwasher                                                                       
+141 ESFRIG          Num    8          Energy Star most-used refrigerator                                                           
+150 ESFRIG2         Num    8          Energy Star second most-used refrigerator                                                    
+156 ESFRIG3         Num    8          Energy Star third most-used refrigerator                                                     
+553 ESWWAC          Num    8          Energy Star most-used window/wall air conditioning unit                                      
+313 FAX             Num    8          Separate fax machine used                                                                    
+ 50 FINATTRMS       Num    8          Number of finished rooms in the attic                                                        
+ 40 FINBASERMS      Num    8          Number of finished rooms in the basement                                                     
+679 FOILAUX         Num    3          Fuel oil used for secondary space heating                                                    
+791 FOODASST        Num    8          Household receives food stamps or WIC assistance                                             
+681 FOOTHER         Num    3          Fuel oil used, other than for space heating or water heating                                 
+711 FOPAY           Num    8          Who pays for fuel oil                                                                        
+678 FOWARM          Num    3          Fuel oil used for space heating                                                              
+680 FOWATER         Num    3          Fuel oil used for water heating                                                              
+454 FPFUEL          Num    8          Fuel used by fireplace for secondary space heating                                           
+161 FREEZER         Num    8          Defrosting type for most-used freezer                                                        
+168 FREEZER2        Num    8          Defrosting type for second most-used freezer                                                 
+133 FUELFOOD        Num    8          Most-used cooking fuel                                                                       
+507 FUELH2O         Num    8          Fuel used by main water heater                                                               
+515 FUELH2O2        Num    8          Fuel used by secondary water heater                                                          
+431 FUELHEAT        Num    8          Main space heating fuel                                                                      
+429 FUELNOHEAT      Num    8          Fuel for unused space heating equipment                                                      
+593 FUELPOOL        Num    8          Fuel used for heating swimming pool                                                          
+595 FUELTUB         Num    8          Fuel used for heating hot tub                                                                
+441 FURNFUEL        Num    8          Fuel used by warm-air furnace for secondary space heating                                    
+882 GALLONFO        Num    8 BEST10.  Total Fuel Oil usage, in gallons, 2009                                                       
+885 GALLONFOOTH     Num    8          Fuel Oil usage for other purposes (all end-uses except SPH and WTH), in gallons, 2009        
+883 GALLONFOSPH     Num    8          Fuel Oil usage for space heating, in gallons, 2009                                           
+884 GALLONFOWTH     Num    8          Fuel Oil usage for water heating, in gallons, 2009                                           
+894 GALLONKER       Num    8 BEST10.  Total Kerosene usage, in gallons, 2009                                                       
+897 GALLONKEROTH    Num    8 BEST10.  Kerosene usage for other purposes (all end-uses except SPH and WTH), in gallons, 2009        
+895 GALLONKERSPH    Num    8 BEST10.  Kerosene usage for space heating, in gallons, 2009                                           
+896 GALLONKERWTH    Num    8 BEST10.  Kerosene usage for water heating, in gallons, 2009                                           
+870 GALLONLP        Num    8 BEST10.  Total LPG/Propane usage, in gallons, 2009                                                    
+873 GALLONLPOTH     Num    8          LPG/Propane usage for other purposes (all end-uses except SPH and WTH), in gallons, 2009     
+871 GALLONLPSPH     Num    8          LPG/Propane usage for space heating, in gallons, 2009                                        
+872 GALLONLPWTH     Num    8          LPG/Propane usage for water heating, in gallons, 2009                                        
+ 62 GARGCOOL        Num    8          Cooling used in attached garage                                                              
+ 61 GARGHEAT        Num    8          Heating used in attached garage                                                              
+ 60 GARGLOC         Num    8          Location of attached garage                                                                  
+935 GND_HDD65       Num    8          Heating degree days of ground temperature in 2009, base temperature 65F                      
+938 GWT             Num    8          Annual average ground water temperature (F) for 2009                                         
+506 H2OTYPE1        Num    8          Type of main water heater                                                                    
+514 H2OTYPE2        Num    8          Type of secondary water heater                                                               
+                                                           The SAS System                        09:12 Monday, November 13, 2017   6
+
+                                                       The CONTENTS Procedure
+
+                                            Alphabetic List of Variables and Attributes
+ 
+  # Variable        Type Len Informat Label
+
+775 HBUSNESS        Num    8          Home-based business or service                                                               
+933 HDD50           Num    8          Heating degree days in 2009, base temperature 50F                                            
+  7 HDD65           Num    8          Heating degree days in 2009, base temperature 65F                                            
+  9 HDD30YR         Num    8          Heating degree days, 30-year average 1981-2010, base 65F                                     
+426 HEATHOME        Num    8          Space heating equipment used                                                                 
+437 HEATOTH         Num    8          Main space heating equipment heats other homes, business, or farm                            
+462 HEATROOM        Num    8          Number of rooms heated                                                                       
+627 HELPAUD         Num    8          Assistance for home energy audit                                                             
+628 HELPAUDY        Num    8          Year of assistance for home energy audit                                                     
+540 HELPCAC         Num    8          Assistance for maintaining or replacing central air conditioner                              
+541 HELPCACY        Num    8          Year of assistance for central air conditioner                                               
+606 HELPCFL         Num    8          Assistance for energy-efficient light bulbs                                                  
+607 HELPCFLY        Num    8          Year of assistance for energy-efficient light bulbs                                          
+234 HELPCW          Num    8          Assistance for replacing clothes washer                                                      
+235 HELPCWY         Num    8          Year of assistance for the clothes washer                                                    
+175 HELPDW          Num    8          Assistance for replacing dishwasher                                                          
+176 HELPDWY         Num    8          Year of assistance for dishwasher                                                            
+143 HELPFRI         Num    8          Assistance for replacing most-used refrigerator                                              
+144 HELPFRIY        Num    8          Year of assistance for most-used refrigerator                                                
+164 HELPFRZ         Num    8          Assistance for replacing most-used freezer                                                   
+165 HELPFRZY        Num    8          Year of assistance for most-used freezer                                                     
+435 HELPHT          Num    8          Assistance for replacing or maintaining main space heating equipment                         
+436 HELPHTY         Num    8          Year of assistance for main space heating equipment                                          
+618 HELPINS         Num    8          Assistance for added insulation                                                              
+619 HELPINSY        Num    8          Year of assistance for added insulation                                                      
+512 HELPWH          Num    8          Assistance for purchasing the water heater blanket                                           
+513 HELPWHY         Num    8          Year of the assistance for purchasing the water heater blanket                               
+613 HELPWIN         Num    8          Assistance for window replacement                                                            
+614 HELPWINY        Num    8          Year of assistance for window replacement                                                    
+623 HELPWS          Num    8          Assistance for caulking or weather stripping                                                 
+624 HELPWSY         Num    8          Year of assistance for caulking or weather stripping                                         
+555 HELPWWAC        Num    8          Assistance for most-used window/wall air conditioning unit                                   
+556 HELPWWACY       Num    8          Year of assistance for most-used window/wall air conditioning unit                           
+761 HHAGE           Num    8          Age of householder                                                                           
+754 HHSEX           Num    8          Sex of householder                                                                           
+589 HIGHCEIL        Num    8          High ceilings                                                                                
+450 HSFUEL          Num    8          Fuel used by heating stove for secondary space heating                                       
+789 HUPROJ          Num    8          Housing unit in public housing authority                                                     
+758 Householder_    Num    8          Householder's Race                                                                           
+    Race                                                                                                                           
+139 ICE             Num    8          Through-the-door ice and water on most-used refrigerator                                     
+932 IECC_Climate_   Char  15          International Energy Conservation Code (IECC) climate zone (collapsed for public file)       
+    Pub                                                                                                                            
+309 INCABLE         Num    8          Cable internet access                                                                        
+307 INDIALUP        Num    8          Dial-up internet access                                                                      
+308 INDSL           Num    8          DSL or Fiber Optic internet access                                                           
+310 INSATEL         Num    8          Satellite internet access                                                                    
+605 INSTLCFL        Num    8          Energy-efficient bulbs installed by this household                                           
+616 INSTLINS        Num    8          Insulation added by this household                                                           
+621 INSTLWS         Num    8          Caulking or weather stripping by this household                                              
+306 INTERNET        Num    8          Internet access at home                                                                      
+784 INVESTMT        Num    8          Household members received investment income in 2009                                         
+                                                           The SAS System                        09:12 Monday, November 13, 2017   7
+
+                                                       The CONTENTS Procedure
+
+                                            Alphabetic List of Variables and Attributes
+ 
+  # Variable        Type Len Informat Label
+
+311 INWIRELESS      Num    8          Wireless internet in home                                                                    
+920 KAVALEL         Num    8 BEST10.  Electricity end uses included in Energy Supplier Survey billing data                         
+923 KAVALNG         Num    8 BEST10.  Natural gas end uses included in Energy Supplier Survey billing data                         
+683 KEROAUX         Num    3          Kerosene used for secondary space heating                                                    
+717 KEROCASH        Num    8          Kerosene purchased 'cash and carry'                                                          
+716 KERODEL         Num    8          Kerosene delivered to home                                                                   
+753 KFUELOT         Num    8          Household fuel bills include fuel used for non-household purposes                            
+ 15 KOWNRENT        Num    8          Housing unit is owned, rented, or occupied without payment of rent                           
+685 KROTHER         Num    3          Kerosene used, other than for space heating or water heating                                 
+682 KRWARM          Num    3          Kerosene used for space heating                                                              
+684 KRWATER         Num    3          Kerosene used for water heating                                                              
+840 KWH             Num    8 BEST10.  Total Site Electricity usage, in kilowatt-hours, 2009                                        
+842 KWHCOL          Num    8          Electricity usage for air-conditioning, central                                              
+                                      and window/wall (room), in kilowatt-hours, 2009                                              
+845 KWHOTH          Num    8          Electricity usage for other purposes (all end-uses except                                    
+                                      SPH, COL, WTH, and RFG), in kilowatt-hours, 2009                                             
+844 KWHRFG          Num    8          Electricity usage for refrigerators, in kilowatt-hours, 2009                                 
+841 KWHSPH          Num    8          Electricity usage for space heating, in kilowatt-hours, 2009                                 
+843 KWHWTH          Num    8          Electricity usage for water heating, in kilowatt-hours, 2009                                 
+600 LGT1            Num    8          Number of lights turned on 1 to 4 hours during a typical summer day                          
+598 LGT4            Num    8          Number of lights turned on 4 to 12 hours during a typical summer day                         
+596 LGT12           Num    8          Number of lights turned on 12 or more hours during a typical summer day                      
+597 LGT12EE         Num    8          Number of energy-efficient bulbs for lights turned                                           
+                                      on 12 or more hours during a typical summer day                                              
+601 LGT1EE          Num    8          Number of energy-efficient bulbs for lights turned                                           
+                                      on 1 to 4 hours during a typical summer day                                                  
+599 LGT4EE          Num    8          Number of energy-efficient bulbs for lights turned                                           
+                                      on 4 to 12 hours during a typical summer day                                                 
+603 LGTOEE          Num    8          Number of energy-efficient bulbs for outdoor lights left on all night                        
+ 22 LOOKLIKE        Num    8          Converted 2-4 unit apartment building more like single family house or apartment building    
+676 LPCOOK          Num    3          Propane used for cooking                                                                     
+674 LPGAUX          Num    3          Propane used for secondary space heating                                                     
+715 LPGDELV         Num    8          Propane delivered                                                                            
+713 LPGPAY          Num    8          Who pays for propane                                                                         
+677 LPOTHER         Num    3          Propane used, other than for space heating, water heating, or cooking                        
+673 LPWARM          Num    3          Propane used for space heating                                                               
+675 LPWATER         Num    3          Propane used for water heating                                                               
+537 MAINTAC         Num    8          Routine service or maintenance performed on central air conditioner                          
+432 MAINTHT         Num    8          Routine service or maintenance performed on main space heating equipment                     
+ 13 METROMICRO      Char   5 $5.      Housing unit in Census Metropolitan Statistical Area or Micropolitan Statistical Area        
+124 MICRO           Num    8          Microwave oven used                                                                          
+471 MOISTURE        Num    8          Humidifier used                                                                              
+786 MONEYPY         Num    8          2009 gross household income                                                                  
+292 MONITOR1        Num    8          Monitor type of most-used computer                                                           
+297 MONITOR2        Num    8          Monitor type of second most-used computer                                                    
+302 MONITOR3        Num    8          Monitor type of third most-used computer                                                     
+148 MONRFRI2        Num    8          Number of months second most-used refrigerator used in 2009                                  
+154 MONRFRI3        Num    8          Number of months third most-used refrigerator used in 2009                                   
+ 28 NAPTFLRS        Num    8          Number of floors in an apartment (Number of levels in housing unit that is an apartment)     
+ 32 NCOMBATH        Num    8          Number of full bathrooms                                                                     
+612 NEWGLASS        Num    8          Windows replaced by this household                                                           
+604 NGASLIGHT       Num    8          Number of outdoor lights left on all night that use natural gas                              
+                                                           The SAS System                        09:12 Monday, November 13, 2017   8
+
+                                                       The CONTENTS Procedure
+
+                                            Alphabetic List of Variables and Attributes
+ 
+  # Variable        Type Len Informat Label
+
+455 NGFPFLUE        Num    8          Flue on gas fireplace                                                                        
+ 33 NHAFBATH        Num    8          Number of half bathrooms                                                                     
+760 NHSLDMEM        Num    8          Number of household members                                                                  
+719 NKRGALNC        Num    8          Gallons per kerosene 'cash and carry' purchase                                               
+320 NOCORD          Num    8          Cordless telephone used                                                                      
+718 NOCRCASH        Num    8          Number of kerosene 'cash and carry' purchases                                                
+561 NOTMOIST        Num    8          Dehumidifier used                                                                            
+602 NOUTLGTNT       Num    8          Number of outdoor lights left on all night                                                   
+ 24 NUMAPTS         Num    8          Number of apartment units in a 5+ unit apartment building                                    
+551 NUMBERAC        Num    8          Number of window/wall air conditioning units used                                            
+558 NUMCFAN         Num    8          Number of ceiling fans used                                                                  
+725 NUMCORDS        Num    8          Cords of wood used in 2009 (if more than 5)                                                  
+ 23 NUMFLRS         Num    8          Number of floors in a 5+ unit apartment building                                             
+158 NUMFREEZ        Num    8          Number of separate freezers used                                                             
+135 NUMFRIG         Num    8          Number of refrigerators used                                                                 
+505 NUMH2OHTRS      Num    8          Number of storage water heaters                                                              
+504 NUMH2ONOTNK     Num    8          Number of tankless water heaters                                                             
+132 NUMMEAL         Num    8          Frequency hot meals are cooked                                                               
+290 NUMPC           Num    8          Number of computers used                                                                     
+464 NUMTHERM        Num    8          Number of thermostats                                                                        
+  6 NWEIGHT         Num    8          Final sample weight                                                                          
+937 OA_LAT          Num    8          Annual value for latent heat infiltration from outside air into the housing unit             
+ 19 OCCUPYYRANGE    Num    8          Year range when household moved in                                                           
+698 ONSITE          Num    8          Renewable on-site system used                                                                
+699 ONSITEGRID      Num    8          Renewable on-site system connected to the grid                                               
+ 21 ORIG1FAM        Num    8          Converted 2-4 unit apartment building was originally a single-family house                   
+697 OTHCOOK         Num    3          Other fuel used for cooking                                                                  
+695 OTHERAUX        Num    3          Other fuel used for secondary space heating                                                  
+252 OTHERSTB1       Num    8          Other set-top box connected to the most-used TV                                              
+268 OTHERSTB2       Num    8          Other set-top box connected to the second most-used TV                                       
+284 OTHERSTB3       Num    8          Other set-top box connected to the third most-used TV                                        
+705 OTHERWAYEL      Num    8          Follow up for 'other' payment of electricity                                                 
+712 OTHERWAYFO      Num    8          Follow up for 'other' payment of fuel oil                                                    
+714 OTHERWAYLPG     Num    8          Follow up for 'other' payment of propane                                                     
+710 OTHERWAYNG      Num    8          Follow up for 'other' payment of natural gas                                                 
+ 34 OTHROOMS        Num    8          Number of rooms other than bedroom(s) and bathroom(s)                                        
+694 OTHWARM         Num    8          Other fuel used for space heating                                                            
+696 OTHWATER        Num    8          Other fuel used for water heating                                                            
+779 OTHWORK         Num    8          Any activities that use an unusual amount of energy                                          
+127 OUTGRILL        Num    8          Outdoor grill used                                                                           
+128 OUTGRILLFUEL    Num    8          Fuel used by outdoor grill                                                                   
+ 65 OUTLET          Num    8          Outlet within 20 feet of vehicle parking                                                     
+119 OVEN            Num    8          Number of separate ovens                                                                     
+122 OVENCLN         Num    8          Self-cleaning oven                                                                           
+120 OVENFUEL        Num    8          Fuel used by separate oven                                                                   
+121 OVENUSE         Num    8          Frequency of oven use                                                                        
+294 PCONOFF1        Num    8          Turn off most-used computer when not in use                                                  
+299 PCONOFF2        Num    8          Turn off second most-used computer when not in use                                           
+304 PCONOFF3        Num    8          Turn off third most-used computer when not in use                                            
+312 PCPRINT         Num    8          Number of printers used                                                                      
+295 PCSLEEP1        Num    8          Sleep or standby mode for most-used computer when not in use                                 
+300 PCSLEEP2        Num    8          Sleep or standby mode for second most-used computer when not in use                          
+                                                           The SAS System                        09:12 Monday, November 13, 2017   9
+
+                                                       The CONTENTS Procedure
+
+                                            Alphabetic List of Variables and Attributes
+ 
+  # Variable        Type Len Informat Label
+
+305 PCSLEEP3        Num    8          Sleep or standby mode for third most-used computer when not in use                           
+ 56 PCTATTCL        Num    8          Portion of the attic which is cooled                                                         
+ 53 PCTATTHT        Num    8          Portion of the attic which is heated                                                         
+ 46 PCTBSTCL        Num    8          Portion of the basement which is cooled                                                      
+ 43 PCTBSTHT        Num    8          Portion of the basement which is heated                                                      
+291 PCTYPE1         Num    8          Most-used computer - desktop or laptop                                                       
+296 PCTYPE2         Num    8          Second most-used computer - desktop or laptop                                                
+301 PCTYPE3         Num    8          Third most-used computer - desktop or laptop                                                 
+703 PELAC           Num    8          Who pays for electricity used for air conditioning                                           
+702 PELCOOK         Num    8          Who pays for electricity used for cooking                                                    
+700 PELHEAT         Num    8          Who pays for electricity used for space heating                                              
+701 PELHOTWA        Num    8          Who pays for electricity used for water heating                                              
+704 PELLIGHT        Num    8          Who pays for electricity used for lighting and other appliances                              
+921 PERIODEL        Num    8 BEST10.  Number of days covered by Energy Supplier Survey electricity billing                         
+                                      data and used to calculate annual consumption and expenditures                               
+928 PERIODFO        Num    8 BEST12.  Number of days covered by Energy Supplier Survey fuel oil billing                            
+                                      data and used to calculate annual consumption and expenditures                               
+930 PERIODKR        Num    8 BEST12.  Number of days covered by Energy Supplier Survey kerosene billing                            
+                                      data and used to calculate annual consumption and expenditures                               
+926 PERIODLP        Num    8 BEST12.  Number of days covered by Energy Supplier Survey LPG/propane billing                         
+                                      data and used to calculate annual consumption and expenditures                               
+924 PERIODNG        Num    8 BEST10.  Number of days covered by Energy Supplier Survey natural gas billing                         
+                                      data and used to calculate annual consumption and expenditures                               
+444 PERMELEC        Num    3          Built-in electric units used for secondary space heating                                     
+706 PGASHEAT        Num    8          Who pays for natural gas for space heating                                                   
+707 PGASHTWA        Num    8          Who pays for natural gas for water heating                                                   
+446 PIPEFUEL        Num    8          Fuel used by pipeless furnace for secondary space heating                                    
+445 PIPELESS        Num    3          Pipeless furnace used for secondary space heating                                            
+247 PLAYSTA1        Num    8          Video game console connected to the most-used TV                                             
+263 PLAYSTA2        Num    8          Video game console connected to the second most-used TV                                      
+279 PLAYSTA3        Num    8          Video game console connected to the third most-used TV                                       
+592 POOL            Num    8          Heated swimming pool                                                                         
+787 POVERTY100      Num    8          Household income at or below 100% of poverty line                                            
+788 POVERTY150      Num    8          Household income at or below 150% of poverty line                                            
+ 58 PRKGPLC1        Num    8          Attached garage                                                                              
+ 63 PRKGPLC2        Num    8          Detached garage or carport                                                                   
+465 PROTHERM        Num    8          Programmable main thermostat                                                                 
+545 PROTHERMAC      Num    8          Programmable thermostat for central air conditioner                                          
+708 PUGCOOK         Num    8          Who pays for natural gas for cooking                                                         
+709 PUGOTH          Num    8          Who pays for natural gas for other uses                                                      
+443 RADFUEL         Num    8          Fuel used by hot water system for secondary space heating                                    
+457 RANGE           Num    3          Cooking stove used for secondary space heating                                               
+594 RECBATH         Num    8          Hot tub used                                                                                 
+138 REFRIGT1        Num    8          Defrosting type of most-used refrigerator                                                    
+147 REFRIGT2        Num    8          Defrosting type of second most-used refrigerator                                             
+153 REFRIGT3        Num    8          Defrosting type of third most-used refrigerator                                              
+  2 REGIONC         Num    8          Census Region                                                                                
+790 RENTHELP        Num    8          Lower rent due to Federal, State, or Local housing program                                   
+539 REPLCCAC        Num    8          Central air conditioner replaced by this household in the last 4 years                       
+233 REPLCCW         Num    8          Clothes washer replaced by this household in the last 4 years                                
+174 REPLCDW         Num    8          Dishwasher replaced by this household in the last 4 years                                    
+142 REPLCFRI        Num    8          Most-used refrigerator replaced by this household in the last 4 years                        
+                                                           The SAS System                        09:12 Monday, November 13, 2017  10
+
+                                                       The CONTENTS Procedure
+
+                                            Alphabetic List of Variables and Attributes
+ 
+  # Variable        Type Len Informat Label
+
+163 REPLCFRZ        Num    8          Most-used freezer replaced by this household in the last 4 years                             
+434 REPLCHT         Num    8          Main space heating equipment replaced by this household in the last 4 years                  
+554 REPLCWWAC       Num    8          Most-used window/wall air conditioning unit replaced by this household in the last 4 years   
+  4 REPORTABLE_     Num    8          Reportable states and groups of states                                                       
+    DOMAIN                                                                                                                         
+781 RETIREPY        Num    8          Household members received retirement income in 2009                                         
+439 REVERSE         Num    3          Heat pump used for secondary space heating                                                   
+785 RGLRPAY         Num    8          Household members received other regular income in 2009                                      
+448 RMHTFUEL        Num    8          Fuel used by built-in electric units for secondary space heating                             
+458 RNGFUEL         Num    8          Fuel used by cooking stove for secondary space heating                                       
+230 RNSETEMP        Num    8          Water temperature used for clothes washer rinse cycle                                        
+ 26 ROOFTYPE        Num    8          Major roofing material                                                                       
+447 ROOMHEAT        Num    3          Built-in room heaters used for secondary space hearing                                       
+922 SCALEEL         Num    8 BEST12.  Whether annualized electricity consumption from Energy                                       
+                                      Supplier Survey billing data was scaled down                                                 
+929 SCALEFO         Num    8 BEST12.  Whether annualized fuel oil consumption from Energy                                          
+                                      Supplier Survey billing data was scaled down                                                 
+931 SCALEKER        Num    8 BEST12.  Whether annualized kerosene consumption from Energy                                          
+                                      Supplier Survey billing data was scaled down                                                 
+927 SCALELP         Num    8 BEST12.  Whether annualized LPG/propane consumption from Energy                                       
+                                      Supplier Survey billing data was scaled down                                                 
+925 SCALENG         Num    8 BEST10.  Whether annualized natural gas consumption from Energy                                       
+                                      Supplier Survey billing data was scaled down                                                 
+757 SDESCENT        Num    8          Householder is Hispanic or Latino                                                            
+157 SEPFREEZ        Num    8          Separate freezer used                                                                        
+ 64 SIZEOFDETACH    Num    8          Size of detached garage or carport                                                           
+ 59 SIZEOFGARAGE    Num    8          Size of attached garage                                                                      
+160 SIZFREEZ        Num    8          Size of most-used freezer                                                                    
+167 SIZFREEZ2       Num    8          Size of second most-used freezer                                                             
+137 SIZRFRI1        Num    8          Size of most-used refrigerator                                                               
+146 SIZRFRI2        Num    8          Size of second most-used refrigerator                                                        
+152 SIZRFRI3        Num    8          Size of third most-used refrigerator                                                         
+608 SLDDRS          Num    8          Sliding glass doors in heated areas                                                          
+691 SOLARAUX        Num    3          Solar used for secondary space heating                                                       
+693 SOLOTHER        Num    3          Solar used, other than for space heating or water heating                                    
+690 SOLWARM         Num    3          Solar used for space heating                                                                 
+692 SOLWATER        Num    3          Solar used for water heating                                                                 
+756 SPOUSE          Num    8          Householder lives with spouse or partner                                                     
+782 SSINCOME        Num    8          Household members received Supplemental Security income in 2009                              
+442 STEAMR          Num    3          Hot water system used for secondary space heating                                            
+319 STEREO          Num    8          Stereo equipment used                                                                        
+130 STGRILA         Num    8          Fuel used by built-in indoor grill                                                           
+ 29 STORIES         Num    8          Number of stories in a single-family home                                                    
+117 STOVE           Num    8          Number of separate cooktops                                                                  
+118 STOVEFUEL       Num    8          Fuel used by most-used separate cooktop                                                      
+115 STOVEN          Num    8          Number of stoves (one appliance with cooktop and an oven)                                    
+116 STOVENFUEL      Num    8          Fuel used by most-used stove                                                                 
+ 27 STUDIO          Num    8          Studio apartment                                                                             
+317 SWAMPCOL        Num    8          Evaporative cooler used                                                                      
+591 SWIMPOOL        Num    8          Swimming pool                                                                                
+778 TELLDAYS        Num    8          Number of telecommuting days per month                                                       
+777 TELLWORK        Num    8          Household member(s) telecommutes or teleworks                                                
+                                                           The SAS System                        09:12 Monday, November 13, 2017  11
+
+                                                       The CONTENTS Procedure
+
+                                            Alphabetic List of Variables and Attributes
+ 
+  # Variable        Type Len Informat Label
+
+469 TEMPGONE        Num    8          Temperature when no on is home during the day (winter)                                       
+549 TEMPGONEAC      Num    8          Temperature when no on is home during the day (summer)                                       
+468 TEMPHOME        Num    8          Temperature when someone is home during the day (winter)                                     
+548 TEMPHOMEAC      Num    8          Temperature when someone is home during the day (summer)                                     
+470 TEMPNITE        Num    8          Temperature at night (winter)                                                                
+550 TEMPNITEAC      Num    8          Temperature at night (summer)                                                                
+463 THERMAIN        Num    8          Thermostat(s) for heating equipment                                                          
+544 THERMAINAC      Num    8          Thermostat for central air conditioner                                                       
+293 TIMEON1         Num    8          Daily usage of most-used computer                                                            
+298 TIMEON2         Num    8          Daily usage of second most-used computer                                                     
+303 TIMEON3         Num    8          Daily usage of third most-used computer                                                      
+131 TOASTER         Num    8          Toaster used                                                                                 
+227 TOPFRONT        Num    8          Top or front loading clothes washer used in home                                             
+129 TOPGRILL        Num    8          Built-in indoor grill used                                                                   
+908 TOTALBTU        Num    8          Total usage, in thousand BTU, 2009                                                           
+910 TOTALBTUCOL     Num    8          Total usage for air conditioning, in thousand BTU, 2009                                      
+913 TOTALBTUOTH     Num    8          Total usage for appliances, electronics, lighting,                                           
+                                      and miscellaneous uses, in thousand BTU, 2009                                                
+912 TOTALBTURFG     Num    8          Total usage for refrigerators, in thousand BTU, 2009                                         
+909 TOTALBTUSPH     Num    8          Total usage for space heating, in thousand BTU, 2009                                         
+911 TOTALBTUWTH     Num    8          Total usage for water heating, in thousand BTU, 2009                                         
+914 TOTALDOL        Num    8          Total cost, in whole dollars, 2009                                                           
+916 TOTALDOLCOL     Num    8          Total cost for air conditioning, in whole dollars, 2009                                      
+919 TOTALDOLOTH     Num    8          Total cost for appliances, electronics, lighting,                                            
+                                      and miscellaneous uses, in whole dollars, 2009                                               
+918 TOTALDOLRFG     Num    8          Total cost for refrigerators, in whole dollars, 2009                                         
+915 TOTALDOLSPH     Num    8          Total cost for space heating, in whole dollars, 2009                                         
+917 TOTALDOLWTH     Num    8          Total cost for water heating, in whole dollars, 2009                                         
+832 TOTCSQFT        Num    8          Total cooled square footage                                                                  
+830 TOTHSQFT        Num    8          Total heated square footage                                                                  
+ 35 TOTROOMS        Num    8          Total number of rooms in the housing unit                                                    
+828 TOTSQFT         Num    8          Total square footage (includes all attached garages,                                         
+                                      all basements, and finished/heated/cooled attics)                                            
+829 TOTSQFT_EN      Num    8          Total square footage (includes heated/cooled garages, all basements,                         
+                                      and finished/heated/cooled attics). Used for EIA data tables.                                
+833 TOTUCSQFT       Num    8          Total uncooled square footage                                                                
+831 TOTUSQFT        Num    8          Total unheated square footage                                                                
+560 TREESHAD        Num    8          Housing unit shaded from sun by large trees                                                  
+251 TVAUDIOSYS1     Num    8          Home theater system connected to the most-used TV                                            
+267 TVAUDIOSYS2     Num    8          Home theater system connected to the second most-used TV                                     
+283 TVAUDIOSYS3     Num    8          Home theater system connected to the third most-used TV                                      
+240 TVCOLOR         Num    8          Number of televisions used                                                                   
+253 TVONWD1         Num    8          Most-used TV usage on weekdays                                                               
+269 TVONWD2         Num    8          Second most-used TV usage on weekdays                                                        
+285 TVONWD3         Num    8          Third most-used TV usage on weekdays                                                         
+254 TVONWDWATCH1    Num    8          Most-used TV weekday usage spent playing video games                                         
+270 TVONWDWATCH2    Num    8          Second most-used TV weekday usage spent playing video games                                  
+286 TVONWDWATCH3    Num    8          Third most-used TV weekday usage spent playing video games                                   
+255 TVONWE1         Num    8          Most-used TV usage on weekends                                                               
+271 TVONWE2         Num    8          Second most-used TV usage on weekends                                                        
+287 TVONWE3         Num    8          Third most-used TV usage on weekends                                                         
+256 TVONWEWATCH1    Num    8          Most-used TV weekend usage spent playing video games                                         
+                                                           The SAS System                        09:12 Monday, November 13, 2017  12
+
+                                                       The CONTENTS Procedure
+
+                                            Alphabetic List of Variables and Attributes
+ 
+  # Variable        Type Len Informat Label
+
+272 TVONWEWATCH2    Num    8          Second most-used TV weekend usage spent playing video games                                  
+288 TVONWEWATCH3    Num    8          Third most-used TV weekend usage spent playing video games                                   
+241 TVSIZE1         Num    8          Size of most-used TV                                                                         
+257 TVSIZE2         Num    8          Size of second most-used TV                                                                  
+273 TVSIZE3         Num    8          Size of third most-used TV size                                                              
+242 TVTYPE1         Num    8          Display type of most-used TV                                                                 
+258 TVTYPE2         Num    8          Display type of second most-used TV                                                          
+274 TVTYPE3         Num    8          Display type of third most-used TV                                                           
+123 TYPECLN         Num    8          Continuous or manual cleaning cycle for most-used oven                                       
+611 TYPEGLASS       Num    8          Type of glass in most windows                                                                
+  5 TYPEHUQ         Num    8          Type of housing unit                                                                         
+ 30 TYPEHUQ4        Num    8          Addition to a mobile home                                                                    
+136 TYPERFR1        Num    8          Door arrangement of most-used refrigerator                                                   
+145 TYPERFR2        Num    8          Door arrangement of second most-used refrigerator                                            
+151 TYPERFR3        Num    8          Door arrangements of third most-used refrigerator                                            
+669 UGASAUX         Num    3          Natural gas used for secondary space heating                                                 
+671 UGCOOK          Num    3          Natural gas used for cooking                                                                 
+672 UGOTH           Num    3          Natural gas used, other than for space heating, water heating, or cooking                    
+668 UGWARM          Num    3          Natural gas used for space heating                                                           
+670 UGWATER         Num    3          Natural gas used for water heating                                                           
+159 UPRTFRZR        Num    8          Type of most-used freezer                                                                    
+166 UPRTFRZR2       Num    8          Type of second most-used freezer                                                             
+ 14 UR              Char   1 $1.      Housing unit classified as urban or rural by Census                                          
+543 USECENAC        Num    8          Frequency central air conditioner used in summer 2009                                        
+559 USECFAN         Num    8          Frequency most-used ceiling fan used in summer 2009                                          
+654 USEEL           Num    3          Electricity is used in home                                                                  
+657 USEFO           Num    3          Fuel oil is used in home                                                                     
+658 USEKERO         Num    3          Kerosene is used in home                                                                     
+656 USELP           Num    3          Propane is used in home                                                                      
+472 USEMOISTURE     Num    8          Number of months humidifier used in 2009                                                     
+655 USENG           Num    3          Natural gas is used in home                                                                  
+456 USENGFP         Num    8          Frequency gas fireplace used                                                                 
+562 USENOTMOIST     Num    8          Number of months dehumidifier used in 2009                                                   
+661 USEOTH          Num    3          Other fuel is used in home                                                                   
+660 USESOLAR        Num    3          Solar is used in home                                                                        
+659 USEWOOD         Num    3          Wood is used in home                                                                         
+557 USEWWAC         Num    8          Frequency most-used window/wall air conditioning unit used in summer 2009                    
+249 VCR1            Num    8          VCR connected to the most-used TV                                                            
+265 VCR2            Num    8          VCR connected to the second most-used TV                                                     
+281 VCR3            Num    8          VCR connected to the third most-used TV                                                      
+ 25 WALLTYPE        Num    8          Major outside wall material                                                                  
+440 WARMAIR         Num    3          Central warm-air furnace used for secondary space heating                                    
+228 WASHLOAD        Num    8          Frequency clothes washer used                                                                
+229 WASHTEMP        Num    8          Water temperature used for clothes washer wash cycle                                         
+723 WDOTHER         Num    8          Type of wood used other than logs, pellets, or scraps                                        
+689 WDOTHUSE        Num    8          Wood used, other than for space heating or water heating                                     
+722 WDPELLET        Num    8          Wood pellets used                                                                            
+721 WDSCRAP         Num    8          Wood scraps used                                                                             
+686 WDWARM          Num    3          Wood used for space heating                                                                  
+688 WDWATER         Num    3          Wood used for water heating                                                                  
+315 WELLPUMP        Num    8          Well water pump used                                                                         
+510 WHEATAGE        Num    8          Main water heater age                                                                        
+                                                           The SAS System                        09:12 Monday, November 13, 2017  13
+
+                                                       The CONTENTS Procedure
+
+                                            Alphabetic List of Variables and Attributes
+ 
+  # Variable        Type Len Informat Label
+
+517 WHEATAGE2       Num    8          Secondary water heater age                                                                   
+511 WHEATBKT        Num    8          Blanket around the main water heater (if storage tank)                                       
+508 WHEATOTH        Num    8          Main water heater is used by more than one housing unit                                      
+509 WHEATSIZ        Num    8          Main water heater size (if storage tank)                                                     
+516 WHEATSIZ2       Num    8          Secondary water heater size (if storage tank)                                                
+610 WINDOWS         Num    8          Number of windows in heated areas                                                            
+724 WOODAMT         Num    8          Cords of wood used in 2009                                                                   
+687 WOODAUX         Num    3          Wood used for secondary space heating                                                        
+449 WOODKILN        Num    3          Heating stove used for secondary space heating                                               
+720 WOODLOGS        Num    8          Wood logs used                                                                               
+780 WORKPAY         Num    8          Household members received employment income in 2009                                         
+936 WSF             Num    8          Weather & shielding factor for the housing unit                                              
+552 WWACAGE         Num    8          Age of most-used window/wall air conditioning unit                                           
+ 17 YEARMADE        Num    8          Year housing unit was built                                                                  
+ 18 YEARMADERANGE   Num    8          Year range when housing unit was built                                                       
+569 ZACOTHERS       Num    8          Imputation flag for ACOTHERS                                                                 
+573 ZACROOMS        Num    8          Imputation flag for ACROOMS                                                                  
+646 ZADQINSUL       Num    8          Imputation flag for ADQINSUL                                                                 
+653 ZAGEAUD         Num    8          Imputation flag for AGEAUD                                                                   
+337 ZAGECDRYER      Num    8          Imputation flag for AGECDRYER                                                                
+571 ZAGECENAC       Num    8          Imputation flag for AGECENAC                                                                 
+333 ZAGECWASH       Num    8          Imputation flag for AGECWASH                                                                 
+225 ZAGEDW          Num    8          Imputation flag for AGEDW                                                                    
+218 ZAGEFRZR        Num    8          Imputation flag for AGEFRZR                                                                  
+222 ZAGEFRZR2       Num    8          Imputation flag for AGEFRZR2                                                                 
+800 ZAGEHHMEMCAT2   Num    8          Imputation flag for AGEHHMEMCAT2                                                             
+801 ZAGEHHMEMCAT3   Num    8          Imputation flag for AGEHHMEMCAT3                                                             
+802 ZAGEHHMEMCAT4   Num    8          Imputation flag for AGEHHMEMCAT4                                                             
+803 ZAGEHHMEMCAT5   Num    8          Imputation flag for AGEHHMEMCAT5                                                             
+804 ZAGEHHMEMCAT6   Num    8          Imputation flag for AGEHHMEMCAT6                                                             
+805 ZAGEHHMEMCAT7   Num    8          Imputation flag for AGEHHMEMCAT7                                                             
+806 ZAGEHHMEMCAT8   Num    8          Imputation flag for AGEHHMEMCAT8                                                             
+807 ZAGEHHMEMCAT9   Num    8          Imputation flag for AGEHHMEMCAT9                                                             
+808 ZAGEHHMEMCAT10  Num    8          Imputation flag for AGEHHMEMCAT10                                                            
+809 ZAGEHHMEMCAT11  Num    8          Imputation flag for AGEHHMEMCAT11                                                            
+810 ZAGEHHMEMCAT12  Num    8          Imputation flag for AGEHHMEMCAT12                                                            
+811 ZAGEHHMEMCAT13  Num    8          Imputation flag for AGEHHMEMCAT13                                                            
+812 ZAGEHHMEMCAT14  Num    8          Imputation flag for AGEHHMEMCAT14                                                            
+648 ZAGEINS         Num    8          Imputation flag for AGEINS                                                                   
+202 ZAGERFRI1       Num    8          Imputation flag for AGERFRI1                                                                 
+207 ZAGERFRI2       Num    8          Imputation flag for AGERFRI2                                                                 
+212 ZAGERFRI3       Num    8          Imputation flag for AGERFRI3                                                                 
+651 ZAGEWS          Num    8          Imputation flag for AGEWS                                                                    
+563 ZAIRCOND        Num    8          Imputation flag for AIRCOND                                                                  
+187 ZAMTMICRO       Num    8          Imputation flag for AMTMICRO                                                                 
+419 ZANSMACH        Num    8          Imputation flag for ANSMACH                                                                  
+416 ZAQUARIUM       Num    8          Imputation flag for AQUARIUM                                                                 
+814 ZATHOME         Num    8          Imputation flag for ATHOME                                                                   
+106 ZATTCCL2        Num    8          Imputation flag for ATTCCL2                                                                  
+104 ZATTCCOOL       Num    8          Imputation flag for ATTCCOOL                                                                 
+101 ZATTCHEAT       Num    8          Imputation flag for ATTCHEAT                                                                 
+102 ZATTCHT2        Num    8          Imputation flag for ATTCHT2                                                                  
+                                                           The SAS System                        09:12 Monday, November 13, 2017  14
+
+                                                       The CONTENTS Procedure
+
+                                            Alphabetic List of Variables and Attributes
+ 
+  # Variable        Type Len Informat Label
+
+ 98 ZATTIC          Num    8          Imputation flag for ATTIC                                                                    
+ 99 ZATTICFIN       Num    8          Imputation flag for ATTICFIN                                                                 
+107 ZATTICUSE       Num    8          Imputation flag for ATTICUSE                                                                 
+652 ZAUDIT          Num    8          Imputation flag for AUDIT                                                                    
+577 ZAUTOCOOLDAY    Num    8          Imputation flag for AUTOCOOLDAY                                                              
+576 ZAUTOCOOLNITE   Num    8          Imputation flag for AUTOCOOLNITE                                                             
+498 ZAUTOHEATDAY    Num    8          Imputation flag for AUTOHEATDAY                                                              
+497 ZAUTOHEATNITE   Num    8          Imputation flag for AUTOHEATNITE                                                             
+ 95 ZBASECL2        Num    8          Imputation flag for BASECL2                                                                  
+ 94 ZBASECOOL       Num    8          Imputation flag for BASECOOL                                                                 
+ 89 ZBASEFIN        Num    8          Imputation flag for BASEFIN                                                                  
+ 91 ZBASEHEAT       Num    8          Imputation flag for BASEHEAT                                                                 
+ 92 ZBASEHT2        Num    8          Imputation flag for BASEHT2                                                                  
+ 97 ZBASEUSE        Num    8          Imputation flag for BASEUSE                                                                  
+421 ZBATCHRG        Num    8          Imputation flag for BATCHRG                                                                  
+420 ZBATTOOLS       Num    8          Imputation flag for BATTOOLS                                                                 
+ 82 ZBEDROOMS       Num    8          Imputation flag for BEDROOMS                                                                 
+341 ZCABLESAT1      Num    8          Imputation flag for CABLESAT1                                                                
+357 ZCABLESAT2      Num    8          Imputation flag for CABLESAT2                                                                
+373 ZCABLESAT3      Num    8          Imputation flag for CABLESAT3                                                                
+821 ZCASHBEN        Num    8          Imputation flag for CASHBEN                                                                  
+630 ZCATHCEIL       Num    8          Imputation flag for CATHCEIL                                                                 
+ 86 ZCELLAR         Num    8          Imputation flag for CELLAR                                                                   
+568 ZCENACHP        Num    8          Imputation flag for CENACHP                                                                  
+425 ZCHRGPLGE       Num    8          Imputation flag for CHRGPLGE                                                                 
+422 ZCHRGPLGT       Num    8          Imputation flag for CHRGPLGT                                                                 
+196 ZCOFFEE         Num    8          Imputation flag for COFFEE                                                                   
+342 ZCOMBODVR1      Num    8          Imputation flag for COMBODVR1                                                                
+358 ZCOMBODVR2      Num    8          Imputation flag for COMBODVR2                                                                
+374 ZCOMBODVR3      Num    8          Imputation flag for COMBODVR3                                                                
+346 ZCOMBOVCRDVD1   Num    8          Imputation flag for COMBOVCRDVD1                                                             
+362 ZCOMBOVCRDVD2   Num    8          Imputation flag for COMBOVCRDVD2                                                             
+378 ZCOMBOVCRDVD3   Num    8          Imputation flag for COMBOVCRDVD3                                                             
+387 ZCOMPUTER       Num    8          Imputation flag for COMPUTER                                                                 
+ 88 ZCONCRETE       Num    8          Imputation flag for CONCRETE                                                                 
+ 67 ZCONDCOOP       Num    8          Imputation flag for CONDCOOP                                                                 
+ 71 ZCONVERSION     Num    8          Imputation flag for CONVERSION                                                               
+566 ZCOOLTYPE       Num    8          Imputation flag for COOLTYPE                                                                 
+565 ZCOOLTYPENOAC   Num    8          Imputation flag for COOLTYPENOAC                                                             
+412 ZCOPIER         Num    8          Imputation flag for COPIER                                                                   
+ 87 ZCRAWL          Num    8          Imputation flag for CRAWL                                                                    
+328 ZCWASHER        Num    8          Imputation flag for CWASHER                                                                  
+188 ZDEFROST        Num    8          Imputation flag for DEFROST                                                                  
+491 ZDIFFUEL        Num    8          Imputation flag for DIFFUEL                                                                  
+344 ZDIGITSTB1      Num    8          Imputation flag for DIGITSTB1                                                                
+360 ZDIGITSTB2      Num    8          Imputation flag for DIGITSTB2                                                                
+376 ZDIGITSTB3      Num    8          Imputation flag for DIGITSTB3                                                                
+414 ZDIPSTICK       Num    8          Imputation flag for DIPSTICK                                                                 
+223 ZDISHWASH       Num    8          Imputation flag for DISHWASH                                                                 
+564 ZDNTAC          Num    8          Imputation flag for DNTAC                                                                    
+474 ZDNTHEAT        Num    8          Imputation flag for DNTHEAT                                                                  
+642 ZDOOR1SUM       Num    8          Imputation flag for DOOR1SUM                                                                 
+                                                           The SAS System                        09:12 Monday, November 13, 2017  15
+
+                                                       The CONTENTS Procedure
+
+                                            Alphabetic List of Variables and Attributes
+ 
+  # Variable        Type Len Informat Label
+
+649 ZDRAFTY         Num    8          Imputation flag for DRAFTY                                                                   
+334 ZDRYER          Num    8          Imputation flag for DRYER                                                                    
+335 ZDRYRFUEL       Num    8          Imputation flag for DRYRFUEL                                                                 
+336 ZDRYRUSE        Num    8          Imputation flag for DRYRUSE                                                                  
+567 ZDUCTS          Num    8          Imputation flag for DUCTS                                                                    
+348 ZDVD1           Num    8          Imputation flag for DVD1                                                                     
+364 ZDVD2           Num    8          Imputation flag for DVD2                                                                     
+380 ZDVD3           Num    8          Imputation flag for DVD3                                                                     
+343 ZDVR1           Num    8          Imputation flag for DVR1                                                                     
+359 ZDVR2           Num    8          Imputation flag for DVR2                                                                     
+375 ZDVR3           Num    8          Imputation flag for DVR3                                                                     
+224 ZDWASHUSE       Num    8          Imputation flag for DWASHUSE                                                                 
+798 ZEDUCATION      Num    8          Imputation flag for EDUCATION                                                                
+424 ZELECCHRG       Num    8          Imputation flag for ELECCHRG                                                                 
+423 ZELECDEV        Num    8          Imputation flag for ELECDEV                                                                  
+794 ZEMPLOYHH       Num    8          Imputation flag for EMPLOYHH                                                                 
+492 ZEQMAMT         Num    8          Imputation flag for EQMAMT                                                                   
+480 ZEQUIPAGE       Num    8          Imputation flag for EQUIPAGE                                                                 
+477 ZEQUIPM         Num    8          Imputation flag for EQUIPM                                                                   
+475 ZEQUIPNOHEAT    Num    8          Imputation flag for EQUIPNOHEAT                                                              
+411 ZFAX            Num    8          Imputation flag for FAX                                                                      
+100 ZFINATTRMS      Num    8          Imputation flag for FINATTRMS                                                                
+ 90 ZFINBASERMS     Num    8          Imputation flag for FINBASERMS                                                               
+827 ZFOODASST       Num    8          Imputation flag for FOODASST                                                                 
+739 ZFOPAY          Num    8          Imputation flag for FOPAY                                                                    
+487 ZFPFUEL         Num    8          Imputation flag for FPFUEL                                                                   
+217 ZFREEZER        Num    8          Imputation flag for FREEZER                                                                  
+221 ZFREEZER2       Num    8          Imputation flag for FREEZER2                                                                 
+195 ZFUELFOOD       Num    8          Imputation flag for FUELFOOD                                                                 
+521 ZFUELH2O        Num    8          Imputation flag for FUELH2O                                                                  
+527 ZFUELH2O2       Num    8          Imputation flag for FUELH2O2                                                                 
+478 ZFUELHEAT       Num    8          Imputation flag for FUELHEAT                                                                 
+476 ZFUELNOHEAT     Num    8          Imputation flag for FUELNOHEAT                                                               
+633 ZFUELPOOL       Num    8          Imputation flag for FUELPOOL                                                                 
+635 ZFUELTUB        Num    8          Imputation flag for FUELTUB                                                                  
+482 ZFURNFUEL       Num    8          Imputation flag for FURNFUEL                                                                 
+112 ZGARGCOOL       Num    8          Imputation flag for GARGCOOL                                                                 
+111 ZGARGHEAT       Num    8          Imputation flag for GARGHEAT                                                                 
+110 ZGARGLOC        Num    8          Imputation flag for GARGLOC                                                                  
+520 ZH2OTYPE1       Num    8          Imputation flag for H2OTYPE1                                                                 
+526 ZH2OTYPE2       Num    8          Imputation flag for H2OTYPE2                                                                 
+813 ZHBUSNESS       Num    8          Imputation flag for HBUSNESS                                                                 
+473 ZHEATHOME       Num    8          Imputation flag for HEATHOME                                                                 
+481 ZHEATOTH        Num    8          Imputation flag for HEATOTH                                                                  
+493 ZHEATROOM       Num    8          Imputation flag for HEATROOM                                                                 
+793 ZHHAGE          Num    8          Imputation flag for HHAGE                                                                    
+792 ZHHSEX          Num    8          Imputation flag for HHSEX                                                                    
+629 ZHIGHCEIL       Num    8          Imputation flag for HIGHCEIL                                                                 
+486 ZHSFUEL         Num    8          Imputation flag for HSFUEL                                                                   
+825 ZHUPROJ         Num    8          Imputation flag for HUPROJ                                                                   
+797 ZHouseholder_   Num    8          Imputation flag for Householder_Race                                                         
+    Race                                                                                                                           
+                                                           The SAS System                        09:12 Monday, November 13, 2017  16
+
+                                                       The CONTENTS Procedure
+
+                                            Alphabetic List of Variables and Attributes
+ 
+  # Variable        Type Len Informat Label
+
+201 ZICE            Num    8          Imputation flag for ICE                                                                      
+407 ZINCABLE        Num    8          Imputation flag for INCABLE                                                                  
+405 ZINDIALUP       Num    8          Imputation flag for INDIALUP                                                                 
+406 ZINDSL          Num    8          Imputation flag for INDSL                                                                    
+408 ZINSATEL        Num    8          Imputation flag for INSATEL                                                                  
+647 ZINSTLINS       Num    8          Imputation flag for INSTLINS                                                                 
+650 ZINSTLWS        Num    8          Imputation flag for INSTLWS                                                                  
+404 ZINTERNET       Num    8          Imputation flag for INTERNET                                                                 
+822 ZINVESTMT       Num    8          Imputation flag for INVESTMT                                                                 
+409 ZINWIRELESS     Num    8          Imputation flag for INWIRELESS                                                               
+744 ZKEROCASH       Num    8          Imputation flag for KEROCASH                                                                 
+743 ZKERODEL        Num    8          Imputation flag for KERODEL                                                                  
+ 66 ZKOWNRENT       Num    8          Imputation flag for KOWNRENT                                                                 
+638 ZLGT1           Num    8          Imputation flag for LGT1                                                                     
+637 ZLGT4           Num    8          Imputation flag for LGT4                                                                     
+636 ZLGT12          Num    8          Imputation flag for LGT12                                                                    
+ 73 ZLOOKLIKE       Num    8          Imputation flag for LOOKLIKE                                                                 
+741 ZLPGPAY         Num    8          Imputation flag for LPGPAY                                                                   
+570 ZMAINTAC        Num    8          Imputation flag for MAINTAC                                                                  
+479 ZMAINTHT        Num    8          Imputation flag for MAINTHT                                                                  
+186 ZMICRO          Num    8          Imputation flag for MICRO                                                                    
+502 ZMOISTURE       Num    8          Imputation flag for MOISTURE                                                                 
+824 ZMONEYPY        Num    8          Imputation flag for MONEYPY                                                                  
+390 ZMONITOR1       Num    8          Imputation flag for MONITOR1                                                                 
+395 ZMONITOR2       Num    8          Imputation flag for MONITOR2                                                                 
+400 ZMONITOR3       Num    8          Imputation flag for MONITOR3                                                                 
+206 ZMONRFRI2       Num    8          Imputation flag for MONRFRI2                                                                 
+211 ZMONRFRI3       Num    8          Imputation flag for MONRFRI3                                                                 
+ 79 ZNAPTFLRS       Num    8          Imputation flag for NAPTFLRS                                                                 
+ 83 ZNCOMBATH       Num    8          Imputation flag for NCOMBATH                                                                 
+645 ZNEWGLASS       Num    8          Imputation flag for NEWGLASS                                                                 
+640 ZNGASLIGHT      Num    8          Imputation flag for NGASLIGHT                                                                
+488 ZNGFPFLUE       Num    8          Imputation flag for NGFPFLUE                                                                 
+ 84 ZNHAFBATH       Num    8          Imputation flag for NHAFBATH                                                                 
+799 ZNHSLDMEM       Num    8          Imputation flag for NHSLDMEM                                                                 
+746 ZNKRGALNC       Num    8          Imputation flag for NKRGALNC                                                                 
+418 ZNOCORD         Num    8          Imputation flag for NOCORD                                                                   
+745 ZNOCRCASH       Num    8          Imputation flag for NOCRCASH                                                                 
+587 ZNOTMOIST       Num    8          Imputation flag for NOTMOIST                                                                 
+639 ZNOUTLGTNT      Num    8          Imputation flag for NOUTLGTNT                                                                
+ 75 ZNUMAPTS        Num    8          Imputation flag for NUMAPTS                                                                  
+581 ZNUMBERAC       Num    8          Imputation flag for NUMBERAC                                                                 
+584 ZNUMCFAN        Num    8          Imputation flag for NUMCFAN                                                                  
+752 ZNUMCORDS       Num    8          Imputation flag for NUMCORDS                                                                 
+ 74 ZNUMFLRS        Num    8          Imputation flag for NUMFLRS                                                                  
+214 ZNUMFREEZ       Num    8          Imputation flag for NUMFREEZ                                                                 
+197 ZNUMFRIG        Num    8          Imputation flag for NUMFRIG                                                                  
+518 ZNUMH2OHTRS     Num    8          Imputation flag for NUMH2OHTRS                                                               
+519 ZNUMH2ONOTNK    Num    8          Imputation flag for NUMH2ONOTNK                                                              
+194 ZNUMMEAL        Num    8          Imputation flag for NUMMEAL                                                                  
+388 ZNUMPC          Num    8          Imputation flag for NUMPC                                                                    
+495 ZNUMTHERM       Num    8          Imputation flag for NUMTHERM                                                                 
+                                                           The SAS System                        09:12 Monday, November 13, 2017  17
+
+                                                       The CONTENTS Procedure
+
+                                            Alphabetic List of Variables and Attributes
+ 
+  # Variable        Type Len Informat Label
+
+ 70 ZOCCUPYYRANGE   Num    8          Imputation flag for OCCUPYYRANGE                                                             
+726 ZONSITE         Num    8          Imputation flag for ONSITE                                                                   
+727 ZONSITEGRID     Num    8          Imputation flag for ONSITEGRID                                                               
+ 72 ZORIG1FAM       Num    8          Imputation flag for ORIG1FAM                                                                 
+350 ZOTHERSTB1      Num    8          Imputation flag for OTHERSTB1                                                                
+366 ZOTHERSTB2      Num    8          Imputation flag for OTHERSTB2                                                                
+382 ZOTHERSTB3      Num    8          Imputation flag for OTHERSTB3                                                                
+733 ZOTHERWAYEL     Num    8          Imputation flag for OTHERWAYEL                                                               
+740 ZOTHERWAYFO     Num    8          Imputation flag for OTHERWAYFO                                                               
+742 ZOTHERWAYLPG    Num    8          Imputation flag for OTHERWAYLPG                                                              
+738 ZOTHERWAYNG     Num    8          Imputation flag for OTHERWAYNG                                                               
+ 85 ZOTHROOMS       Num    8          Imputation flag for OTHROOMS                                                                 
+817 ZOTHWORK        Num    8          Imputation flag for OTHWORK                                                                  
+189 ZOUTGRILL       Num    8          Imputation flag for OUTGRILL                                                                 
+190 ZOUTGRILLFUEL   Num    8          Imputation flag for OUTGRILL                                                                 
+181 ZOVEN           Num    8          Imputation flag for OVEN                                                                     
+184 ZOVENCLN        Num    8          Imputation flag for OVENCLN                                                                  
+182 ZOVENFUEL       Num    8          Imputation flag for OVENFUEL                                                                 
+183 ZOVENUSE        Num    8          Imputation flag for OVENUSE                                                                  
+392 ZPCONOFF1       Num    8          Imputation flag for PCONOFF1                                                                 
+397 ZPCONOFF2       Num    8          Imputation flag for PCONOFF2                                                                 
+402 ZPCONOFF3       Num    8          Imputation flag for PCONOFF3                                                                 
+410 ZPCPRINT        Num    8          Imputation flag for PCPRINT                                                                  
+393 ZPCSLEEP1       Num    8          Imputation flag for PCSLEEP1                                                                 
+398 ZPCSLEEP2       Num    8          Imputation flag for PCSLEEP2                                                                 
+403 ZPCSLEEP3       Num    8          Imputation flag for PCSLEEP3                                                                 
+105 ZPCTATTCL       Num    8          Imputation flag for PCTATTCL                                                                 
+103 ZPCTATTHT       Num    8          Imputation flag for PCTATTHT                                                                 
+ 96 ZPCTBSTCL       Num    8          Imputation flag for PCTBSTCL                                                                 
+ 93 ZPCTBSTHT       Num    8          Imputation flag for PCTBSTHT                                                                 
+389 ZPCTYPE1        Num    8          Imputation flag for PCTYPE1                                                                  
+394 ZPCTYPE2        Num    8          Imputation flag for PCTYPE2                                                                  
+399 ZPCTYPE3        Num    8          Imputation flag for PCTYPE3                                                                  
+731 ZPELAC          Num    8          Imputation flag for PELAC                                                                    
+730 ZPELCOOK        Num    8          Imputation flag for PELCOOK                                                                  
+728 ZPELHEAT        Num    8          Imputation flag for PELHEAT                                                                  
+729 ZPELHOTWA       Num    8          Imputation flag for PELHOTWA                                                                 
+732 ZPELLIGHT       Num    8          Imputation flag for PELLIGHT                                                                 
+734 ZPGASHEAT       Num    8          Imputation flag for PGASHEAT                                                                 
+735 ZPGASHTWA       Num    8          Imputation flag for PGASHTWA                                                                 
+484 ZPIPEFUEL       Num    8          Imputation flag for PIPEFUEL                                                                 
+345 ZPLAYSTA1       Num    8          Imputation flag for PLAYSTA1                                                                 
+361 ZPLAYSTA2       Num    8          Imputation flag for PLAYSTA2                                                                 
+377 ZPLAYSTA3       Num    8          Imputation flag for PLAYSTA3                                                                 
+632 ZPOOL           Num    8          Imputation flag for POOL                                                                     
+108 ZPRKGPLC1       Num    8          Imputation flag for PRKGPLC1                                                                 
+113 ZPRKGPLC2       Num    8          Imputation flag for PRKGPLC2                                                                 
+496 ZPROTHERM       Num    8          Imputation flag for PROTHERM                                                                 
+575 ZPROTHERMAC     Num    8          Imputation flag for PROTHERMAC                                                               
+736 ZPUGCOOK        Num    8          Imputation flag for PUGCOOK                                                                  
+737 ZPUGOTH         Num    8          Imputation flag for PUGOTH                                                                   
+483 ZRADFUEL        Num    8          Imputation flag for RADFUEL                                                                  
+                                                           The SAS System                        09:12 Monday, November 13, 2017  18
+
+                                                       The CONTENTS Procedure
+
+                                            Alphabetic List of Variables and Attributes
+ 
+  # Variable        Type Len Informat Label
+
+634 ZRECBATH        Num    8          Imputation flag for RECBATH                                                                  
+200 ZREFRIGT1       Num    8          Imputation flag for REFRIGT1                                                                 
+205 ZREFRIGT2       Num    8          Imputation flag for REFRIGT2                                                                 
+210 ZREFRIGT3       Num    8          Imputation flag for REFRIGT3                                                                 
+826 ZRENTHELP       Num    8          Imputation flag for RENTHELP                                                                 
+819 ZRETIREPY       Num    8          Imputation flag for RETIREPY                                                                 
+823 ZRGLRPAY        Num    8          Imputation flag for RGLRPAY                                                                  
+485 ZRMHTFUEL       Num    8          Imputation flag for RMHTFUEL                                                                 
+490 ZRNGFUEL        Num    8          Imputation flag for RNGFUEL                                                                  
+332 ZRNSETEMP       Num    8          Imputation flag for RNSETEMP                                                                 
+ 77 ZROOFTYPE       Num    8          Imputation flag for ROOFTYPE                                                                 
+796 ZSDESCENT       Num    8          Imputation flag for SDESCENT                                                                 
+213 ZSEPFREEZ       Num    8          Imputation flag for SEPFREEZ                                                                 
+114 ZSIZEOFDETACH   Num    8          Imputation flag for SIZEOFDETACH                                                             
+109 ZSIZEOFGARAGE   Num    8          Imputation flag for SIZEOFGARAGE                                                             
+216 ZSIZFREEZ       Num    8          Imputation flag for SIZFREEZ                                                                 
+220 ZSIZFREEZ2      Num    8          Imputation flag for SIZFREEZ2                                                                
+199 ZSIZRFRI1       Num    8          Imputation flag for SIZRFRI1                                                                 
+204 ZSIZRFRI2       Num    8          Imputation flag for SIZRFRI2                                                                 
+209 ZSIZRFRI3       Num    8          Imputation flag for SIZRFRI3                                                                 
+641 ZSLDDRS         Num    8          Imputation flag for SLDDRS                                                                   
+795 ZSPOUSE         Num    8          Imputation flag for SPOUSE                                                                   
+820 ZSSINCOME       Num    8          Imputation flag for SSINCOME                                                                 
+417 ZSTEREO         Num    8          Imputation flag for STEREO                                                                   
+192 ZSTGRILA        Num    8          Imputation flag for STGRILA                                                                  
+ 80 ZSTORIES        Num    8          Imputation flag for STORIES                                                                  
+179 ZSTOVE          Num    8          Imputation flag for STOVE                                                                    
+180 ZSTOVEFUEL      Num    8          Imputation flag for STOVEFUEL                                                                
+177 ZSTOVEN         Num    8          Imputation flag for STOVEN                                                                   
+178 ZSTOVENFUEL     Num    8          Imputation flag for STOVENFUEL                                                               
+ 78 ZSTUDIO         Num    8          Imputation flag for STUDIO                                                                   
+415 ZSWAMPCOL       Num    8          Imputation flag for SWAMPCOL                                                                 
+631 ZSWIMPOOL       Num    8          Imputation flag for SWIMPOOL                                                                 
+816 ZTELLDAYS       Num    8          Imputation flag for TELLDAYS                                                                 
+815 ZTELLWORK       Num    8          Imputation flag for TELLWORK                                                                 
+500 ZTEMPGONE       Num    8          Imputation flag for TEMPGONE                                                                 
+579 ZTEMPGONEAC     Num    8          Imputation flag for TEMPGONEAC                                                               
+499 ZTEMPHOME       Num    8          Imputation flag for TEMPHOME                                                                 
+578 ZTEMPHOMEAC     Num    8          Imputation flag for TEMPHOMEAC                                                               
+501 ZTEMPNITE       Num    8          Imputation flag for TEMPNITE                                                                 
+580 ZTEMPNITEAC     Num    8          Imputation flag for TEMPNITEAC                                                               
+494 ZTHERMAIN       Num    8          Imputation flag for THERMAIN                                                                 
+574 ZTHERMAINAC     Num    8          Imputation flag for THERMAINAC                                                               
+391 ZTIMEON1        Num    8          Imputation flag for TIMEON1                                                                  
+396 ZTIMEON2        Num    8          Imputation flag for TIMEON2                                                                  
+401 ZTIMEON3        Num    8          Imputation flag for TIMEON3                                                                  
+193 ZTOASTER        Num    8          Imputation flag for TOASTER                                                                  
+329 ZTOPFRONT       Num    8          Imputation flag for TOPFRONT                                                                 
+191 ZTOPGRILL       Num    8          Imputation flag for TOPGRILL                                                                 
+838 ZTOTCSQFT       Char   1          Imputation flag for TOTCSQFT                                                                 
+836 ZTOTHSQFT       Char   1          Imputation flag for TOTHSQFT                                                                 
+834 ZTOTSQFT        Char   1          Imputation flag for TOTSQFT                                                                  
+                                                           The SAS System                        09:12 Monday, November 13, 2017  19
+
+                                                       The CONTENTS Procedure
+
+                                            Alphabetic List of Variables and Attributes
+ 
+  # Variable        Type Len Informat Label
+
+835 ZTOTSQFT_EN     Char   1          Imputation flag for TOTSQFT_EN                                                               
+839 ZTOTUCSQFT      Char   1          Imputation flag for TOTUCSQFT                                                                
+837 ZTOTUSQFT       Char   1          Imputation flag for TOTUSQFT                                                                 
+586 ZTREESHAD       Num    8          Imputation flag for TREESHAD                                                                 
+349 ZTVAUDIOSYS1    Num    8          Imputation flag for TVAUDIOSYS1                                                              
+365 ZTVAUDIOSYS2    Num    8          Imputation flag for TVAUDIOSYS2                                                              
+381 ZTVAUDIOSYS3    Num    8          Imputation flag for TVAUDIOSYS3                                                              
+338 ZTVCOLOR        Num    8          Imputation flag for TVCOLOR                                                                  
+351 ZTVONWD1        Num    8          Imputation flag for TVONWD1                                                                  
+367 ZTVONWD2        Num    8          Imputation flag for TVONWD2                                                                  
+383 ZTVONWD3        Num    8          Imputation flag for TVONWD3                                                                  
+352 ZTVONWDWATCH1   Num    8          Imputation flag for TVONWDWATCH1                                                             
+368 ZTVONWDWATCH2   Num    8          Imputation flag for TVONWDWATCH2                                                             
+384 ZTVONWDWATCH3   Num    8          Imputation flag for TVONWDWATCH3                                                             
+353 ZTVONWE1        Num    8          Imputation flag for TVONWE1                                                                  
+369 ZTVONWE2        Num    8          Imputation flag for TVONWE2                                                                  
+385 ZTVONWE3        Num    8          Imputation flag for TVONWE3                                                                  
+354 ZTVONWEWATCH1   Num    8          Imputation flag for TVONWEWATCH1                                                             
+370 ZTVONWEWATCH2   Num    8          Imputation flag for TVONWEWATCH2                                                             
+386 ZTVONWEWATCH3   Num    8          Imputation flag for TVONWEWATCH3                                                             
+339 ZTVSIZE1        Num    8          Imputation flag for TVSIZE1                                                                  
+355 ZTVSIZE2        Num    8          Imputation flag for TVSIZE2                                                                  
+371 ZTVSIZE3        Num    8          Imputation flag for TVSIZE3                                                                  
+340 ZTVTYPE1        Num    8          Imputation flag for TVTYPE1                                                                  
+356 ZTVTYPE2        Num    8          Imputation flag for TVTYPE2                                                                  
+372 ZTVTYPE3        Num    8          Imputation flag for TVTYPE3                                                                  
+185 ZTYPECLN        Num    8          Imputation flag for TYPECLN                                                                  
+644 ZTYPEGLASS      Num    8          Imputation flag for TYPEGLASS                                                                
+ 81 ZTYPEHUQ4       Num    8          Imputation flag for TYPEHUQ4                                                                 
+198 ZTYPERFR1       Num    8          Imputation flag for TYPERFR1                                                                 
+203 ZTYPERFR2       Num    8          Imputation flag for TYPERFR2                                                                 
+208 ZTYPERFR3       Num    8          Imputation flag for TYPERFR3                                                                 
+215 ZUPRTFRZR       Num    8          Imputation flag for UPRTFRZR                                                                 
+219 ZUPRTFRZR2      Num    8          Imputation flag for UPRTFRZR2                                                                
+572 ZUSECENAC       Num    8          Imputation flag for USECENAC                                                                 
+585 ZUSECFAN        Num    8          Imputation flag for USECFAN                                                                  
+503 ZUSEMOISTURE    Num    8          Imputation flag for USEMOISTURE                                                              
+489 ZUSENGFP        Num    8          Imputation flag for USENGFP                                                                  
+588 ZUSENOTMOIST    Num    8          Imputation flag for USENOTMOIST                                                              
+583 ZUSEWWAC        Num    8          Imputation flag for USEWWAC                                                                  
+347 ZVCR1           Num    8          Imputation flag for VCR1                                                                     
+363 ZVCR2           Num    8          Imputation flag for VCR2                                                                     
+379 ZVCR3           Num    8          Imputation flag for VCR3                                                                     
+ 76 ZWALLTYPE       Num    8          Imputation flag for WALLTYPE                                                                 
+330 ZWASHLOAD       Num    8          Imputation flag for WASHLOAD                                                                 
+331 ZWASHTEMP       Num    8          Imputation flag for WASHTEMP                                                                 
+750 ZWDOTHER        Num    8          Imputation flag for WDOTHER                                                                  
+749 ZWDPELLET       Num    8          Imputation flag for WDPELLET                                                                 
+748 ZWDSCRAP        Num    8          Imputation flag for WDSCRAP                                                                  
+413 ZWELLPUMP       Num    8          Imputation flag for WELLPUMP                                                                 
+524 ZWHEATAGE       Num    8          Imputation flag for WHEATAGE                                                                 
+529 ZWHEATAGE2      Num    8          Imputation flag for WHEATAGE2                                                                
+                                                           The SAS System                        09:12 Monday, November 13, 2017  20
+
+                                                       The CONTENTS Procedure
+
+                                            Alphabetic List of Variables and Attributes
+ 
+  # Variable        Type Len Informat Label
+
+525 ZWHEATBKT       Num    8          Imputation flag for WHEATBKT                                                                 
+522 ZWHEATOTH       Num    8          Imputation flag for WHEATOTH                                                                 
+523 ZWHEATSIZ       Num    8          Imputation flag for WHEATSIZ                                                                 
+528 ZWHEATSIZ2      Num    8          Imputation flag for WHEATSIZ2                                                                
+643 ZWINDOWS        Num    8          Imputation flag for WINDOWS                                                                  
+751 ZWOODAMT        Num    8          Imputation flag for WOODAMT                                                                  
+747 ZWOODLOGS       Num    8          Imputation flag for WOODLOGS                                                                 
+818 ZWORKPAY        Num    8          Imputation flag for WORKPAY                                                                  
+582 ZWWACAGE        Num    8          Imputation flag for WWACAGE                                                                  
+ 68 ZYEARMADE       Num    8          Imputation flag for YEARMADE                                                                 
+ 69 ZYEARMADERANGE  Num    8          Imputation flag for YEARMADERANGE                                                            
