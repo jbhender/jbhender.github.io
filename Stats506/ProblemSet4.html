@@ -165,13 +165,13 @@ $(document).ready(function () {
 </ol>
 <hr />
 <ol start="4" style="list-style-type: decimal">
-<li>In this question you will use parallel computing on Flux to estimate out-of-sample prediction error using cross-validation in R. To get started download a simulated data frame containing two columns ‘x’ and ‘y’ from <a href>here</a>.</li>
+<li>In this question you will use parallel computing on Flux to estimate out-of-sample prediction error using cross-validation in R. To get started download a simulated data frame containing two columns ‘x’ and ‘y’ from <a href="./ps4_q4.RData">here</a>.</li>
 </ol>
 <ol style="list-style-type: lower-alpha">
 <li><p>Install the package <code>mgcv</code> and read the documentation for the <code>gam</code> function. Then use logistic regression to predict ‘y’ as a smooth function of ‘x’.</p></li>
-<li><p>Write a function <code>xvalidate</code> with an argument <code>folds</code> to estimate the out-of-sample prediction error for the model you fit in “a” using k-fold cross validation. Use a sequential <code>for</code> loop to compute each sub model and the <code>predict</code> method for computing predictions on the out-of-sample fold. What is the approximate out-of-sample prediction error for this model using 10-fold cross validation?</p></li>
+<li><p>Write a function <code>xvalidate</code> with an argument <code>folds</code> to estimate the out-of-sample prediction error for the model you fit in “a” using k-fold cross validation. Use a sequential <code>for</code> loop to compute each sub model and the <code>predict.gam</code> method for computing predictions on the out-of-sample fold. What is the approximate out-of-sample prediction error for this model using 10-fold cross validation?</p></li>
 <li><p>Add an option “cores” to the function you wrote in part “b”. Modify your function so that when “<code>cores &gt; 1</code>” the prediction error on each of the k-folds is computed in parallel.</p></li>
-<li><p>Choose a setting for <code>cores</code> between 2 and 8 and write a pbs script to estimate the out-of-sample prediction error using that many cores on Flux. Submit and run your job.</p></li>
+<li><p>Choose a setting for <code>cores</code> between 2 and 8. Write a PBS script to estimate the out-of-sample prediction error using that many cores on Flux. Submit and run your job.</p></li>
 <li><p>Modify your scripts from part d to work with a PBS job array, where the array id is used to indicate the number of folds to be passed to your function. Run the array for k = 10, 100, 1000, and 10000 (i.e. leave-one-out cross validation). Does the number of folds have a meaningful impact on the estimated prediction error? How does the number of folds impact the run time?</p></li>
 </ol>
 </div>
