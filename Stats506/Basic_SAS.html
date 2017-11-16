@@ -231,6 +231,44 @@ $(document).ready(function () {
 <h3>Split, apply, combine</h3>
 <p>An important difference between <code>proc means</code> and <code>proc summary</code> is that the former computes output to be printed to the listing file while the latter constructs a table of summary statistics. The latter is thus useful for implementing the “split, apply, combine” pattern. We revisit the “roof types” problem in example 6.</p>
 <p><a href="./SAS/examples/example6.SAS">example6.SAS</a>; <a href="./SAS/out/example6.lst">example6.lst</a></p>
+</div>
+</div>
+<div id="day-2-examples" class="section level2">
+<h2>Day 2 Examples</h2>
+<p>You can download all of the examples below as a tar archive from</p>
+<p>You can download all of the examples and data shown below as a tar ball from <a href="www-personal.umich.edu/~jbhender/sas_day2.tgz" class="uri">www-personal.umich.edu/~jbhender/sas_day2.tgz</a>.</p>
+<div id="importing-compressed-files" class="section level3">
+<h3>Importing compressed files</h3>
+<p>Compressed data can be read using a <code>filename</code> statement with a pipe as in this example.</p>
+<p><a href="./SAS/examples/example7.SAS">example7.SAS</a></p>
+</div>
+<div id="reading-data-with-dates-and-text-formats" class="section level3">
+<h3>Reading data with dates and text formats</h3>
+<p>In example 7 above, we used “modified list input” to import (compressed) delmited data. The colon “:” is used to separate variable names from <em>optional</em> formats. Note that the formats end in a period “.” as before.</p>
+</div>
+<div id="importing-fixed-width-files" class="section level3">
+<h3>Importing fixed width files</h3>
+<p>A fixed width file uses location rather than delimiters to separate variables into columns. Fixed-width files can be read into SAS using an <code>infile</code> statement followed by an <code>input</code> statement to specify columns and variable names.</p>
+<p>In the example below we use “column” input to import weather station data in fixed width format.</p>
+<p><a href="./SAS/examples/example8.SAS">example8.SAS</a></p>
+</div>
+<div id="merging-data" class="section level3">
+<h3>Merging Data</h3>
+<p>Please review Professor Shedden’s example. You will need this for the problem set.</p>
+</div>
+<div id="data-step-programming" class="section level3">
+<h3>Data Step Programming</h3>
+<p>Complex analyses can be done using multiple data steps. In the example below, we use the RECS data to find the percent of single family homes within each census region more than one standard deviation above the mean electrical usage.</p>
+<p><a href="./SAS/examples/example9.SAS">example9.SAS</a></p>
+</div>
+<div id="using-sql-in-sas" class="section level3">
+<h3>Using SQL in SAS</h3>
+<p>SAS has a procedure <code>proc sql</code> which allows you to form SQL like queries within SAS. This can be more efficient than similar programs constructed using multiple proc and data steps.</p>
+<p>The example below from Professor Shedden’s notes uses <code>proc sql</code> to find all single family homes with ‘heating degree days’ above 2000.</p>
+<p><a href="./SAS/examples/example10.SAS">example10.SAS</a></p>
+<p>In the next example, we use <code>proc sql</code> to repeat the analysis of finding the “States” with the highest proportion of wood-shingled roofs.</p>
+<p><a href="./SAS/examples/example11.SAS">example11.SAS</a></p>
+<p>Exercise: Use <code>proc sql</code> to carry out the analysis from example 9.</p>
 <p><a href="./index.html">Stats 506 Homepage</a></p>
 </div>
 </div>
