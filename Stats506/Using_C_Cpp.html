@@ -167,10 +167,13 @@ $(document).ready(function () {
 <ul>
 <li><a href="http://rcpp.org">rcpp.org</a></li>
 <li><a href="http://gallery.rcpp.org">Gallery</a></li>
+<li><a href="http://adv-r.had.co.nz/Rcpp.html">Chapter 19</a> of <em>Advanced R</em></li>
+<li><a href="http://dirk.eddelbuettel.com/code/rcpp/Rcpp-quickref.pdf">Rcpp Quick Reference</a></li>
 </ul></li>
 <li>Learning C++
 <ul>
-<li><a href="http://www.cplusplus.com/doc/tutorial/">Tutorial</a></li>
+<li><a href="http://www.cplusplus.com/doc/tutorial/">Tutorial</a> from cplusplus.com</li>
+<li><a href="https://www.tutorialspoint.com/cplusplus/">Tutorial</a> from tutorialspoint.com</li>
 </ul></li>
 </ul>
 </div>
@@ -229,8 +232,13 @@ Mac users should download <a href="https://developer.apple.com/xcode/">Xcode</a>
 <p>When we create R level objects, we must protect them from garbage collection using <code>PROTECT</code> or a similar function. We later <code>UNPROTECT</code> them to allow the memory to be reallocated.</p>
 <p>Recall that scalars in R are length one vectors. Consequently, the must be coerced to C type scalars to be uses as such. This can be done using the C functions <code>as*</code>: <code>asLogical</code>, <code>asInteger</code>, <code>asReal</code>, <code>CHAR(asChar())</code>.</p>
 <p>Here is a simple example using the <code>inline::cfunction</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(inline)
-seqn =<span class="st"> </span><span class="kw">cfunction</span>(<span class="kw">signature</span>(<span class="dt">n_=</span><span class="st">&quot;integer&quot;</span>, <span class="dt">start_=</span><span class="st">&quot;integer&quot;</span>), 
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(inline)</code></pre></div>
+<pre><code>## 
+## Attaching package: 'inline'</code></pre>
+<pre><code>## The following object is masked from 'package:Rcpp':
+## 
+##     registerPlugin</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">seqn =<span class="st"> </span><span class="kw">cfunction</span>(<span class="kw">signature</span>(<span class="dt">n_=</span><span class="st">&quot;integer&quot;</span>, <span class="dt">start_=</span><span class="st">&quot;integer&quot;</span>), 
  <span class="dt">body=</span><span class="st">&quot;</span>
 <span class="st"> int i, n = asInteger(n_), start=asInteger(start_);</span>
 <span class="st"> SEXP out = PROTECT(allocVector(INTSXP, n));</span>
@@ -297,6 +305,145 @@ y &lt;-<span class="st"> </span>x &lt;-<span class="st"> </span><span class="dv"
 <pre><code>## [1] 1</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">y</code></pre></div>
 <pre><code>## [1] 1</code></pre>
+</div>
+</div>
+<div id="interfacing-with-c-via-rcpp" class="section level2">
+<h2>Interfacing with C++ via Rcpp</h2>
+<p>The <a href="http://rcpp.org">Rcpp</a> package greatly simplifies the process of exposing functions written in C++ to R.</p>
+<div id="using-sourcecpp" class="section level3 tabset">
+<h3>Using sourceCpp</h3>
+<p>We can use the function <code>sourceCpp</code> to read a function written in C++ into R interactively. The function takes care of the compilation using <code>R CMD SHLIB</code> and automatically generates an R wrapper for the underlying function. The shared library and other files will be written to the directory specified by <code>cacheDir</code> which defaults to a temporary directory for automated clean up.</p>
+<p>To use a C++ function via sourceCpp:</p>
+<ol style="list-style-type: decimal">
+<li>Write a your C++ function in a file with extension <code>.cpp</code>.</li>
+<li>In the source file, be sure to <code>#include &lt;Rcpp.h&gt;</code>.</li>
+<li>Designate functions exposed to R using the tag <code>// [[Rcpp::export]]</code>.</li>
+<li>Compile and source your function using <code>sourceCpp()</code> and a link to the file.</li>
+</ol>
+<p>Here are some minimal examples based on generating Fibonacci numbers. You can download the source code <a href="./Rcpp_ex.tgz">here</a>.</p>
+<div id="fibcpp0" class="section level4">
+<h4>FibCpp0</h4>
+<p>In this first example, we use the STL (“standard template library”) for vector classes. Notice the use of <code>::</code> to specify the namespace just like with R packages. Also pay attention to how we can handle errors using <code>throw</code> and an error class from the STL.</p>
+<div class="sourceCode"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span class="pp">#include </span><span class="im">&lt;Rcpp.h&gt;</span>
+
+<span class="co">// [[Rcpp::export]]</span>
+<span class="bu">std::</span>vector&lt;<span class="dt">int</span>&gt; FibCpp0(<span class="dt">int</span> n)
+{
+  <span class="co">// Error checking</span>
+  <span class="cf">if</span>(n &lt;= <span class="dv">0</span>)
+    {
+      <span class="cf">throw</span> <span class="bu">std::</span>range_error(<span class="st">&quot;n must be a positive integer&quot;</span>);
+    }
+
+  <span class="co">// Allocate memory</span>
+  <span class="bu">std::</span>vector&lt;<span class="dt">int</span>&gt; out(n);
+  out[<span class="dv">0</span>]=<span class="dv">1</span>;
+
+  <span class="co">// Compute additional terms</span>
+  <span class="cf">if</span>(n &gt; <span class="dv">0</span>)
+    {
+      out[<span class="dv">1</span>]=<span class="dv">1</span>;
+      <span class="dt">int</span> i;
+      <span class="cf">for</span>(i=<span class="dv">2</span>; i&lt;n; i++)
+        {
+          out[i] = out[i<span class="dv">-1</span>] + out[i<span class="dv">-2</span>];
+        }
+    }
+
+  <span class="cf">return</span> out;
+}</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#library(Rcpp)</span>
+<span class="kw">sourceCpp</span>(<span class="st">'~/Stats506/FibCPP0.cpp'</span>)
+<span class="kw">tail</span>(<span class="kw">FibCpp0</span>(<span class="dv">30</span>))</code></pre></div>
+<pre><code>## [1]  75025 121393 196418 317811 514229 832040</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">tryCatch</span>(<span class="kw">FibCpp0</span>(-<span class="dv">1</span>),<span class="dt">outFile=</span><span class="kw">stdout</span>())</code></pre></div>
+<pre><code>## Error in FibCpp0(-1): n must be a positive integer</code></pre>
+</div>
+<div id="fibcpp1" class="section level4">
+<h4>FibCpp1</h4>
+<p>This is nearly identicaly to <code>FibCpp0</code> except we use the Rcpp class <code>IntegerVector</code> for vectors.</p>
+<div class="sourceCode"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span class="pp">#include </span><span class="im">&lt;Rcpp.h&gt;</span>
+
+<span class="co">// [[Rcpp::export]]</span>
+Rcpp::IntegerVector FibCpp1(<span class="dt">int</span> n)
+{
+  <span class="co">// Error checking</span>
+  <span class="cf">if</span>(n &lt;= <span class="dv">0</span>)
+    {
+      <span class="cf">throw</span> <span class="bu">std::</span>range_error(<span class="st">&quot;n must be a positive integer&quot;</span>);
+    }
+
+  <span class="co">// Allocate memory</span>
+  Rcpp::IntegerVector out(n);
+  out[<span class="dv">0</span>]=<span class="dv">1</span>;
+
+  <span class="co">// Compute additional terms</span>
+  <span class="cf">if</span>(n &gt; <span class="dv">0</span>)
+    {
+      out[<span class="dv">1</span>]=<span class="dv">1</span>;
+      <span class="dt">int</span> i;
+      <span class="cf">for</span>(i=<span class="dv">2</span>; i&lt;n; i++)
+        {
+          out[i] = out[i<span class="dv">-1</span>] + out[i<span class="dv">-2</span>];
+        }
+    }
+
+  <span class="cf">return</span> out;
+}</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sourceCpp</span>(<span class="st">'~/Stats506/FibCPP1.cpp'</span>)
+<span class="kw">FibCpp1</span>(<span class="dv">12</span>)</code></pre></div>
+<pre><code>##  [1]   1   1   2   3   5   8  13  21  34  55  89 144</code></pre>
+</div>
+<div id="fibcpp2" class="section level4">
+<h4>FibCpp2</h4>
+<p>The final Fibonacci example here makes two changes from the previous example:</p>
+<ol style="list-style-type: decimal">
+<li><p>We add the line <code>using namespace rcpp;</code> to avoid having to type the prefix <code>Rcpp::</code> when referring to the Rcpp namespace. This is much like using <code>library()</code> within R to add a package to the search path.</p></li>
+<li><p>We show how to print to the R console from within the C++ function using <code>Rcout</code>. This can be useful for manual debugging.</p></li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span class="pp">#include </span><span class="im">&lt;Rcpp.h&gt;</span>
+<span class="kw">using</span> <span class="kw">namespace</span> Rcpp;
+
+<span class="co">// [[Rcpp::export]]</span>
+IntegerVector FibCpp2(<span class="dt">int</span> n)
+{
+  <span class="co">// Error checking</span>
+  <span class="cf">if</span>(n &lt;= <span class="dv">0</span>)
+    {
+      <span class="cf">throw</span> <span class="bu">std::</span>range_error(<span class="st">&quot;n must be a positive integer&quot;</span>);
+    }
+
+  <span class="co">// Allocate memory</span>
+  IntegerVector out(n);
+  out[<span class="dv">0</span>]=<span class="dv">1</span>;
+
+  Rcout &lt;&lt; <span class="st">&quot;Starting computations ... &quot;</span>;
+  <span class="co">// Compute additional terms</span>
+  <span class="cf">if</span>(n &gt; <span class="dv">0</span>)
+    {
+      out[<span class="dv">1</span>]=<span class="dv">1</span>;
+      <span class="dt">int</span> i;
+      <span class="cf">for</span>(i=<span class="dv">2</span>; i&lt;n; i++)
+        {
+          out[i] = out[i<span class="dv">-1</span>] + out[i<span class="dv">-2</span>];
+        }
+    }
+
+  Rcout &lt;&lt; <span class="st">&quot;done.&quot;</span> &lt;&lt; <span class="bu">std::</span>endl;
+  <span class="cf">return</span> out;
+}</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sourceCpp</span>(<span class="st">'~/Stats506/FibCPP2.cpp'</span>)
+<span class="kw">FibCpp2</span>(<span class="dv">10</span>)</code></pre></div>
+<pre><code>## Starting computations ... done.</code></pre>
+<pre><code>##  [1]  1  1  2  3  5  8 13 21 34 55</code></pre>
+<p><a href="./CPP_Example.html">Here</a> is another simple example.</p>
+</div>
+</div>
+<div id="building-a-package-with-rcpp" class="section level3">
+<h3>Building a package with Rcpp</h3>
+<p>The <code>sourceCpp</code> function is convenient for interactive use and initial development. However, for larger projects with multiple functions it is better to maintain the code base using an R package. Rcpp automates much of the work involved in doing this via the <code>compileAttributes</code> function.</p>
+<p>This function creates a C++ wrapper to any C++ functions tagged with the <code>// [[Rcpp::export]]</code> attribute that handles type conversion and an R wrapper that calls this function in turn. This makes for a relatively seamless process in which you only occasionally need to look into the translation details.</p>
+<p>In the <a href="./Rcpp_ex.tgz">download</a> above is avery simple R package <code>Pkg</code> with the <code>getRegion</code> function from the previous example.</p>
 </div>
 </div>
 
