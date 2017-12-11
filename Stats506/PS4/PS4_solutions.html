@@ -876,8 +876,9 @@ proc print data=low_prov_avg(obs=2);</code></pre>
 <p>The provider types with the two highest average total charges among individual providers in 2014 were Ophthalmology ($343,777) and Radiation Oncology ($338,148).</p>
 <p>The provider types with the two lowest average total charges in 2014 were Mass Immunization Roster Biller ($4,047) and Anesthesiologist Assistants ($6,577).</p>
 <hr />
-<div id="question-4" class="section level3">
-<h3>Question 4</h3>
+</div>
+<div id="question-4" class="section level2">
+<h2>Question 4</h2>
 <p>In this question you were asked to use logistic regression to predict <code>y</code> as a smooth function of <code>x</code> from the provided data. Below, I show to to do this using the default ‘thin plate’ splines for the smooth function. I also provide a plot showing the estimated probabilities conditional on <code>x</code>.</p>
 <pre class="r"><code># Load libraries
 library(mgcv); library(tidyverse); library(doParallel)
@@ -1060,7 +1061,6 @@ stopCluster(cl)</code></pre>
 </tbody>
 </table>
 <p>The out-of-sample accuracy is nearly constant, while the estimation time is approximately linear taking ~1.5s CPU time per fold.</p>
-</div>
 </div>
 
 
