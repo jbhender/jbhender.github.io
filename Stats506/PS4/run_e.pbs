@@ -1,0 +1,38 @@
+#!/bin/sh
+##This names the job for the queueing system
+#PBS -N P4Q4e
+
+##This denotes the queue that the job should be run in.
+#PBS -A stats_flux
+#PBS -l qos=flux
+#PBS -q flux
+
+##This denotes the number of nodes and processors that the job should be run on.
+#PBS -l nodes=1:ppn=8
+
+## Per processor memory
+#PBS -l pmem=2Gb 
+
+## For job arrays, access t value with $PBS_ARRAYID
+#PBS -t 1-4
+
+##This is the run time (hh:mm:ss) that your job will be allocated.  
+#PBS -l walltime=1:00:00
+
+##Where does your program's STDOUT go?
+#PBS -o /home/jbhender/ps4q4/ps4q4d.out
+#PBS -j oe
+
+##Import the shell's environment
+## This is important if you're using Environment Modules (i.e. module load ...)
+#PBS -V
+
+##In what circumstances should an email be sent regarding this job?  'a' is for aborted jobs,
+## 'b' is when the job starts, and 'e' is when the job exits.
+#PBS -m abe
+
+##Where should email be sent when the job starts and stops?
+#PBS -M jbhender@umich.edu
+
+##code to be run
+R CMD BATCH --vanilla "--args cores=8 folds=1e${PBS_ARRAYID}" /home/jbhender/ps4q4/P4Q4e.R /home/jbhender/ps4q4/P4Q4e_Rout_${PBS_ARRAYID}_jbhender.txt            
