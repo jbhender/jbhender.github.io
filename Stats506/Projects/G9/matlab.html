@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+<meta name="author" content="Zhongyuan Lyu" />
+
+
+<title>Matlab Implementation</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/journal.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 61px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 66px;
+  margin-top: -66px;
+}
+
+.section h2 {
+  padding-top: 66px;
+  margin-top: -66px;
+}
+.section h3 {
+  padding-top: 66px;
+  margin-top: -66px;
+}
+.section h4 {
+  padding-top: 66px;
+  margin-top: -66px;
+}
+.section h5 {
+  padding-top: 66px;
+  margin-top: -66px;
+}
+.section h6 {
+  padding-top: 66px;
+  margin-top: -66px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+  padding-left: 25px;
+  text-indent: 0;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">SVM</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="R.html">R Implementation</a>
+</li>
+<li>
+  <a href="python.html">Python Implementation</a>
+</li>
+<li>
+  <a href="matlab.html">Matlab Implementation</a>
+</li>
+<li>
+  <a href="references.html">References</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Matlab Implementation</h1>
+<h4 class="author"><em>Zhongyuan Lyu</em></h4>
+
+</div>
+
+
+<div id="data-management" class="section level3">
+<h3>Data management</h3>
+<div id="import-data" class="section level4">
+<h4>Import data</h4>
+<p>First we load the dataset using importdata command. Note that <code>delimiterIn</code> specifies the delimiter (here is comma) and <code>headerlinesIn</code> tells matlab to read numeric data starting from line headerlinesIn+1. Note that for ASCII files, the output data contains a <code>double</code> array with suffix <code>.data</code> , and a <code>cell</code> array with suffix <code>.textdata</code> which includes row and column headers. In original data, column 17 is the status of the subject, which is the labeled as 0-1 in our example for classfication. Thus we extract this column as the response variable and the remaining columns as predictor variables.</p>
+<pre class="octave"><code>delimiterIn = &#39;,&#39;;
+headerlinesIn = 1;
+parkinson_data = importdata(&#39;C:\Users\steno\Desktop\STATS506\group project\parkinsons.data&#39;,delimiterIn,headerlinesIn);
+y = parkinson_data.data(:,17);
+x = parkinson_data.data(:,[1:16,18:end]);</code></pre>
+</div>
+<div id="divide-data-into-trainningvalidationtesting-set" class="section level4">
+<h4>Divide data into trainning/validation/testing set</h4>
+<p>We can split the data into trainning data set, validation data set and testing data set using <code>dividerand</code> function in Neural Network Toolbox package, in which <code>N</code> is the number of targets to divide up, <code>*Ratio</code> is the ratio of vectors for trainning/validation/testing. What we get is the indices of each dataset (only the first 20 are shown above). Note that the divide is randomly done, so the function <code>rng(seed)</code> seeds the random number generator for reproductivity of the result.</p>
+<pre class="octave"><code>rng(0)
+trainRatio = 0.8;
+valRatio = 0;
+testRatio = 0.2;
+N = length(x);
+[trainInd,valInd,testInd] = dividerand(N,trainRatio,valRatio,testRatio);
+table(transpose(trainInd(1:20)),transpose(testInd(1:20)),&#39;VariableNames&#39;,...
+     {&#39;TrainIndex&#39;,&#39;TestIndex&#39;})</code></pre>
+<PRE>
+ans =
+
+  20×2 table
+
+    TrainIndex    TestIndex
+    __________    _________
+
+     3             1       
+     5             2       
+     6             4       
+     7             9       
+     8            10       
+    11            12       
+    14            13       
+    16            15       
+    17            18       
+    19            20       
+    21            23       
+    22            24       
+    25            36       
+    26            39       
+    27            57       
+    28            65       
+    29            66       
+    30            71       
+    31            73       
+    32            75   
+</PRE>
+<p>Though we mentioned trainning/validation/testing data set, we are going to use K-fold cross validation (a built-in process in modeling) to adjust the hyperparameters as well as assessing the model. So there is no point dividing the orignal dataset in advance in our following analysis.</p>
+</div>
+<div id="boxplot-of-the-data" class="section level4">
+<h4>Boxplot of the data</h4>
+<p>The code below gives boxplot of all variables using boxplot function (the original data set). The option <code>'PlotStyle', 'compact'</code> specifies a smaller box style designed for plots with many groups and <code>'Label', variable_name</code> specifies multiple label variables using <code>variable_name</code> array.<br />
+We can see from the boxplot that the variations of all variables differ significantly.</p>
+<pre class="octave"><code>% Boxplot
+variable_name = parkinson_data.textdata(1,[2:17,19:end]);
+boxplot(x,&#39;PlotStyle&#39;,&#39;compact&#39;,&#39;Labels&#39;,variable_name);</code></pre>
+<p><img src="matlab_code_01.png"></p>
+<p>Note that for simplicity, we treat the whole 195 instances as iid samples (actually not since these instances come from 31 people, but we focus on how to use SVM command in matlab rather than verification of assumptions. Besides, there is also a paper named “<a href="http://arxiv.org/pdf/0707.0303v1.pdf">Learning from dependent observations</a>” arguing that the Support Vector Machine is also consistent under dependent data).</p>
+</div>
+</div>
+<div id="data-analysis-using-svm" class="section level3">
+<h3>Data analysis using SVM</h3>
+<p>The code below fit a SVM model using <code>fitcsvm</code> function. The expression <code>'ResponseName','Health status'</code> is a Name-Value pair argument specifying a name for the response variable. With a <code>;</code> at the end of the expression, Matlab would show that <code>SVMmodel</code> is a trained SVM classifier and a property list.</p>
+<pre class="octave"><code>SVMmodel = fitcsvm(x,y,&#39;ResponseName&#39;,&#39;Health status&#39;)</code></pre>
+<PRE>
+SVMmodel = 
+
+  ClassificationSVM
+             ResponseName: 'Health status'
+    CategoricalPredictors: []
+               ClassNames: [0 1]
+           ScoreTransform: 'none'
+          NumObservations: 195
+                    Alpha: [67×1 double]
+                     Bias: 7.0494
+         KernelParameters: [1×1 struct]
+           BoxConstraints: [195×1 double]
+          ConvergenceInfo: [1×1 struct]
+          IsSupportVector: [195×1 logical]
+                   Solver: 'SMO'
+</PRE>
+<p>Display the properties of SVMmodel, for example, to check the prior probabilities for each class, by using dot notation.</p>
+<pre class="octave"><code>SVMmodel.Prior</code></pre>
+<PRE>
+ans =
+
+    0.2462    0.7538
+</PRE>
+<p>We can change the prior option during training by using the <code>'Prior'</code> Name-Value pair argument (default is <code>'empirical'</code>).</p>
+<p>Similarly, we can get the kernel function used for trainning and its parameters of the model using the properties of <code>SVMmodel</code>. The default kernel function is <code>linear</code>.</p>
+<pre class="octave"><code>SVMmodel.KernelParameters</code></pre>
+<PRE>
+ans = 
+
+  struct with fields:
+
+    Function: 'linear'
+       Scale: 1
+</PRE>
+<p>We can also optimize hyperparameters automatically. The optimization minimizes the cross-validation loss (error) using <code>fitcsvm</code> by varying the parameters. The Name-Value pair argument <code>OptimizeHyperparameters,'auto'</code> optimize parameters <code>'BoxConstraint'</code> and <code>'KernelScale'</code>. One can also specify this opition as <code>'all'</code>, which additionally searches for the optimal kernel function, the polynomial order and the bool if the predictor data needs to be standardized. The function <code>rng(seed)</code> seeds the random number generator for reproductivity of the result.</p>
+<pre class="octave"><code>rng(0)
+SVMmodel_opt = fitcsvm(x,y,&#39;OptimizeHyperparameters&#39;,&#39;auto&#39;,...
+    &#39;HyperparameterOptimizationOptions&#39;,struct(&#39;AcquisitionFunctionName&#39;,...
+    &#39;expected-improvement-plus&#39;))
+SVMmodel_opt.KernelParameters</code></pre>
+<PRE>
+|=====================================================================================================|
+| Iter | Eval   | Objective   | Objective   | BestSoFar   | BestSoFar   | BoxConstrain-|  KernelScale |
+|      | result |             | runtime     | (observed)  | (estim.)    | t            |              |
+|=====================================================================================================|
+|    1 | Best   |     0.42564 |      11.832 |     0.42564 |     0.42564 |       16.395 |      0.16137 |
+|    2 | Best   |     0.21538 |    0.063426 |     0.21538 |     0.22808 |       2.8436 |        370.9 |
+|    3 | Best   |     0.14359 |      9.8105 |     0.14359 |     0.15878 |     0.002819 |     0.031454 |
+|    4 | Accept |     0.24615 |    0.067791 |     0.14359 |     0.15706 |    0.0010578 |       170.23 |
+|    5 | Accept |     0.19487 |       10.34 |     0.14359 |     0.17541 |    0.0027038 |      0.01694 |
+|    6 | Accept |     0.17436 |    0.086205 |     0.14359 |     0.17403 |    0.0041109 |       4.2994 |
+|    7 | Best   |     0.13333 |      11.384 |     0.13333 |     0.14405 |    0.0091891 |     0.038756 |
+|    8 | Best   |     0.12821 |      5.2341 |     0.12821 |     0.13163 |     0.013984 |       0.2287 |
+|    9 | Accept |     0.15897 |     0.47347 |     0.12821 |     0.13149 |     0.038995 |       1.0526 |
+|   10 | Accept |     0.12821 |      4.2495 |     0.12821 |     0.12806 |    0.0083681 |      0.20405 |
+|   11 | Accept |     0.12821 |       4.628 |     0.12821 |     0.12692 |    0.0081349 |      0.18718 |
+|   12 | Accept |     0.13333 |      3.8141 |     0.12821 |     0.12801 |    0.0061456 |      0.18532 |
+|   13 | Accept |     0.13333 |      8.9937 |     0.12821 |     0.12787 |     0.016354 |     0.093711 |
+|   14 | Accept |     0.24615 |    0.097052 |     0.12821 |     0.12813 |     0.095052 |       968.16 |
+|   15 | Accept |     0.13846 |      10.552 |     0.12821 |     0.12813 |    0.0052362 |     0.063495 |
+|   16 | Accept |     0.18462 |    0.072766 |     0.12821 |     0.12827 |       994.84 |       967.94 |
+|   17 | Accept |     0.16923 |     0.33994 |     0.12821 |     0.12835 |    0.0010454 |      0.24803 |
+|   18 | Error  |         NaN |      12.638 |     0.12821 |     0.12835 |       993.79 |    0.0010077 |
+|   19 | Error  |         NaN |       12.57 |     0.12821 |     0.12835 |       26.818 |    0.0010054 |
+|   20 | Accept |     0.46667 |      9.6414 |     0.12821 |     0.12844 |       999.82 |    0.0034329 |
+|=====================================================================================================|
+| Iter | Eval   | Objective   | Objective   | BestSoFar   | BestSoFar   | BoxConstrain-|  KernelScale |
+|      | result |             | runtime     | (observed)  | (estim.)    | t            |              |
+|=====================================================================================================|
+|   21 | Accept |     0.21538 |      11.455 |     0.12821 |     0.12826 |       994.76 |        4.599 |
+|   22 | Accept |     0.51282 |      13.165 |     0.12821 |     0.12737 |       1.4362 |    0.0018256 |
+|   23 | Accept |     0.17949 |      0.1379 |     0.12821 |      0.1274 |       74.449 |       115.82 |
+|   24 | Accept |     0.15897 |      0.3499 |     0.12821 |     0.12906 |        2.228 |       7.3416 |
+|   25 | Accept |     0.17949 |     0.09955 |     0.12821 |     0.12896 |      0.18269 |       18.016 |
+|   26 | Accept |     0.13333 |      6.5619 |     0.12821 |     0.12793 |    0.0082056 |       0.1003 |
+|   27 | Accept |     0.13333 |      8.9014 |     0.12821 |     0.12791 |       982.93 |        28.41 |
+|   28 | Accept |     0.12821 |      3.6032 |     0.12821 |      0.1279 |       70.645 |       20.132 |
+|   29 | Accept |     0.13333 |       5.546 |     0.12821 |     0.12789 |        276.2 |       20.332 |
+|   30 | Accept |     0.15385 |     0.35063 |     0.12821 |     0.12791 |       13.063 |       22.942 |
+
+__________________________________________________________
+Optimization completed.
+MaxObjectiveEvaluations of 30 reached.
+Total function evaluations: 30
+Total elapsed time: 198.7913 seconds.
+Total objective function evaluation time: 167.057
+
+Best observed feasible point:
+    BoxConstraint    KernelScale
+    _____________    ___________
+
+    0.013984         0.2287     
+
+Observed objective function value = 0.12821
+Estimated objective function value = 0.12791
+Function evaluation time = 5.2341
+
+Best estimated feasible point (according to models):
+    BoxConstraint    KernelScale
+    _____________    ___________
+
+    0.013984         0.2287     
+
+Estimated objective function value = 0.12791
+Estimated function evaluation time = 4.8165
+
+
+SVMmodel_opt = 
+
+  ClassificationSVM
+                         ResponseName: 'Y'
+                CategoricalPredictors: []
+                           ClassNames: [0 1]
+                       ScoreTransform: 'none'
+                      NumObservations: 195
+    HyperparameterOptimizationResults: [1×1 BayesianOptimization]
+                                Alpha: [73×1 double]
+                                 Bias: 6.9382
+                     KernelParameters: [1×1 struct]
+                       BoxConstraints: [195×1 double]
+                      ConvergenceInfo: [1×1 struct]
+                      IsSupportVector: [195×1 logical]
+                               Solver: 'SMO'
+
+
+
+ans = 
+
+  struct with fields:
+
+    Function: 'linear'
+       Scale: 0.2287
+       
+<img src="matlab_code_02.png">
+
+<img src="matlab_code_03.png">
+</PRE>
+<p>Now we try to train an SVM classifier using the radial basis kernel rather than linear kernal. Let Matlab find a scale value for the kernel function and it is good practice to standardize the predictors.</p>
+<pre class="octave"><code>SVMmodel_rbf = fitcsvm(x,y,&#39;ResponseName&#39;,&#39;Health status&#39;,&#39;Standardize&#39;,true,&#39;KernelFunction&#39;,&#39;RBF&#39;,...
+    &#39;KernelScale&#39;,&#39;auto&#39;)
+SVMmodel_rbf.KernelParameters</code></pre>
+<PRE>
+SVMmodel_rbf = 
+
+  ClassificationSVM
+             ResponseName: 'Health status'
+    CategoricalPredictors: []
+               ClassNames: [0 1]
+           ScoreTransform: 'none'
+          NumObservations: 195
+                    Alpha: [107×1 double]
+                     Bias: 0.6224
+         KernelParameters: [1×1 struct]
+                       Mu: [1×22 double]
+                    Sigma: [1×22 double]
+           BoxConstraints: [195×1 double]
+          ConvergenceInfo: [1×1 struct]
+          IsSupportVector: [195×1 logical]
+                   Solver: 'SMO'
+
+
+
+ans = 
+
+  struct with fields:
+
+    Function: 'gaussian'
+       Scale: 3.0239
+</PRE>
+<p>Then we cross validate the SVM classifier using the function <code>crossval</code> for the above three models. This option can be found in the methods of trained classifier. By default, the software uses 10-fold cross validation. <code>CVSVMModel_rbf</code> is a <code>ClassificationPartitionedModel</code> cross-validated classifier. And we estimate the out-of-sample misclassification rate using the function <code>kfoldLoss</code>.</p>
+<pre class="octave"><code>CVSVMmodel = crossval(SVMmodel);
+classLoss = kfoldLoss(CVSVMmodel)
+
+CVSVMmodel_opt = crossval(SVMmodel_opt);
+classLoss_opt = kfoldLoss(SVMmodel_opt)
+
+CVSVMmodel_rbf = crossval(SVMmodel_rbf);
+classLoss_rbf = kfoldLoss(SVMmodel_rbf)</code></pre>
+<PRE>
+classLoss =
+
+    0.1385
+
+
+classLoss_opt =
+
+    0.1333
+
+
+classLoss_rbf =
+
+    0.1179
+</PRE>
+<p>We can see that the rbf kernel perfomance best among these three models with regard to the out-of-sample misclassfication rate.</p>
+<p>In addition, we can use <code>predict</code> function to get the label of the given predictor data in the table or matrix X, based on the full or compact, trained SVM classification model. And the <code>[label,score]</code> command returns a matrix of scores (score), indicating the likelihood that a label comes from a particular class. For SVM, likelihood measures are either classification scores (for linear kernel) or class posterior probabilities. For each observation in X, the predicted class label corresponds to the maximum score among all classes.<br />
+Now we train an new SVM classifier to demonstrate how to use the command. Specify a 10% holdout sample for testing using the Name-Value pair <code>'Holdout', 0.1</code>. Note that <code>CVSVMmodel</code> is a <code>ClassificationPartitionedModel</code> classifier. It contains the property <code>Trained</code>, which is a 1-by-1 cell array holding a <code>CompactClassificationSVM</code> classifier that the software trained using the training set. Label the test sample observations. And we display the results for the first 10 observations in the test sample.</p>
+<pre class="octave"><code>CVSVMmodel = fitcsvm(x,y,&#39;Holdout&#39;,0.1,&#39;ResponseName&#39;,&#39;Health status&#39;,&#39;Standardize&#39;,true);
+CompactSVMmodel = CVSVMmodel.Trained{1}; % Extract trained, compact classifier
+testInds = test(CVSVMmodel.Partition);   % Extract the test indices
+xtest = x(testInds,:);
+ytest = y(testInds,:);
+[label,score] = predict(CompactSVMmodel,xtest);
+table(ytest(1:10),label(1:10),score(1:10,2),&#39;VariableNames&#39;,...
+     {&#39;TrueLabel&#39;,&#39;PredictedLabel&#39;,&#39;Score&#39;})</code></pre>
+<PRE>
+ans =
+
+  10×3 table
+
+    TrueLabel    PredictedLabel     Score 
+    _________    ______________    _______
+
+    1            1                  3.5166
+    1            1                  3.5111
+    1            1                  1.3408
+    0            1                 0.53163
+    1            1                   3.254
+    1            1                  2.8036
+    1            1                  2.1676
+    1            1                  1.3128
+    1            1                  3.7792
+    1            1                  2.2678
+</PRE>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
