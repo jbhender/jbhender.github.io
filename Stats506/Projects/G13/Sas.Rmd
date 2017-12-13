@@ -1,0 +1,110 @@
+---
+title: "RIDGE REGRESSION | SAS"
+author: "Group 13: Reed Coots, Ruikun Xiao, Yuzhe Ye"
+output:
+  html_document:
+    toc: yes
+    toc_float: yes
+  pdf_document:
+    toc: yes
+---
+
+Ridge regression is an alternative to least squares regression when predictors is highly correlated and it can effectively eliminates collinearity, leading to more precise, and therefore more interpretable, parameter estimates.
+
+###<span style="color:#005b89">Introduction</span>|<span style="color:#005b89"><a href="home.html">Home</a></span>
+
+The basic requirement to perform ordinary least squares regression (OLS) is that the inverse of the matrix $X^TX$ exists. $X^TX$ is typically scaled so that it represents a correlation matrix of all predictors. However, multicollinearity between predictors will cause $(X^TX)^{-1}$ to be indeterminate. For this case, we need some other regression method to make $(X^TX)^{-1}$ to be calculable. Ridge regression modifies $X^TX$ such that its determinant does not equal 0; this ensures that $(X^TX)^{-1}$ is calculable. Modifying the matrix in this way effectively eliminates collinearity, leading to more precise, and therefore more interpretable, parameter estimates. 
+
+But, in statistics, there is always a trade-off between variance and bias. Therefore, there is a cost to this decrease in variance: an increase in bias. However, the bias introduced by ridge regression is almost always toward the null. Thus, ridge regression is considered a ¡°shrinkage method¡±, since it typically shrinks the $\hat \beta$ toward 0.
+
+###<span style="color:#005b89">Description of the example data</span>
+
+For our data analysis below, we will use the data set seatpos. This dataset appears is available in R paCkage:faraway. The variables are Age in year **(Age)**, Weight in lbs **(Weight)**, Height in shoes in cm **(HtShoes)**, Height bare foot in cm **(Ht)**, Seated height in cm **(Seated)**, lower arm length in cm **(Arm)**, Thigh length in cm **(Thigh)**, Lower leg length in cm **(Leg)**, and horizontal distance of the midpoint of the hips from a fixed location in the car in mm **(hipcenter)**. We are going to use all variables except **hipcenter** to predict it.
+
+
+```{r, engine="sas", engine.path="D:/sas/SASFoundation/9.4/sas.exe",comment=NA}
+libname mylib 'F:/mylib';
+proc import datafile="F:/grouppj/seatpos.csv" out=mylib.seatpos dbms=csv replace;
+    getnames=yes;
+run;
+
+proc means data = mylib.seatpos;
+    var hipcenter Age Weight HtShoes Ht Seated Arm Thigh Leg;
+run;
+```
+
+###<span style="color:#005b89">Standardize variables</span>
+
+Before we implement a regression model, we typically standardize the variables first. It is necessary for ridge regression, since it would change the parameter we estimate. It won't change multicollinearity between predictors, so standardizing the variables could be done before after checking for multicollinearity.
+
+To standardize variables in SAS, you can use **proc standard**. The **mean=0** and **std=1** options are used to tell SAS what you want the mean and standard deviation to be for the variables named on the var statement. Of course, a mean of 0 and standard deviation of 1 indicate that you want to standardize the variables. The **out=zseatpos** option states that the output file with the standardized variables will be called zseatpos.
+
+
+```{r, engine="sas", engine.path="D:/sas/SASFoundation/9.4/sas.exe",comment=NA}
+libname mylib 'F:/mylib';
+
+proc standard data=mylib.seatpos mean=0 std=1 out=mylib.zseatpos;
+  var hipcenter Age Weight HtShoes Ht Seated Arm Thigh Leg;
+run;
+```
+
+###<span style="color:#005b89">Diagnosing multicollinearity </span>
+
+According what we mentioned above, ridge regression is to slove the problems in the regression caused by multicollinearity. We have to check for multicollinearity first. In this page, we check for high variance inflation factors (VIFs). The rule of thumb is that a $VIF>10$ indicates multicollinearity. In SAS, VIFs can be obtained by using the option **/vif**. 
+
+```{r, engine="sas", engine.path="D:/sas/SASFoundation/9.4/sas.exe",comment=NA}
+libname mylib 'F:/mylib';
+
+proc reg data=mylib.zseatpos;
+	model hipcenter = Age Weight HtShoes Ht Seated Arm Thigh Leg/vif;
+run;
+```
+
+We notice that vif on predictors **Ht** and **HtShoes** greater 300, which indicates these two terms are highly correlated. So, implementing ridge regression is suitable here.
+
+###<span style="color:#005b89">Ridge regression </span>
+
+Now let¡¯s run our first ridge regression. The procedure for running ridge regression is **proc reg**. The command **plot / ridegeplot** to plot $k$ versus $\hat \beta$. We will choose $k$ regarding the plots. 
+
+```{r, engine="sas", engine.path="D:/sas/SASFoundation/9.4/sas.exe",comment=NA}
+libname mylib 'F:/mylib';
+proc reg data=mylib.zseatpos outvif
+	outest=mylib.zseatpos_vif ridge=0 to 30 by 1;
+	model hipcenter=Age Weight HtShoes Ht Seated Arm Thigh Leg;
+/* plot / ridegeplot;*/
+run;
+```
+
+We get the parameters estiamted by ordinary least squares regression (OLS) here, the standard error of $\hat \beta$ is large here, which is caused by collinearity between predictors. To get more precise estimate of $\beta$, ridge regression is a necessary here.
+
+![](F:/grouppj/RidgePanel.png)
+
+SAS ridge trace plots have two panels. The top panel shows the VIF for each predictor with increasing values of the ridge parameter $k$. Each VIF should decrease toward 1 with increasing values of k, as multicollinearity is resolved. We could see that VIF goes down greatly as the $k$ increases to 1 here.
+
+The bottom panel shows the actual values of the ridge coefficients with increasing values of $k$.(SAS will automatically standardize these coefficients) $\hat \beta$ will stablize as $k$ increases. All the $\hat \beta$ will shrink toward the null with increasing values of $k$. Some even switch signs.
+ 
+
+###<span style="color:#005b89">Choosing k </span>
+
+The last thing we have to solve is to pick up a proper $k$. There are two popular ways to choose $k$, the first method is invented by Hoerl and Kennard (1970). The formula to compute is: $\hat k = \frac {\hat {\sigma^{2}}} {max \hat\alpha^{2}_{i}}$. They proved that there is always a value of lambda>0 such that $MSE(\hat \beta(\hat k))<MSE(\hat \beta)$ 
+
+However, determining the ideal value of lambda is impossible, because it ultimately depends on the unknown parameters. Thus, we use a graphical means of selecting $k$ here. Estimated coefficients and VIFs are plotted against a range of specified values of $k$.
+
+![](F:/grouppj/reg.png)
+
+
+
+We choose $k$ which stabilizes and leads to coefficients with reasonable values, and ensure that coefficients with improper signs at $k=0$ have switched to the proper sign. According to the traces of $k$ above, we could choose 20 as $k$. 
+
+
+###<span style="color:#005b89">Things to consider</span>
+* Choosing k using ridge trace plots are straightford. However, these criteria are very subjective. Therefore, it is best to use another method in addition to the ridge trace plot. And in this case, the k we chooose here is too large. The MSE computed by ridge regression model in the sample is even larger than computed by OLS.
+
+
+###<span style="color:#005b89">References</span>
+* Faraway, Julian J. Linear models with R. CRC press, 2014.
+* ¡°Ridge Regression.¡± Ridge Regression, www.mailman.columbia.edu/research/population-health-methods/ridge-regression.
+
+###<span style="color:#005b89">See also</span>
+
+* ####[<span style="color:#005b89">SAS Documentation on proc robustreg</span>](http://support.sas.com/documentation/cdl/en/statug/63033/HTML/default/viewer.htm#statug_reg_sect058.htm)

@@ -1,0 +1,130 @@
+
+
+<html>
+<head>
+<style>
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #006699;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #111;
+}
+</style>
+</head>
+<body>
+
+<ul>
+  <li><a class="active">Home</a></li>
+  <li><a href="Sas.html">SAS</a></li>
+  <li><a href="R.html">R</a></li>
+  <li><a href="Python.html">Python</a></li>
+</ul>
+
+</body>
+</html>
+
+Ridge regression is an alternative to least squares regression when predictors is highly correlated and it can effectively eliminates collinearity, leading to more precise, and therefore more interpretable, parameter estimates.
+
+###<span style="color:#005b89">Introduction</span>
+
+Ridge regression method is one of the so-called "shrinkage methods", which is usually applied to a regression model when there is instablity resulting from collinearity of predictors.
+
+In ordinary linear regression (OLS), the estimates of coefficient $\beta$ are given by:
+$$\hat\beta=(X^TX)^{-1}X^Ty.$$
+When the predictors are collinear or almost collinear, the matrix $X^TX$ here becomes singular (rarely the case) or almost singular, then the inverse would respond sensitively to errors, which results in instability of prediction. To solve this problem, we may consider midifying $X^TX$ to make it determinate (then $(X^TX)^{-1}$ would be calculable), which effectively collinearity, leading to more precise, and therefore more interpretable, parameter estimates.
+
+This is achieved by introducing a penalty term into the loss function:
+$$(y-X\beta)^T(y-X\beta)+\lambda\sum_j\beta_j^2.$$
+The $\beta$ that minimizes the new loss function is the ridge regression estimate of $\beta$:
+$$\hat\beta=(X^TX+\lambda I)^{-1}X^Ty.$$
+It is clearly biased as $E(\hat\beta)=(X^TX+\lambda I)^{-1}(X^TX)\beta$ (shrinking the coefficients towards $0$), but note that $(X^TX)^{-1}$ is replaced by $(X^TX+\lambda I)^{-1}$ here, which should be calculable.
+
+In fact, ridge regression makes a trade-off between bias and variance in prediction. With a sacrifice of introducing a relatively small bias, you may expect a large reduction in the variance, and thus in the mean-squared error:
+$$MSE=E(\hat\beta-\beta)^2=(E(\hat\beta-\beta))^2+E(\hat\beta-E\hat\beta)^2=\mathrm{bias^2+variance}.$$
+
+###<span style="color:#005b89">Description of the example data</span>
+
+For our data analysis below, we will use the data set seatpos. This dataset appears is available in R paCkage:faraway. The variables are Age in year **(Age)**, Weight in lbs **(Weight)**, Height in shoes in cm **(HtShoes)**, Height bare foot in cm **(Ht)**, Seated height in cm **(Seated)**, lower arm length in cm **(Arm)**, Thigh length in cm **(Thigh)**, Lower leg length in cm **(Leg)**, and horizontal distance of the midpoint of the hips from a fixed location in the car in mm **(hipcenter)**. We are going to use all variables except **hipcenter** to predict it.
+
+We use ggplot2 pacakge to visualize the correlation between predictors. 
+```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+library(faraway)
+data(seatpos)
+cormat <- round(cor(seatpos[,-9]),2)
+library(reshape2)
+melted_cormat <- melt(cormat)
+library(ggplot2)
+
+reorder_cormat <- function(cormat){
+dd <- as.dist((1-cormat)/2)
+hc <- hclust(dd)
+cormat <-cormat[hc$order, hc$order]
+}
+
+get_upper_tri <- function(cormat){
+    cormat[lower.tri(cormat)]<- NA
+    return(cormat)
+  }
+
+cormat <- reorder_cormat(cormat)
+upper_tri <- get_upper_tri(cormat)
+melted_cormat <- melt(upper_tri, na.rm = TRUE)
+ggheatmap <- ggplot(melted_cormat, aes(Var2, Var1, fill = value))+
+ geom_tile(color = "white")+
+ scale_fill_gradient2(low = "blue", high = "red", mid = "white", 
+   midpoint = 0, limit = c(-1,1), space = "Lab", 
+    name="Pearson\nCorrelation") +
+  theme_minimal()+
+ theme(axis.text.x = element_text(angle = 45, vjust = 1, 
+    size = 12, hjust = 1))+
+ coord_fixed()
+ggheatmap + 
+geom_text(aes(Var2, Var1, label = value), color = "black", size = 4) +
+theme(
+  axis.title.x = element_blank(),
+  axis.title.y = element_blank(),
+  panel.grid.major = element_blank(),
+  panel.border = element_blank(),
+  panel.background = element_blank(),
+  axis.ticks = element_blank(),
+  legend.justification = c(1, 0),
+  legend.position = c(0.6, 0.7),
+  legend.direction = "horizontal")+
+  guides(fill = guide_colorbar(barwidth = 7, barheight = 1,
+                title.position = "top", title.hjust = 0.5))
+```
+
+According to the heatmap plot we get here, we can easily see that there is a collinearity problem between predictors. So we need to implement ridge regression here.
+
+
+
+
+
+
+
+
+
+
+
+
