@@ -1,0 +1,149 @@
+---
+title: "RIDGE REGRESSION | Python"
+author: "Group 13: Reed Coots, Ruikun Xiao, Yuzhe Ye"
+output:
+  html_document:
+    toc: yes
+    toc_float: yes
+  word_document: default
+---
+
+
+###Introduction | <a href="home.html">Home</a>
+Ridge regression method is one of the so-called "shrinkage methods", which is usually applied to a regression model when there is instablity resulting from collinearity of predictors.
+
+In ordinary linear regression (OLS), the estimates of coefficient $\beta$ are given by:
+$$\hat\beta=(X^TX)^{-1}X^Ty.$$
+When the predictors are collinear or almost collinear, the matrix $X^TX$ here becomes singular (rarely the case) or almost singular, then the inverse would respond sensitively to errors, which results in instability of prediction with such a model.
+
+Ridge regression, however, make a trade-off between bias and variance in prediction. By introducing a relatively small bias, you may expect a large reduction in the variance, and thus in the mean-squared error:
+$$MSE=E(\hat\beta-\beta)^2=(E(\hat\beta-\beta))^2+E(\hat\beta-E\hat\beta)^2=\mathrm{bias^2+variance}.$$
+This is achieved by introducing a penalty term into the loss function:
+$$(y-X\beta)^T(y-X\beta)+\lambda\sum_j\beta_j^2.$$
+The $\beta$ that minimizes the new loss function is the ridge regression estimate of $\beta$:
+$$\hat\beta=(X^TX+\lambda I)^{-1}X^Ty.$$
+It is clearly biased as $E(\hat\beta)=(X^TX+\lambda I)^{-1}(X^TX)\beta$ (shrinking the coefficients towards $0$), but note that $(X^TX)^{-1}$ is replaced by $(X^TX+\lambda I)^{-1}$ here, which should be less unstable.  
+
+### Python Tutorial
+
+This page uses the following packages. Make sure that you can load them before trying to run the examples on this page. 
+```{r eval=FALSE}
+from sklearn.linear_model import Ridge
+from sklearn.linear_model import RidgeCV
+from sklearn import preprocessing
+from sklearn.preprocessing import StandardScaler
+from statsmodels.stats.outliers_influence import variance_inflation_factor
+import matplotlib.pyplot as plt
+plt.switch_backend('agg')
+import csv
+import numpy as np
+import pandas as pd
+from pylab import *
+from patsy import dmatrices
+```
+
+
+###Importing, Scaling, and Subsetting data
+Before we implement a regression model, we typically standardize the variables first. It is necessary for ridge regression, since it would change the parameter we estimate. It won't change multicollinearity between predictors, so standardizing the variables could be done before checking for multicollinearity.  
+Standardizing variables in Python is done with the package 'sklearn' using preprocessing.scale() to make our data have mean 0 and stdev 1.  
+We also are going to subset our data for use in ridge regression later, seperating our response variable from our predictor variables
+
+```{r eval=FALSE}
+###Import Data
+df = pd.read_csv('seatpos.csv')###, skiprows=1))
+
+###scale the data to have mean 0 stdev 1
+df_scaled = preprocessing.scale(df)
+df_scaled=pd.DataFrame(df_scaled)
+
+
+###list of predictors for legend
+predictors = list(df.columns.values)[1:9]
+
+###make response (ys) and predictors (xs)
+xs = df_scaled.iloc[:,1:9]
+ys = df_scaled.iloc[:,9]
+```
+
+
+###Variance Inflation Factor (VIF) Calculation   
+Ridge regression is to slove the problems in the regression caused by multicollinearity. We have to check for multicollinearity first. In this page, we check for high variance inflation factors (VIFs). The rule of thumb is that a VIF>10 indicates multicollinearity. In Python we can use the statsmodels.stats.outliers_infuence package to calculate VIF of a multiple regression output (made by dmatrices package).
+
+```{r eval=FALSE}
+#########VIF Calculations
+###Run multiple regression
+features="+".join(df.columns - ["hipcenter"])
+y,X = dmatrices('hipcenter ~' + features, df, return_type='dataframe')
+
+###Calculate VIF Factors
+vif=pd.DataFrame()
+vif["VIF Factor"] = [variance_inflation_factor(X.values,i) for i in range(X.shape[1])]
+vif["features"]=X.columns
+
+print vif.round(1)
+```
+![](VIF.png)
+
+It is shown that 'Ht' and "HtShoes' have high VIF factors (seems logical that ones height would be corillated with their height in shoes) which means ridge regression is appropriate for this data set  
+  
+###Ridge Regression  
+Now we can continue to calculate our coefficients from ridge regression when varying the regularization parameter (alpha). This is done using the 'Ridge' function from sklearn.linear_model package. We will cycle through varying alpha values and for each alpha will have an array of beta coefficients taken.  
+
+Finally, a plot of Alpha vs Beta is produced. Note that the intercept would correspond to alpha=0, the ordinary least squares model  
+
+```{r eval=FALSE}
+###initialize list to store coefficient values
+coef=[]
+alphas = range(0,40)
+
+for a in alphas:
+  ridgereg=Ridge(alpha=a)
+  ridgereg.fit(xs,ys)
+  coef.append(ridgereg.coef_)
+
+###Make plot of Beta as a function of Alpha
+fig=plt.figure()
+ax=fig.add_subplot(111)
+ax.plot(alphas,coef)
+ax.set_xlabel('Alpha (Regularization Parameter)')
+ax.set_ylabel('Beta (Predictor Coefficients)')
+ax.set_title('Ridge Coefficients vs Regularization Parameters')
+ax.axis('tight')
+###ax.legend(loc='best')
+fig.savefig('coef_vs_alpha.png')
+
+```
+![](coef_vs_alpha.png)  
+
+From the plot as alpha increases the coefficients convert to smaller values of their original. This is the power of ridge regression, making the coefficients smaller to limit the collinearity between predictors.  
+
+
+###Selecting Labmda (Alpha in Python's Ridge Regression
+Lambda can be selected through generalized cross validation. Ridge Regression cross validation can be done using 'RidgeCV' across the range of alpha values that we origionally test (0 to 40). We can then select optimal alpha value as shown.
+```{r eval=FALSE}
+###Selecting lambda
+scaler=StandardScaler()
+X_std=scaler.fit_transform(xs)
+
+###Fit Ridge regression through cross validation
+regr_cv=RidgeCV(alphas=range(1,40))
+model_cv=regr_cv.fit(X_std,ys)
+
+print model_cv.alpha_
+```
+The optimal alpha value for our analysis ends up being **22**. We could get a more accurate value for our alpha by doing a more RidgeCV calculations at alphas near 22.  
+
+###Things to Consider  
+Ridge Regression is valueable for multicollinear data but it may be wise to drop a predictor that causes the multicollinearity (for this example HtShoes could be dropped) so that we do not impart bias into our sample
+
+
+###References  
+Faraway, Julian James. Linear Models with R. CRC Press, Taylor & Francis Group, 2015.
+
+
+###See Also  
+Python documentation:   
+**sklearn.linear_models** - http://scikit-learn.org/stable   
+**pandas** - [pandas package](https://pandas.pydata.org/)  
+**matplotlib.pyplot** - [matplotlib](https://matplotlib.org/)  
+
