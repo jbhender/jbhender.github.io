@@ -9,8 +9,8 @@ library(parallel)
 
 ## load data ##
 foo = load('./YaleTNBC.Rdata')
-AA = grep('AA',colnames(YaleTNBC))
-EA = grep('EA',colnames(YaleTNBC))
+AA = grep('AA', colnames(YaleTNBC))
+EA = grep('EA', colnames(YaleTNBC))
 
 #### Example 0: computing a difference in means ####
 
@@ -25,7 +25,7 @@ t1 = system.time({
 ### Version 2 - an apply function ###
 t2 = system.time({
   fold_change2 = sapply(1:nrow(YaleTNBC),
-                        function(i){mean(YaleTNBC[i,AA])-mean(YaleTNBC[i,EA])}
+                function(i){mean(YaleTNBC[i,AA])-mean(YaleTNBC[i,EA])}
                         )
 })
 
@@ -68,6 +68,6 @@ print(rbind(t1,t2,t3,t4,t5))
 ## An example of parallelism gone wrong ##
 #help(mc.preschedule)
 t6 = system.time({
-  fold_change = mclapply(1:nrow(YaleTNBC),fc_func,mc.cores=2,mc.preschedule = FALSE)
+  fold_change = mclapply(1:nrow(YaleTNBC),fc_func,mc.cores=2, mc.preschedule = FALSE)
 })
 t6

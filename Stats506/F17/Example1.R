@@ -51,7 +51,6 @@ rbind(t1.0,t1.1,t1.2)
 
 #### Example 1b: computing set scores ####
 
-
 ## get row index for genes in each set 
 getInd = function(set,universe){
   x = match(set$names,universe)

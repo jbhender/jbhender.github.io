@@ -9,7 +9,7 @@ library(nycflights13)
 library(ggplot2)
 
 # create a local connection for testing
-conf = spark_config()
+sc = spark_config(master="local")
 
 # copy data into Spark
 flights <- copy_to(sc, flights, "flights")
