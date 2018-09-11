@@ -135,18 +135,18 @@ $(document).ready(function () {
 <li><code>mkdir git</code></li>
 <li><code>cd git</code></li>
 </ul></li>
-<li><p>Clone the repository. Replace user with your unique name, and “u” and “s” with its first two letters.</p>
+<li><p>Clone the repository. Replace uniquename with your unique name, and “u” and “n” with its first two letters (i.e. <code>/afs/umich.edu/user/j/b/jbhender/</code>).</p>
 <ul>
-<li><p>From a server with your AFS space mounted: <code>git clone /afs/umich.edu/user/u/s/user/git_remotes/506.git</code></p></li>
+<li><p>From a server with your AFS space mounted: <code>git clone /afs/umich.edu/user/u/n/uniqename/git_remotes/506.git</code></p></li>
 <li><p>From a shell on another computer, say your laptop:</p></li>
 </ul>
-<p><code>git clone ssh:user@login.itd.umich.edu:/afs/umich.edu/user/u/s/user/git_remotes/506.git</code></p></li>
+<p><code>git clone ssh://uniqname@login.itd.umich.edu:/afs/umich.edu/user/u/n/uniqename/git_remotes/506.git</code></p></li>
 <li>Add some files, start with a README.
 <ul>
 <li><code>cd 506</code></li>
 <li><code>echo &quot;## About&quot; &gt; README.md</code></li>
 <li><code>git add REAMDE.md &amp;&amp; git commit -m &quot;Initial commit.&quot;</code></li>
-<li><code>git push</code></li>
+<li><code>git push -u origin master</code></li>
 </ul></li>
 <li><p>You could also create your files locally, initialize and then push to the remote. Repeat steps 3 &amp; 4 to create a bare repository called <code>personal</code>.</p>
 <ul>
@@ -155,7 +155,7 @@ $(document).ready(function () {
 <li><code>git init</code></li>
 <li><code>cp ~/git/506/README.md ./</code></li>
 <li><code>git add REAMDE.md &amp;&amp; git commit REAMDE.md -m &quot;Initial commit.&quot;</code></li>
-<li><code>git remote add origin ssh://user@login.itd.umich.edu:/afs/umich.edu/user/u/s/user/remotes/personal.git/</code></li>
+<li><code>git remote add origin ssh://uniqname@login.itd.umich.edu:/afs/umich.edu/user/u/n/uniqename/remotes/personal.git/</code></li>
 <li><code>git push -u origin master</code></li>
 </ul></li>
 </ol>
