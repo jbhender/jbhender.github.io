@@ -75,9 +75,6 @@ img {
 .tabbed-pane {
   padding-top: 12px;
 }
-.html-widget {
-  margin-bottom: 20px;
-}
 button.code-folding-btn:focus {
   outline: none;
 }
@@ -114,7 +111,7 @@ $(document).ready(function () {
 <div id="stata" class="section level1">
 <h1>Stata</h1>
 <p>Stata is statistical analysis software used commonly in social sciences. It is known for it’s ease of use, robust support for complex survey design, and comprehensive and clear documentation.</p>
-<p>Stata (pronounced either of stay-ta or stat-ta, the official FAQ supports both) is primarily interacted with via typed commands written in the Stata syntax. There is a powerful GUI that you can access via <a href="midesktop.umich.edu">midesktop</a>, or you can SSH into one of the university Unix servers are running Stata at the command line (via the <code>stata</code> command).</p>
+<p>Stata (pronounced either of stay-ta or stat-ta, the official FAQ supports both) is primarily interacted with via typed commands written in the Stata syntax. There is a powerful GUI that you can access via <a href="midesktop.umich.edu">midesktop</a>, or you can SSH into one of the university Unix servers and run Stata at the command line (via the <code>stata</code> command).</p>
 <p>Once you have Stata up and running, the simplest form of use is as a calculator.</p>
 <pre><code>. display 2 + 4</code></pre>
 <p>The <code>.</code> is often used for documents like this to note a command; whenever you run a command in Stata, the first thing it does is echo back the command you ran prefixed by the <code>.</code>.</p>
@@ -127,7 +124,7 @@ $(document).ready(function () {
 <p>The options are space-separated words (e.g. <code>robust</code>) or words with options (e.g. <code>level(.90)</code>). Almost all commands support some number of options, most commands do not require any options.</p>
 <p>For example, a regression would be as simple as</p>
 <pre><code>. regress y x1 x2, noconstant</code></pre>
-<p>This is defining a linear regression model predicting <code>y</code> based upon the continuous variables <code>x1</code> and <code>x2</code>. The <code>noconstant</code> operation forces <span class="math inline">\(\beta_0 = 0\)</span>.</p>
+<p>This is defining a linear regression model predicting <code>y</code> based upon the continuous variables <code>x1</code> and <code>x2</code>. The <code>noconstant</code> operation forces <span class="math inline">\(\beta_0 = 0.\)</span></p>
 <p>Stata supports abbreviations for most commands. For example, the regression command could have been typed as:</p>
 <pre><code>. reg y x1 x2, nocons</code></pre>
 <p>I would not recommend using abbreviations in most cases (a lot aren’t as clear as <code>reg</code>), but you may see others use them.</p>
@@ -244,7 +241,7 @@ $(document).ready(function () {
 <h3>Loops</h3>
 <p>Loops are another place where macros are used often. The syntax is very similar to other languages.</p>
 <pre><code>foreach &lt;macro name&gt; of &lt;list of numbers/words/variables&gt; {
- ...
+ ..
 }</code></pre>
 <p>The list can be:</p>
 <ul>
@@ -257,8 +254,7 @@ $(document).ready(function () {
     regress `var' x1 x2
     estimates store reg_`var'
 }</code></pre>
-<p>The <code>estimates store</code> command saves the regression results so that you can restore them later using <code>estimates restore</code> to make them the most recent estimation command, or use a command such as <code>outreg</code> to produce an output document. To make the output a bit more readable, you can place <code>quietly</code> in front of the <code>regress</code> command to suppress it’s output.</p>
-<pre><code>. quietly regress y x</code></pre>
+<p>The <code>estimates store</code> command saves the regression results so that you can restore them later using <code>estimates restore</code> to make them the most recent estimation command, or use a command such as <code>outreg</code> to produce an output document.</p>
 <p>Alternatively, if the variables names are that clean, you could loop over just the number:</p>
 <pre><code>foreach i of numlist 1/3 {
     regress y`i' x1 x2
@@ -331,54 +327,6 @@ $(document).ready(function () {
 . matrix list se</code></pre>
 <p>The <code>diagonal</code> function extracts only the diagonal of the matrix. (Confusingly, as opposed to the <code>diag</code>, which only sets off-diagonal elements to 0.)</p>
 </div>
-<div id="debugging-a-script" class="section level2">
-<h2>Debugging a script</h2>
-<p>The best way to debug a script is by running it line-by-line interactively, and observing each result. However, there may be times where a more automated approach is preferred. For example, if you have a chunk of code with several macros, it can be annoying debugging their status.</p>
-<p>The most powerful debugging tool, <code>trace</code>, is restricted to commands. You can turn on “trace” mode to let Stata echo out the source code of a command, along with the macro substitution.</p>
-<pre><code>. set trace on
-. regress y x
-. set trace off</code></pre>
-<p>This will produce a lot of output which may or may not be useful. Ultimately, <code>trace</code> is designed for writing your own commands via <code>program</code>, a topic we won’t cover here. Programs in Stata (the equivalent of R’s function) are substantially more complicated and temperamental than their R counterpart.</p>
-<p>Another way to debug would be the obvious printing of macro status. For example, let’s say you’re trying to extract the covariance matrix and manipulate it. You might add a printing line between each step to see the progress.</p>
-<pre><code>. regress y x
-. matrix v = e(V)
-. matrix list v
-. mata
-: V = st_matrix(&quot;v&quot;)
-: V
-: V = diagonal(V)
-: V
-: V = sqrt(V)
-: V
-: st_matrix(&quot;se&quot;, V)
-: end
-. matrix list se</code></pre>
-<p>If your code manipulates the data set and you want to examine the status of the data mid-processing, you can use the <code>pause</code> command.</p>
-<pre><code>. generate x = 1
-. replace x = 2 if y == 3
-. pause
-. replace x = 4 if y &lt; 2 | z &gt; 5</code></pre>
-<p>Stata will ignore <code>pause</code> by default; you can call <code>pause on</code> to tell Stata to respect pauses (<code>pause off</code> returns to ignoring <code>pause</code>). Once in a paused state, you can use any Stata command to view the data (e.g. <code>browse</code> or <code>tab</code>). You can even manipulate the data, though that change is <em>permanent</em> so make sure you preserve or save the data ahead of time. In the pause state, the prompt turns to</p>
-<pre><code>-&gt; .</code></pre>
-<p>You can type <code>end</code> to exit the pause and resume execution, or <code>BREAK</code> to end execution.</p>
-</div>
-<div id="prefixes" class="section level2">
-<h2>Prefixes</h2>
-<p>There are several Stata prefixes which modify how an existing command runs. When analyzing complex survey data, the prefix <code>svy:</code> tells Stata that the data has complex survey information. Complex survey analysis is a massively complicated topic. The very short version is that you’d use the <code>svyset</code> command to tell Stata how the data was collected (Was the probability of inclusion weighted? Was it clustered or stratified sampling?) One the data is <code>svyset</code>, you can run your basic analysis.</p>
-<pre><code>svy: regress y x</code></pre>
-<p>Another massive topic in Statistics is Bayesian statistics. Many Stata models (see <code>help bayesian_estimation</code> for the full list) can be run as Bayesian models with the <code>bayes:</code> prefix:</p>
-<pre><code>bayes: regress y x</code></pre>
-<p>You can pass various options to the <code>bayes</code> prefix to control things such as it’s priors. These options are passed just like options to any other command:</p>
-<pre><code>bayes, normalprior(10): regress y x</code></pre>
-<p>The simplest and most commonly used prefix is the <code>bysort</code> prefix. There is also the <code>by</code> command, but this requires the data to be sorted already, so <code>bysort</code> sorts before applying <code>by</code>. <code>by</code> splits the data up in chunks based upon the variables passed to <code>by</code>, then performs the requested command on each separately. For example, consider a situation where you wanted to run a regression model on each gender separately. You could run:</p>
-<pre><code>regress y x if female == 0
-regress y x if female == 1</code></pre>
-<p>Or do it in a single line:</p>
-<pre><code>bysort female: regress y x</code></pre>
-<p>You can also pass variables to <code>bysort</code> in parentheses that are used for sorting but not splitting.</p>
-<pre><code>bysort id (date): generate firstdate = date[1]</code></pre>
-<p>The <code>[1]</code> sub-setting tells Stata to use the value of “date” in the first row. So if we were to run just <code>generate firstdate = data[1]</code>, the variable “firstdate” would be constant. However, since we’re splitting by “id”, each person’s “firstdate” is their earliest date in the dataset, which we guaranteed by sorting by “date”.</p>
-</div>
 <div id="regression-and-margins" class="section level2">
 <h2>Regression and <code>margins</code></h2>
 <p>One of Stata’s most popular tools is the <code>margins</code> command. It is a very complex command (the help manual for this one command is ~55 pages long), but extremely powerful. We’ll explore two common uses.</p>
@@ -407,7 +355,7 @@ regress y x if female == 1</code></pre>
 <p>Two sets of notes I use for a more beginner-focused, more in depth Stata workshop</p>
 <ul>
 <li><a href="https://errickson.net/stata1/index.html">Intro to Stata</a></li>
-<li><a href="https://errickson.net/stata1/index.html">Statistics with Stata</a></li>
+<li><a href="https://errickson.net/stata2/index.html">Statistics with Stata</a></li>
 </ul>
 </div>
 </div>
