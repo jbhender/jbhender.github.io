@@ -171,13 +171,13 @@ $(document).ready(function () {
 \hat \sigma_m^2 = \frac{1}{n-p} \sum_{i = 1}^n (Y_{im} - \hat Y_{im})^2
 \]</span></li>
 <li>Use the result from ii and the QR decomposition to find the variance of <span class="math inline">\(\hat \beta_i\)</span>, <span class="math inline">\(v_i = \hat\sigma^2(X'X)^{-1}\)</span>. [Note: you will need to do some algebra to determine how to compute <span class="math inline">\((X'X)^{-1}\)</span> using Q and R. Or you can use the function <code>chol2inv()</code>.]</li>
-<li>Form <span class="math inline">\(Z_i = \hat \beta_i / v_i\)</span> and find <span class="math inline">\(p = 2(1 - \Phi^{-1}(|Z_i|)).\)</span></li>
+<li>Form <span class="math inline">\(Z_i = \hat \beta_i / \sqrt{v_i}\)</span> and find <span class="math inline">\(p = 2(1 - \Phi^{-1}(|Z_i|)).\)</span></li>
 </ol></li>
 </ol>
 <p>Test your function with a specific <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> by comparing to the output from appropriate methods applied to the object returned by <code>lm(Y ~ 0 + X)</code>. It’s okay if there is some finite precision error less than ~1e-3 in magnitude. Hint: use <code>set.seed()</code> to generate the same <span class="math inline">\(Y\)</span> inside and outside the scope of the function for the purpose of testing.</p>
 <ol start="2" style="list-style-type: lower-alpha">
 <li><p>Choose <span class="math inline">\(\Sigma\)</span> and <span class="math inline">\(\sigma\)</span> as you like. Use the Cholesky factorization of <span class="math inline">\(\Sigma\)</span> to generate a single <span class="math inline">\(X\)</span>. Pass <span class="math inline">\(X\)</span>, <span class="math inline">\(\beta\)</span>, and <span class="math inline">\(\sigma\)</span> to your function from the previous part.</p></li>
-<li>Write a function <code>evaluate</code> that takes a set of indices where <span class="math inline">\(\beta \ne 0\)</span> and returns Monte Carlo estimates for the following quantities:</li>
+<li>Write a function <code>evaluate</code> that takes your results and a set of indices where <span class="math inline">\(\beta \ne 0\)</span>, and returns Monte Carlo estimates for the following quantities:</li>
 </ol>
 <ul>
 <li>The family wise error rate</li>
@@ -191,8 +191,8 @@ $(document).ready(function () {
 <li><p>Produce one or more nicely formatted graphs or tables reporting your results. Briefly discuss what you found.</p></li>
 </ol>
 </div>
-<div id="question-3-optional-25-points-5-points-each" class="section level2">
-<h2>Question 3 (Optional) [25 points, 5 points each]</h2>
+<div id="question-3-optional-30-points" class="section level2">
+<h2>Question 3 (Optional) [30 points]</h2>
 <p>This is a bonus question related to problem 6 from the midterm. First, review the script written in Stata available <a href="https://github.com/jbhender/Stats506_F18/tree/master/solutions/PS3">here</a>. In this question, you will work through various options for translating this analysis into R. You may submit all or some of these, but each part must be entirely correct to earn the points listed.</p>
 <ol style="list-style-type: lower-alpha">
 <li><p>Write a translation using <code>data.table</code> for the computations. [5 pts]</p></li>
