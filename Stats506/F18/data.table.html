@@ -118,9 +118,6 @@ img {
 .tabbed-pane {
   padding-top: 12px;
 }
-.html-widget {
-  margin-bottom: 20px;
-}
 button.code-folding-btn:focus {
   outline: none;
 }
@@ -170,6 +167,10 @@ $(document).ready(function () {
 <li><a href="#copies"><img src="data:image/png;base64,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" width="25" /> Copies</a></li>
 <li><a href="#reference-semantics"><img src="data:image/png;base64,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" width="25" /> Reference Semantics</a></li>
 <li><a href="#keys-and-indexing"><img src="data:image/png;base64,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" width="25" /> Keys and Indexing</a></li>
+<li><a href="#joining-data.tables">Joining <code>data.table</code>’s</a><ul>
+<li><a href="#merge"><code>merge()</code></a></li>
+<li><a href="#joining-with">Joining with <code>[]</code></a></li>
+</ul></li>
 <li><a href="#reshaping-data-tables"><img src="data:image/png;base64,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" width="25" /> Reshaping data tables</a></li>
 <li><a href="#resources"><img src="data:image/png;base64,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" width="25" /> Resources</a></li>
 </ul>
@@ -201,17 +202,17 @@ nyc14 =<span class="st"> </span><span class="kw">fread</span>(<span class="st">'
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">n =<span class="st"> </span><span class="fl">1e3</span>
 <span class="kw">data.table</span>(<span class="dt">a =</span> <span class="dv">1</span><span class="op">:</span>n, <span class="dt">b=</span><span class="kw">rnorm</span>(n), <span class="dt">c=</span><span class="kw">sample</span>(letters, n, <span class="dt">replace=</span><span class="ot">TRUE</span>))</code></pre></div>
 <pre><code>##          a           b c
-##    1:    1 -0.44274021 y
-##    2:    2 -0.39151661 k
-##    3:    3  0.96212899 a
-##    4:    4 -1.17497255 z
-##    5:    5  0.40574280 e
+##    1:    1  1.33346691 g
+##    2:    2 -1.29141893 k
+##    3:    3  0.12641955 n
+##    4:    4 -0.07923505 a
+##    5:    5  0.79729718 w
 ##   ---                   
-##  996:  996  0.43542910 j
-##  997:  997  0.08046061 g
-##  998:  998 -0.09578565 k
-##  999:  999  0.45281333 t
-## 1000: 1000  0.59175224 i</code></pre>
+##  996:  996 -0.91272866 i
+##  997:  997  0.67084124 z
+##  998:  998  0.12980401 s
+##  999:  999 -2.31556698 h
+## 1000: 1000 -0.38065645 p</code></pre>
 <p><em>Question: How can we view the <em>print</em> method for class <em>data.table</em>?</em></p>
 </div>
 <div id="indexing-with-the-bracket-function" class="section level2">
@@ -550,7 +551,7 @@ nyc14[origin<span class="op">==</span><span class="st">'LGA'</span> <span class=
 </div>
 <div id="sd" class="section level3">
 <h3><code>.SD</code></h3>
-<p>Recall that the special symbol <code>.N</code> contains the number of rows in each subset defined using <code>by</code>.</p>
+<p>Recall that the special symbol <code>.N</code> contains the number of rows in each subset defined using <code>by</code> or <code>keyby</code>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># How many total flights by each carrier to DTW?</span>
 nyc14[dest<span class="op">==</span><span class="st">'DTW'</span>, .N, by=carrier]</code></pre></div>
 <pre><code>##    carrier    N
@@ -558,31 +559,36 @@ nyc14[dest<span class="op">==</span><span class="st">'DTW'</span>, .N, by=carrie
 ## 2:      EV 1584
 ## 3:      MQ 1331</code></pre>
 <p>There is another special symbol <code>.SD</code> which references the entire <em>subset of data</em> for each group. It is itself a <code>data.table</code> as we can see using the code below.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">nyc14[dest<span class="op">==</span><span class="st">'DTW'</span>, .(<span class="dt">rows=</span><span class="kw">nrow</span>(.SD), <span class="dt">cols=</span><span class="kw">ncol</span>(.SD), <span class="dt">n=</span>.N), by=carrier]</code></pre></div>
-<pre><code>##    carrier rows cols    n
-## 1:      DL 3095   12 3095
-## 2:      EV 1584   12 1584
-## 3:      MQ 1331   12 1331</code></pre>
-<p>Below we print the first two rows of each group’s <code>.SD</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">nyc14[dest<span class="op">==</span><span class="st">'DTW'</span>, .(<span class="dt">rows=</span><span class="kw">nrow</span>(.SD), <span class="dt">cols=</span><span class="kw">ncol</span>(.SD), <span class="dt">n=</span>.N, <span class="dt">class =</span> <span class="kw">class</span>(.SD)[<span class="dv">1</span>]), by=carrier]</code></pre></div>
+<pre><code>##    carrier rows cols    n      class
+## 1:      DL 3095   12 3095 data.table
+## 2:      EV 1584   12 1584 data.table
+## 3:      MQ 1331   12 1331 data.table</code></pre>
+<p>As a reminder, any valid R expression can be placed in <code>j</code>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">nyc14[dest<span class="op">==</span><span class="st">'DTW'</span>, <span class="kw">print</span>(.SD[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>]), by=carrier]</code></pre></div>
 <pre><code>##    month dep_time dep_delay arr_time arr_delay flight origin dest air_time
 ## 1:     1      901        -4     1102       -11    181    LGA  DTW       99
 ## 2:     1      555        -5      745        -7    731    LGA  DTW       93
-##    distance
-## 1:      502
-## 2:      502
+##    distance delay30
+## 1:      502       0
+## 2:      502       0
 ##    month dep_time dep_delay arr_time arr_delay flight origin dest air_time
 ## 1:     1     1225        10     1428         9   4118    EWR  DTW      103
 ## 2:     1     2055        -4     2305        11   4247    EWR  DTW      102
-##    distance
-## 1:      488
-## 2:      488
+##    distance delay30
+## 1:      488       0
+## 2:      488       0
 ##    month dep_time dep_delay arr_time arr_delay flight origin dest air_time
 ## 1:     1      849        -6     1058        -2   3478    LGA  DTW      103
 ## 2:     1     1920       130     2137       147   3530    LGA  DTW      103
-##    distance
-## 1:      502
-## 2:      502</code></pre>
+##    distance delay30
+## 1:      502       0
+## 2:      502       1</code></pre>
+<pre><code>## Empty data.table (0 rows) of 1 col: carrier</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">nyc14[dest<span class="op">==</span><span class="st">'DTW'</span>, <span class="kw">cat</span>(<span class="kw">nrow</span>(.SD), <span class="st">'</span><span class="ch">\n</span><span class="st">'</span>), by=carrier]</code></pre></div>
+<pre><code>## 3095 
+## 1584 
+## 1331</code></pre>
 <pre><code>## Empty data.table (0 rows) of 1 col: carrier</code></pre>
 <p>Notice that the grouping variale <code>carrier</code> is <em>not</em> a column in <code>.SD</code>.</p>
 <p>We can pass an additional argument <code>.SDcols</code> to the bracketing function to limit the columns in <code>.SD</code>.</p>
@@ -630,7 +636,7 @@ nyc14[dest<span class="op">==</span><span class="st">'DTW'</span>, .N, by=carrie
 ## 1330:    LGA  DTW   3631     1346
 ## 1331:    LGA  DTW   3592     1106</code></pre>
 <pre><code>## Empty data.table (0 rows) of 1 col: carrier</code></pre>
-<p>This can be useful in the <code>j</code> statement because it allows us to use <code>lapply</code> or any other function that returns a list.</p>
+<p>This can be useful in the <code>j</code> statement because it allows us to use <code>lapply</code> or any other function that returns a list to compute on multiple columns.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># What is the mean departure &amp; arrival delay for each flight to DTW?</span>
 nyc14[dest<span class="op">==</span><span class="st">'DTW'</span>, <span class="kw">lapply</span>(.SD, mean), by=.(origin, dest, carrier, flight),
       .SDcols =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;arr_delay&quot;</span>, <span class="st">&quot;dep_delay&quot;</span>)]</code></pre></div>
@@ -670,10 +676,10 @@ delay_stats =<span class="st"> </span>
                       ), keyby =<span class="st"> </span>.(carrier), .SDcols =<span class="st"> </span>delay_cols]
 
 delay_stats</code></pre></div>
-<pre><code>##    carrier dep_delay arr_delay dep_delay arr_delay
-## 1:      DL  9.406785  3.074960  37.47738  40.83548
-## 2:      EV 17.391414 13.052399  43.13941  46.21437
-## 3:      MQ  4.903080  4.510143  26.47499  30.55465</code></pre>
+<pre><code>##    carrier dep_delay arr_delay   delay30 dep_delay arr_delay   delay30
+## 1:      DL  9.406785  3.074960 0.1350565  37.47738  40.83548 0.3418392
+## 2:      EV 17.391414 13.052399 0.2468434  43.13941  46.21437 0.4313110
+## 3:      MQ  4.903080  4.510143 0.1367393  26.47499  30.55465 0.3437011</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">new_names =<span class="st"> </span>
 <span class="st"> </span><span class="kw">c</span>( <span class="kw">key</span>(delay_stats),
     <span class="kw">paste</span>(delay_cols, <span class="st">'mean'</span>, <span class="dt">sep=</span><span class="st">'_'</span>),
@@ -735,22 +741,22 @@ DT1</code></pre></div>
 <pre><code>## [1] -112 1494</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Address for nyc14 location in memory</span>
 <span class="kw">tracemem</span>(nyc14<span class="op">$</span>arr_delay)</code></pre></div>
-<pre><code>## [1] &quot;&lt;0x117705000&gt;&quot;</code></pre>
+<pre><code>## [1] &quot;&lt;0x10be25000&gt;&quot;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">nyc14[arr_delay <span class="op">&lt;</span><span class="st"> </span><span class="dv">0</span>, arr_delay <span class="op">:</span><span class="er">=</span><span class="st"> </span><span class="dv">0</span>]
 <span class="kw">range</span>(nyc14<span class="op">$</span>arr_delay)</code></pre></div>
 <pre><code>## [1]    0 1494</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Show memory location</span>
 <span class="kw">tracemem</span>(nyc14<span class="op">$</span>arr_delay)</code></pre></div>
-<pre><code>## [1] &quot;&lt;0x117705000&gt;&quot;</code></pre>
+<pre><code>## [1] &quot;&lt;0x10be25000&gt;&quot;</code></pre>
 <p><img src="data:image/png;base64,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" width="25" /> If we replace <code>nyc14$arr_delay</code> with <code>nyc14[, 'arr_delay']</code> or <code>nyc14[,.(arr_delay)]</code> will we see the same memory location from <code>tracemem()</code>? If not, why not? What does this tell us about these syntaxes?</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">nyc_df =<span class="st"> </span><span class="kw">as.data.frame</span>(nyc14)
 <span class="kw">tracemem</span>(nyc_df<span class="op">$</span>arr_delay)</code></pre></div>
-<pre><code>## [1] &quot;&lt;0x111644000&gt;&quot;</code></pre>
+<pre><code>## [1] &quot;&lt;0x10dcf2000&gt;&quot;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">nyc_df<span class="op">$</span>arr_delay[<span class="kw">which</span>(nyc_df<span class="op">$</span>arr_delay<span class="op">&lt;</span><span class="dv">0</span>)] =<span class="st"> </span><span class="dv">0</span></code></pre></div>
-<pre><code>## tracemem[0x111644000 -&gt; 0x111ff2000]: eval eval withVisible withCallingHandlers handle timing_fn evaluate_call &lt;Anonymous&gt; evaluate in_dir block_exec call_block process_group.block process_group withCallingHandlers process_file &lt;Anonymous&gt; &lt;Anonymous&gt; 
-## tracemem[0x111ff2000 -&gt; 0x1122da000]: eval eval withVisible withCallingHandlers handle timing_fn evaluate_call &lt;Anonymous&gt; evaluate in_dir block_exec call_block process_group.block process_group withCallingHandlers process_file &lt;Anonymous&gt; &lt;Anonymous&gt;</code></pre>
+<pre><code>## tracemem[0x10dcf2000 -&gt; 0x10e987000]: eval eval withVisible withCallingHandlers handle timing_fn evaluate_call evaluate in_dir block_exec call_block process_group.block process_group withCallingHandlers process_file &lt;Anonymous&gt; &lt;Anonymous&gt; 
+## tracemem[0x10e987000 -&gt; 0x10ec6f000]: eval eval withVisible withCallingHandlers handle timing_fn evaluate_call evaluate in_dir block_exec call_block process_group.block process_group withCallingHandlers process_file &lt;Anonymous&gt; &lt;Anonymous&gt;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">tracemem</span>(nyc_df<span class="op">$</span>arr_delay)</code></pre></div>
-<pre><code>## [1] &quot;&lt;0x1122da000&gt;&quot;</code></pre>
+<pre><code>## [1] &quot;&lt;0x10ec6f000&gt;&quot;</code></pre>
 <p>We can also delete columns by reference using <code>NULL</code>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">nyc14[,<span class="kw">c</span>(<span class="st">&quot;month&quot;</span>) <span class="op">:</span><span class="er">=</span><span class="st"> </span><span class="ot">NULL</span>]
 <span class="co"># i.e. nyc14$month = NULL</span></code></pre></div>
@@ -768,18 +774,18 @@ DT1</code></pre></div>
 ## 253314:     1102        -8     1311        16      MQ   3591    LGA  RDU
 ## 253315:     1106        -4     1325        15      MQ   3592    LGA  DTW
 ## 253316:      824        -5     1045         1      MQ   3599    LGA  SDF
-##         air_time distance max_dep_delay
-##      1:      359     2475           156
-##      2:      363     2475           284
-##      3:      351     2475           848
-##      4:      157     1035            89
-##      5:      350     2475           248
-##     ---                                
-## 253312:      201     1416           385
-## 253313:      189     1400            42
-## 253314:       83      431           240
-## 253315:       75      502            68
-## 253316:      110      659           121</code></pre>
+##         air_time distance delay30 max_dep_delay
+##      1:      359     2475       0           156
+##      2:      363     2475       0           284
+##      3:      351     2475       0           848
+##      4:      157     1035       0            89
+##      5:      350     2475       0           248
+##     ---                                        
+## 253312:      201     1416       0           385
+## 253313:      189     1400       0            42
+## 253314:       83      431       0           240
+## 253315:       75      502       0            68
+## 253316:      110      659       0           121</code></pre>
 <p>With the functional form you can create multiple columns by reference.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">nyc14[, <span class="st">`</span><span class="dt">:=</span><span class="st">`</span>(<span class="dt">max_dep_delay =</span> <span class="kw">max</span>(dep_delay),
              <span class="dt">min_dep_delay =</span> <span class="kw">min</span>(dep_delay)        
@@ -798,49 +804,31 @@ DT1</code></pre></div>
 ## 253314:     1102        -8     1311        16      MQ   3591    LGA  RDU
 ## 253315:     1106        -4     1325        15      MQ   3592    LGA  DTW
 ## 253316:      824        -5     1045         1      MQ   3599    LGA  SDF
-##         air_time distance max_dep_delay min_dep_delay
-##      1:      359     2475           156           -12
-##      2:      363     2475           284           -16
-##      3:      351     2475           848           -11
-##      4:      157     1035            89           -15
-##      5:      350     2475           248           -10
-##     ---                                              
-## 253312:      201     1416           385            -7
-## 253313:      189     1400            42            -5
-## 253314:       83      431           240           -16
-## 253315:       75      502            68           -15
-## 253316:      110      659           121           -20</code></pre>
+##         air_time distance delay30 max_dep_delay min_dep_delay
+##      1:      359     2475       0           156           -12
+##      2:      363     2475       0           284           -16
+##      3:      351     2475       0           848           -11
+##      4:      157     1035       0            89           -15
+##      5:      350     2475       0           248           -10
+##     ---                                                      
+## 253312:      201     1416       0           385            -7
+## 253313:      189     1400       0            42            -5
+## 253314:       83      431       0           240           -16
+## 253315:       75      502       0            68           -15
+## 253316:      110      659       0           121           -20</code></pre>
 <p>The last set of empty brackets above is a short-hand for a subsequent call to <code>print(nyc14)</code>.</p>
 </div>
 <div id="keys-and-indexing" class="section level2">
 <h2><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAYAAACtWK6eAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEwAACxMBAJqcGAAACnFJREFUeJzt3XmsHVUdwPEvj2IXoJQCRVDaWgpFKBK1GFKEAIZIo8WyRNIECRoTg4liCiS4JqiJ4kJUEgOiRiXIUiuJQkFBFtkSKNJKCUrRIsQgZWlFKLSlr/5x3ktf77vbzJ2ZM8v3k/zSlsf9vTPL78525hyQJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEW2W+wGqHD7AwuA9wOzgf2AfYHtwBvAq8AzwHpgzUhsjdBOqTAHA8uAVcCOhPEmcC9wKfDuohsu5WkW8AvgLZIXRqd4DPgcsE9xiyFlawpwBbCF7AqjNf4HfA+YUdAySZk4ElhLfoXRGi8ARxWyZNKAlgKvU1xxjMYG4OgClk9K7XxgmOKLYzReBN6T90JKaZxHuE0bqzhG4yXgmJyXVUpkMeUojtF4jvCsRYpuJvAK8YuiNe4AhnJc7sLsHrsBSm0CcCtwWOyGtDGH0L67YjdEzfUt4h8pusUwcFpuSy91MZdsn47nFU8Be+S0DqSOrib+zt9vXJjTOpDa2gt4jfg7fr/xMqG3cCXV4k5Dw5wO7Bm7EQlMx6OICnQT8Y8KSeMfuawJqcUQ5Xzu0U8szGF95M5TrGo5guqez58buwFpWCDV8t7YDRjACbEbkMaEFJ85GlgC7A38BVgBbEv5++eP5JpKeFNtBenffz4SOIPwpttq4DcD5joTmDaSaznh5aM0jgDOInzzryFcQ6TNNa+P/2cb8EdCn6h5wEmUY+yBeYRnImn3lUr4CuO7VK8G3p4i16WM72T3OHBQilyXtMm1lvAudlLL2uR6AnhnilwXMv6B3pPAISlyQXh9ttt5/tPA4S2fOY7QFT32NcgOat4dfhGdF/y2hLlO7ZLrjoS5Ts4w14ldct2dMNfxdH4/476EuUbd0qV9w3Tuar64y+eKjMUpl7sSVtB94d+RINeNPXLNSpDrugxz/apHrkMT5Pp5j1z9nC61uqdLvod7fPb5Hu0pIpakWOaoklyk9zrFSHLaYK7kp1lDdC/2F3p8fkPC35eHyvUeT1IgT3f52TDJHgZ1y7Wjx8/zzLVuwJ/nlQvCt+/sLj+fT+eL8SmEDo6x1foC/Tg6v7l2bcJcx9K5N+r1CXO9j7Dis8h1DOHOV7tcyxPmOorOw+7cnDAXwIMdco2NT3b47Nf7+GwRUfvRT84HNrPrQq8k3PJN6lzGj8DxB8It36SWMr4DX9pcHyeM+TQ2152kGyjtLMJQnmNz3UXyh30L6W8H3ApcxM6+WtOBy4k7mMNoDAOTEi53dGnujx9IeBFmKmEoy4cG+P0zRnJNAx4FHhgg1wGEO21Z5Np/JNe+hOczae86QRj7dhFhZ10N/DlFjt8SnvH0axuhS8oBlOdh8DrG34KWBjaXcg3KkDauzHrFFKEs3y7qbBn12E4rYzdA9bM/46/5qhgvAhMzXjeFqMM3U519FpgcuxEZuIb0/c+ktiYRHv7F/vYfNLaSvu9ZdB5Byus86jG1wNWEnsVSZiYSpkCL/e0/aGzCYUiVg6XE37mziAuyXjFF8xSrnObHbkAG/gRcFbsRqqdTqPbDwRdI9vpDaVWu+3FDrCf0JXsT2Aj8a+S/TSEMHFdmbwEfA/4auyFqnhuIf3ToFefntfAxeA1SLWkG2SjSRYT35muj7Ctcuyrz9voC8MPYjVCzdRu0IWb8N8+FjslTrGop61wbvd6HrywLpFrKeoplgagULJCCWSDVsjl2AzqwQFQKq2I3oAMLRKXwu9gN6MACUSk8QhhlpWwsEJXGl2M3oI3aFoiq6afEfzg4Nubku7hSMnsQhi+NXRijUaVZd9UQQ8DFhG4eMYvjtbwXNKYyTM2lwUwFziZMJHQY48e/nUG6Wbv69U+SzZsilcql5HsEebC4RSmed7E0qFrfwbJANCgLROrCApG6sECkLmpdIN7mrYcZhPkVZwPvGvPnLMKMW3mOEL+GMHPWOsKEqU+P/P3VHH9nYSyQapoDnDAmyja12Q5gLXDvmHgxaotUa7sBxwM/IoyUHrtrSZpYA3wRmJnxulGDfQD4PvAs8XfwrGKYcET5NPWYHEgFmwx8BniC+Dtz3rGBcFRJM123GuYQ4NvAy8TfcYuOjcBl2CtYbRwOXEeY2zz2jho7ngXOHGx1qi5mAj8jjIYee8csW6zEi/nGOpBwN2oL8XfEMscrwOkp17EqaAKwjPAALfbOV6W4gvIOuaqMnAg8TvydrapxB7B34rWu0jsQuJb4O1gd4lHqMS22RpwDvET8HatOsQ44OMlGUPnsB9xI/J2prrEWmN731lCpLAb+Q/ydqO7xMD5UrJS3AVcSf8dpUizva8sMyGmgBzcHuA1YErshDXMksBW4P3ZD1NlZwCbif5s2NbYTbqGrZIaA7xB/BzFgPT4jKZVphL5CsXcMY2f8pOsWU2GOAP5O/B3C2DWGgeO6bDcV4BS83ihzPIpjLETzCcIdk9g7gdE9zum0AZWfrxJ/wxv9xd9wrLfCDAE/Jv5GN5LFGe02prI1Afg18Te2kTzubrM9laFJwC3E39BG+pg7bqum5PnariYT5iL/SOyGaCCZnWZZIDtNAX4PnBq7IRrYh7JK5H3jYBJwK+FZh6rvdWBfwlBKA/EIErqq34zFUSd7ktGT9aYXyO7ADcBpkX7/ncB3I/3uusvkC6/pBXI18e6bXwMsAp6K9PvrLrPrkKb6JnFuQQ4Dl4xpx0cjtaPusYVw40UpfIo4G20z48eePTZSW5oQH0aJnUycjofPE4qh1cwIbWlKXN5mfauLw4gzvcDjdB6MeWKE9jQlVnVY52pjKvAkxW+k2+k9QYzvmeQT2wnPQ1Jr0l2sXxLeCCzSVYSL8F4zvtZ6KuWE3sgw1xBw0qAJmuA8ih2WZxi4GLiAMP9HLxbITvdlnG+g5yETsmpFiU0AvlHw71xNOLRfRjjMt8Zwy78dlWOnh4CFwF4Z5fN5SA9LiH8ubPQfnwfuyTjnQaTUhFMs57yrlk3AIxnnTH2a1YQCOT52A5TIRsLg1FlKfZpV92uQ3YHZsRuhRDYBz2Wc0yNIB3tT/2Wsm03AM4TJh7IyCzg0zQfrvvNsjd0AJbZx5M9SXIfUvUA2E76RVB2j2yvrAkl1HVL3AgF4LHYD1Le3gNdG/p51gZxMilfMm1Agt8dugPo29mif9Z2sGcD8pB9qQoFcR3/dPRTf2ALZADybcf7E1yFNKJB/A9fHboT6srHl39GvQ5pQIABfI9teospH6w2VrAvkRBLOy9mUAnkG+FLsRqinvAtkH2BBkg80pUAAfgDcFLsR6qr1FGsVobNhlhJdhzSpQCC8F3JL7Eaoo9YjyKuEKe+ylOg6pGkFsoXQ/f0Ksv9m0uBajyCQ/WnWQsI4AH1pWoFAeEHpIuAEwss5Ko92vR6yLpDJhCLpS91783bzAGFFLQDOBj4IzAOm08wvjjJoVyD3EybozNIc+pxox9Hd22vyF0dM2/HUV5IkSZIkSZIkSZIkSZIkSZIkSZIkSZIkSZIkSZIkSZIkSZIkSZIkSZLS+j8AwSE0CFyZqAAAAABJRU5ErkJggg==" width="25" /> Keys and Indexing</h2>
 <p>The material on in this section is based on the vignette <a href="https://cran.r-project.org/web/packages/data.table/vignettes/datatable-keys-fast-subset.html">here</a>.</p>
 <p>Above we used “indexing” in a generic sense to mean “subsetting”. What we mean by “indexing” here is more specific and <a href="https://en.wikipedia.org/wiki/Database_index">technical</a>: we create an <em>indexed</em> data table by designating specific columns as <em>keys</em> and sorting the table by these keys to create more efficient lookups and aggregations.</p>
+<div id="keys" class="section level4">
+<h4>Keys</h4>
 <p>We can designate one or more columns as a <em>key</em> in <code>data.table</code> using <code>setkey()</code>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">setkey</span>(nyc14, origin) <span class="co">#also, setkeyv(nyc14, &quot;origin&quot;) if character is preferred.</span>
 <span class="kw">key</span>(nyc14)</code></pre></div>
 <pre><code>## [1] &quot;origin&quot;</code></pre>
-<p>In <code>data.table</code> when we designate columns as keys, the rows are re-ordered by <em>reference</em> in <em>increasing</em> order. In other words, the original columns are left <em>as is</em> in memory but a new column <code>key</code> is created to store the order of the <code>data.table</code>. This works something like this:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Example of keys on a data-frame</span>
-df =<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">ID =</span> <span class="kw">sample</span>(LETTERS,<span class="dv">100</span>,<span class="dt">replace=</span><span class="ot">TRUE</span>), <span class="dt">value=</span><span class="kw">rpois</span>(<span class="dv">100</span>, <span class="dv">10</span>))
-df<span class="op">$</span>key =<span class="st"> </span><span class="kw">order</span>(df<span class="op">$</span>ID)
-<span class="kw">head</span>(df)</code></pre></div>
-<pre><code>##   ID value key
-## 1  J    10  62
-## 2  O     4  80
-## 3  C     9   7
-## 4  R     4  18
-## 5  Q     7  56
-## 6  U     8  76</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(df[df<span class="op">$</span>key, ])</code></pre></div>
-<pre><code>##    ID value key
-## 62  A    11  57
-## 80  A    15  21
-## 7   B     7  79
-## 18  B    12  67
-## 56  B    13   2
-## 76  B    11  89</code></pre>
-<p>After a key has been set, we can compute in the <code>i</code>-statement using lists:</p>
+<p>After a key has been set, we can subset in the <code>i</code>-statement using lists:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">nyc14[.(<span class="st">&quot;LGA&quot;</span>)]</code></pre></div>
 <pre><code>##        dep_time dep_delay arr_time arr_delay carrier flight origin dest
 ##     1:      722        -8     1014         0      AA     29    LGA  PBI
@@ -854,18 +842,18 @@ df<span class="op">$</span>key =<span class="st"> </span><span class="kw">order<
 ## 84431:     1102        -8     1311        16      MQ   3591    LGA  RDU
 ## 84432:     1106        -4     1325        15      MQ   3592    LGA  DTW
 ## 84433:      824        -5     1045         1      MQ   3599    LGA  SDF
-##        air_time distance max_dep_delay min_dep_delay
-##     1:      157     1035            89           -15
-##     2:      142      733            65           -13
-##     3:      143      733           126           -12
-##     4:      139      733           263           -13
-##     5:      145      733           140           -12
-##    ---                                              
-## 84429:      198     1416            53            -8
-## 84430:      201     1416           385            -7
-## 84431:       83      431           240           -16
-## 84432:       75      502            68           -15
-## 84433:      110      659           121           -20</code></pre>
+##        air_time distance delay30 max_dep_delay min_dep_delay
+##     1:      157     1035       0            89           -15
+##     2:      142      733       0            65           -13
+##     3:      143      733       0           126           -12
+##     4:      139      733       0           263           -13
+##     5:      145      733       0           140           -12
+##    ---                                                      
+## 84429:      198     1416       0            53            -8
+## 84430:      201     1416       0           385            -7
+## 84431:       83      431       0           240           -16
+## 84432:       75      502       0            68           -15
+## 84433:      110      659       0           121           -20</code></pre>
 <p>We can have more than one column contribute to the order used to form the key.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># key by origin and destination</span>
 <span class="kw">setkey</span>(nyc14, origin, dest)
@@ -878,14 +866,14 @@ df<span class="op">$</span>key =<span class="st"> </span><span class="kw">order<
  nyc14[dest<span class="op">==</span><span class="st">'DTW'</span>]
 )</code></pre></div>
 <pre><code>## Unit: microseconds
-##                                     expr      min        lq     mean
-##  nyc14[.(c(&quot;JFK&quot;, &quot;LGA&quot;, &quot;EWR&quot;), &quot;DTW&quot;)] 1435.504 2007.1140 3040.867
-##                   nyc14[.(dest = &quot;DTW&quot;)]  649.976  872.9455 1424.035
-##                     nyc14[dest == &quot;DTW&quot;] 2094.744 2750.2230 4396.159
-##    median       uq      max neval
-##  2287.014 2786.374 20889.69   100
-##  1061.977 1401.080 13746.55   100
-##  3382.637 4381.282 17924.98   100</code></pre>
+##                                     expr     min        lq      mean
+##  nyc14[.(c(&quot;JFK&quot;, &quot;LGA&quot;, &quot;EWR&quot;), &quot;DTW&quot;)] 831.689  917.4880 1229.2002
+##                   nyc14[.(dest = &quot;DTW&quot;)] 609.523  676.7805  900.4494
+##                     nyc14[dest == &quot;DTW&quot;] 926.314 1052.4400 1476.0400
+##     median       uq      max neval cld
+##  1250.6140 1454.796 2112.365   100  b 
+##   783.5985  943.367 7475.287   100 a  
+##  1343.5760 1608.982 7913.950   100   c</code></pre>
 <p>We can of course combine this with <code>j</code> and <code>by</code> statements.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Find the median departure delay for all flights to DTW</span>
 nyc14[.(<span class="kw">unique</span>(origin),<span class="st">'DTW'</span>), 
@@ -927,6 +915,44 @@ nyc14[.(<span class="kw">unique</span>(origin),<span class="st">'DTW'</span>),
 ## 30:    LGA  DTW   2331          -1.0 241
 ## 31:    LGA  DTW   3592           0.0 119
 ##     origin dest flight med_dep_delay   n</code></pre>
+<p>In <code>data.table</code> when we designate columns as keys, the rows are re-ordered by <em>reference</em> in <em>increasing</em> order. This physically reorders the rows but uses the same locations in memory.</p>
+</div>
+<div id="indices" class="section level4">
+<h4>Indices</h4>
+<p>In contrast to keys, we can use secondary indices to store the row order without physically reordering the entire <code>data.table</code>. With an index, the original columns are left <em>as is</em> in memory but an attribute <code>index</code> is created to store the order of the <code>data.table</code>.</p>
+<p>This works something like this:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Example of a secondary index on a data-frame</span>
+df =<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">ID =</span> <span class="kw">sample</span>(LETTERS, <span class="dv">100</span>, <span class="dt">replace=</span><span class="ot">TRUE</span>), <span class="dt">value=</span><span class="kw">rpois</span>(<span class="dv">100</span>, <span class="dv">10</span>))
+df<span class="op">$</span>index =<span class="st"> </span><span class="kw">order</span>(df<span class="op">$</span>ID)
+<span class="kw">head</span>(df)</code></pre></div>
+<pre><code>##   ID value index
+## 1  C    12    63
+## 2  Z    11    91
+## 3  R    12    46
+## 4  E    12    66
+## 5  Q     7    83
+## 6  Q    10     1</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(df[df<span class="op">$</span>index, ])</code></pre></div>
+<pre><code>##    ID value index
+## 63  A     9    85
+## 91  A     9    74
+## 46  B     7    51
+## 66  B     8     6
+## 83  B    11    88
+## 1   C    12    63</code></pre>
+<p>Here is an example using the <code>nyc14</code> data to count the flights to DTW using an index to subset.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">setindex</span>(nyc14, <span class="ot">NULL</span>)
+<span class="kw">setindex</span>(nyc14, dest)
+<span class="kw">indices</span>(nyc14)</code></pre></div>
+<pre><code>## [1] &quot;dest&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">names</span>( <span class="kw">attributes</span>(nyc14) )</code></pre></div>
+<pre><code>## [1] &quot;names&quot;             &quot;class&quot;             &quot;row.names&quot;        
+## [4] &quot;.internal.selfref&quot; &quot;sorted&quot;            &quot;index&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">nyc14[<span class="st">&quot;DTW&quot;</span>,  .N, on =<span class="st"> 'dest'</span>]</code></pre></div>
+<pre><code>## [1] 6010</code></pre>
+</div>
+<div id="comparisons" class="section level4">
+<h4>Comparisons</h4>
 <p><img src="data:image/png;base64,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" width="25" /> What is the advantage of indexing by setting a key?</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Generate two columns of data with 10 million rows</span>
 N =<span class="st"> </span><span class="fl">1e8</span>
@@ -934,7 +960,7 @@ DT =<span class="st"> </span><span class="kw">data.table</span>(<span class="dt"
 DT =<span class="st"> </span>DT[ ,.(<span class="dt">count=</span><span class="kw">rpois</span>(.N,group)), keyby=group]
 
 <span class="co"># See size of this data</span>
-<span class="kw">print</span>(<span class="kw">object.size</span>(DT),<span class="dt">units=</span><span class="st">'MB'</span>)</code></pre></div>
+<span class="kw">print</span>(<span class="kw">object.size</span>(DT), <span class="dt">units=</span><span class="st">'MB'</span>)</code></pre></div>
 <pre><code>## 762.9 Mb</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## Unkeyd approach
 tm0 =<span class="st"> </span><span class="kw">system.time</span>({
@@ -946,23 +972,212 @@ tm1 =<span class="st"> </span><span class="kw">system.time</span>({
   ans1 &lt;-<span class="st"> </span>DT[, .(<span class="dt">lambda_hat =</span> <span class="kw">mean</span>(count)), by=group][group<span class="op">==</span><span class="dv">1</span> <span class="op">|</span><span class="st"> </span>group<span class="op">==</span><span class="dv">26</span>]
 })
 
+<span class="co"># Set index</span>
+tm_index =<span class="st"> </span><span class="kw">system.time</span>({
+ <span class="kw">setindex</span>(DT, group) 
+})
+
+<span class="co"># Indexed approach</span>
+tm2 =<span class="st"> </span><span class="kw">system.time</span>({
+   ans2 &lt;-<span class="st"> </span>DT[ .( <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">26</span>) ), .(<span class="dt">lambda_hat =</span> <span class="kw">mean</span>(count)), by=group, on =<span class="st"> 'group'</span>]
+})
+
 <span class="co"># Set key</span>
-<span class="kw">setkey</span>(DT, group)
+tm_key =<span class="st"> </span><span class="kw">system.time</span>({
+ <span class="kw">setkey</span>(DT, group)  
+})
 
 <span class="co"># keyed approach</span>
-tm2 =<span class="st"> </span><span class="kw">system.time</span>({
-  ans2 &lt;-<span class="st"> </span>DT[ .( <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">26</span>) ), .(<span class="dt">lambda_hat =</span> <span class="kw">mean</span>(count)), by=group]
+tm3 =<span class="st"> </span><span class="kw">system.time</span>({
+  ans3 &lt;-<span class="st"> </span>DT[ .( <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">26</span>) ), .(<span class="dt">lambda_hat =</span> <span class="kw">mean</span>(count)), by=group]
 })
 
 <span class="co"># Compare timings (seconds)</span>
-<span class="kw">rbind</span>(tm0, tm1, tm2)[,<span class="st">'elapsed'</span>]</code></pre></div>
-<pre><code>##   tm0   tm1   tm2 
-## 2.486 1.972 0.639</code></pre>
+<span class="kw">rbind</span>(<span class="dt">subset_first =</span> tm0, <span class="dt">mean_first =</span> tm1, <span class="dt">index =</span> tm2, <span class="dt">key =</span> tm3)[,<span class="st">'elapsed'</span>]</code></pre></div>
+<pre><code>## subset_first   mean_first        index          key 
+##        1.727        1.040        0.158        0.166</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rbind</span>(tm_key, tm_index)[,<span class="st">'elapsed'</span>]</code></pre></div>
+<pre><code>##   tm_key tm_index 
+##    0.418    0.416</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rm</span>(DT,tm0,tm1,tm2)</code></pre></div>
+</div>
+</div>
+<div id="joining-data.tables" class="section level2">
+<h2>Joining <code>data.table</code>’s</h2>
+<p>There is often a need to join information stored across two or more data frames. In <em>R</em> we have previously used <code>dplyr::left_join()</code> or similar <code>*_join()</code> functions for this. In base <em>R</em> two data.frames can be joined using the S3 generic <code>merge()</code> which calls the <code>merge.data.frame()</code> method.</p>
+<div id="merge" class="section level3">
+<h3><code>merge()</code></h3>
+<p>The <code>data.table</code> package defines a <code>merge.data.table()</code> method. In addition to the tables to join, there are two key parameters: <code>by</code> and <code>all</code>.</p>
+<p>We use <code>by</code> to specify which columns to join on.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">nyc14[ origin <span class="op">==</span><span class="st"> 'JFK'</span>, .N, .(carrier)] <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st"> </span><span class="kw">merge</span>( . , nycflights13<span class="op">::</span>airlines, <span class="dt">by =</span> <span class="st">'carrier'</span>, <span class="dt">all =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span>
+<span class="st">  </span>.[<span class="kw">order</span>(<span class="op">-</span>N)]</code></pre></div>
+<pre><code>##     carrier     N                        name
+##  1:      B6 34220             JetBlue Airways
+##  2:      DL 18860        Delta Air Lines Inc.
+##  3:      AA 11923      American Airlines Inc.
+##  4:      MQ  5444                   Envoy Air
+##  5:      UA  3924       United Air Lines Inc.
+##  6:      VX  3138              Virgin America
+##  7:      US  2645             US Airways Inc.
+##  8:      EV  1069    ExpressJet Airlines Inc.
+##  9:      HA   260      Hawaiian Airlines Inc.
+## 10:      9E    NA           Endeavor Air Inc.
+## 11:      AS    NA        Alaska Airlines Inc.
+## 12:      F9    NA      Frontier Airlines Inc.
+## 13:      FL    NA AirTran Airways Corporation
+## 14:      OO    NA       SkyWest Airlines Inc.
+## 15:      WN    NA      Southwest Airlines Co.
+## 16:      YV    NA          Mesa Airlines Inc.</code></pre>
+<p>The <code>by</code> variables must exist in both tables. If not, use <code>by.x</code> and <code>by.y</code> instead.</p>
+<p>We an specify inner (<code>all=FALSE</code>), left (<code>all.x=TRUE</code>), right (<code>all.y=TRUE</code>), or full (<code>all=TRUE</code>) joins using the <code>all*</code> parameters.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">nyc14[ origin <span class="op">==</span><span class="st"> 'JFK'</span>, .N, .(carrier)] <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st"> </span><span class="kw">merge</span>( . , nycflights13<span class="op">::</span>airlines, <span class="dt">by =</span> <span class="st">'carrier'</span>, <span class="dt">all =</span> <span class="ot">FALSE</span>) <span class="op">%&gt;%</span>
+<span class="st">  </span>.[<span class="kw">order</span>(<span class="op">-</span>N)]</code></pre></div>
+<pre><code>##    carrier     N                     name
+## 1:      B6 34220          JetBlue Airways
+## 2:      DL 18860     Delta Air Lines Inc.
+## 3:      AA 11923   American Airlines Inc.
+## 4:      MQ  5444                Envoy Air
+## 5:      UA  3924    United Air Lines Inc.
+## 6:      VX  3138           Virgin America
+## 7:      US  2645          US Airways Inc.
+## 8:      EV  1069 ExpressJet Airlines Inc.
+## 9:      HA   260   Hawaiian Airlines Inc.</code></pre>
+<p>The resulting merge contains all columns from both tables with duplicate names not used in <code>by</code> renamed using a sufix, i.e. <code>col.x</code> or <code>col.y</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x =<span class="st"> </span><span class="kw">data.table</span>( <span class="dt">id =</span> <span class="dv">0</span><span class="op">:</span><span class="dv">4</span>, <span class="dt">letter =</span> letters[<span class="dv">26</span> <span class="op">-</span><span class="st"> </span><span class="dv">0</span><span class="op">:</span><span class="dv">4</span>])
+y =<span class="st"> </span><span class="kw">data.table</span>( <span class="dt">id =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, <span class="dt">letter =</span> LETTERS[<span class="dv">26</span> <span class="op">-</span><span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">5</span>])
+<span class="kw">merge</span>(x, y, <span class="dt">by =</span> <span class="st">'id'</span>, <span class="dt">all =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<pre><code>##    id letter.x letter.y
+## 1:  0        z       NA
+## 2:  1        y        Y
+## 3:  2        x        X
+## 4:  3        w        W
+## 5:  4        v        V
+## 6:  5       NA        U</code></pre>
+</div>
+<div id="joining-with" class="section level3">
+<h3>Joining with <code>[]</code></h3>
+<p>There may be times where you wish to perform some computation using columns from two tables without the need for an explicit merge first.</p>
+<p>In these cases you can use the <code>DT1[DT2,]</code> syntax for joins.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x[y, , on =<span class="st"> 'id'</span>]</code></pre></div>
+<pre><code>##    id letter i.letter
+## 1:  1      y        Y
+## 2:  2      x        X
+## 3:  3      w        W
+## 4:  4      v        V
+## 5:  5     NA        U</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">y[x, , on =<span class="st"> 'id'</span>]</code></pre></div>
+<pre><code>##    id letter i.letter
+## 1:  0     NA        z
+## 2:  1      Y        y
+## 3:  2      X        x
+## 4:  3      W        w
+## 5:  4      V        v</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x[y, .(id, letter), on =<span class="st"> 'id'</span>]</code></pre></div>
+<pre><code>##    id letter
+## 1:  1      y
+## 2:  2      x
+## 3:  3      w
+## 4:  4      v
+## 5:  5     NA</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x[y, .(id, letter), on =<span class="st"> 'id'</span>, nomatch =<span class="st"> </span>0L]</code></pre></div>
+<pre><code>##    id letter
+## 1:  1      y
+## 2:  2      x
+## 3:  3      w
+## 4:  4      v</code></pre>
+<p>If we are mathching on set keys, we do not need to provide these as <code>on</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">setkey</span>(x, id)
+x[y]</code></pre></div>
+<pre><code>##    id letter i.letter
+## 1:  1      y        Y
+## 2:  2      x        X
+## 3:  3      w        W
+## 4:  4      v        V
+## 5:  5     NA        U</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># y[x] ## Fails because we have no key set for y</span>
+<span class="kw">setkey</span>(y, id)
+y[x]</code></pre></div>
+<pre><code>##    id letter i.letter
+## 1:  0     NA        z
+## 2:  1      Y        y
+## 3:  2      X        x
+## 4:  3      W        w
+## 5:  4      V        v</code></pre>
+<p>Here is the previous flights example using this syntax.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">airlines =<span class="st"> </span><span class="kw">data.table</span>(nycflights13<span class="op">::</span>airlines)
+nyc14[ origin <span class="op">==</span><span class="st"> 'JFK'</span>, .N, keyby=carrier][airlines, nomatch=0L][<span class="kw">order</span>(<span class="op">-</span>N)]</code></pre></div>
+<pre><code>##    carrier     N                     name
+## 1:      B6 34220          JetBlue Airways
+## 2:      DL 18860     Delta Air Lines Inc.
+## 3:      AA 11923   American Airlines Inc.
+## 4:      MQ  5444                Envoy Air
+## 5:      UA  3924    United Air Lines Inc.
+## 6:      VX  3138           Virgin America
+## 7:      US  2645          US Airways Inc.
+## 8:      EV  1069 ExpressJet Airlines Inc.
+## 9:      HA   260   Hawaiian Airlines Inc.</code></pre>
+<p>And here is some additional formatting …</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">nyc14[ origin <span class="op">==</span><span class="st"> 'JFK'</span>, .N, keyby=carrier][airlines, nomatch=0L][<span class="kw">order</span>(<span class="op">-</span>N)] <span class="op">%&gt;%</span>
+<span class="st">  </span>.[,.(<span class="dt">Carrier =</span> name, <span class="dt">N =</span> <span class="kw">format</span>(N, <span class="dt">big.mark =</span> <span class="st">','</span>))] <span class="op">%&gt;%</span>
+<span class="st">  </span>knitr<span class="op">::</span><span class="kw">kable</span>( <span class="dt">align =</span> <span class="st">'r'</span>)</code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="right">Carrier</th>
+<th align="right">N</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">JetBlue Airways</td>
+<td align="right">34,220</td>
+</tr>
+<tr class="even">
+<td align="right">Delta Air Lines Inc.</td>
+<td align="right">18,860</td>
+</tr>
+<tr class="odd">
+<td align="right">American Airlines Inc.</td>
+<td align="right">11,923</td>
+</tr>
+<tr class="even">
+<td align="right">Envoy Air</td>
+<td align="right">5,444</td>
+</tr>
+<tr class="odd">
+<td align="right">United Air Lines Inc.</td>
+<td align="right">3,924</td>
+</tr>
+<tr class="even">
+<td align="right">Virgin America</td>
+<td align="right">3,138</td>
+</tr>
+<tr class="odd">
+<td align="right">US Airways Inc.</td>
+<td align="right">2,645</td>
+</tr>
+<tr class="even">
+<td align="right">ExpressJet Airlines Inc.</td>
+<td align="right">1,069</td>
+</tr>
+<tr class="odd">
+<td align="right">Hawaiian Airlines Inc.</td>
+<td align="right">260</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 <div id="reshaping-data-tables" class="section level2">
 <h2><img src="data:image/png;base64,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" width="25" /> Reshaping data tables</h2>
-<p>We may not cover this in class, but you may wish to read this <a href="https://cran.r-project.org/web/packages/data.table/vignettes/datatable-reshape.html">vignette</a>.</p>
+<p>We may not cover this in class, but you should read this <a href="https://cran.r-project.org/web/packages/data.table/vignettes/datatable-reshape.html">vignette</a>.</p>
+<p>The important points to take away from the vignette are that:</p>
+<ol style="list-style-type: decimal">
+<li><code>melt()</code> reshapes wide data into long format, and</li>
+<li><code>dcast()</code> reshapes long data into wide format.</li>
+</ol>
 </div>
 <div id="resources" class="section level2">
 <h2><img src="data:image/png;base64,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" width="25" /> Resources</h2>
