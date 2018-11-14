@@ -162,7 +162,7 @@ $(document).ready(function () {
 0 \qquad \textrm{else}.
 \end{cases}
 \]</span></p>
-<p>Let <span class="math inline">\(X \in \mathbb{R}^{n \times p}\)</span> with <span class="math inline">\(X \sim N(0_p, \Sigma)\)</span> and <span class="math inline">\(Y \sim N(X\beta, \sigma^2I_p)\)</span> where <span class="math inline">\(I\)</span> is a <span class="math inline">\(p \times p\)</span> diagonal matrix.</p>
+<p>Let <span class="math inline">\(X \in \mathbb{R}^{n \times p}\)</span> with <span class="math inline">\(X \sim N(0_p, \Sigma)\)</span> and <span class="math inline">\(Y \sim N(X\beta, \sigma^2I_n)\)</span> where <span class="math inline">\(I_n\)</span> is an <span class="math inline">\(n \times n\)</span> identify matrix and <span class="math inline">\(\Sigma\)</span> is a <span class="math inline">\(p \times p\)</span>, symmetric, positive definite covariance matrix.</p>
 <ol style="list-style-type: lower-alpha">
 <li>Write a function that accepts matrices <code>X</code> and <code>beta</code> and returns a <code>p</code> by <code>mc_rep</code> matrix of p-values corresponding to p-values for the hypothesis tests: <span class="math display">\[ H_0: \beta_i = 0, H_1: \beta_i \ne 0. \]</span> In addition to <code>X</code> and <code>beta</code> your function should have arguments <code>sigma</code> (<span class="math inline">\(\sigma\)</span>) and <code>mc_rep</code> controlling the error variance of <span class="math inline">\(Y\)</span> and number of Monte Carlo replicates, respectively. Your function should solve the least-squares problems using the QR decomposition of <span class="math inline">\(X'X\)</span>. This decomposition should only be computed once each time your function is called.
 <ol style="list-style-type: lower-roman">
