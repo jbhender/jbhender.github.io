@@ -156,7 +156,9 @@ $(document).ready(function () {
 <div id="question-2-40-points" class="section level2">
 <h2>Question 2 [40 points]</h2>
 <p>In this question you will modify your answer to Problem Set 3, Question 2 (PS3 Q2) to practice parallel, asynchronous, and batch computing. Copy the functions from part a and c of PS3 Q2 to a new file <code>ps4_q2_funcs.R</code></p>
-<p>In each of the parts below, let <span class="math inline">\(\beta\)</span> be defined as in PS3 Q2 and <span class="math inline">\(\Sigma\)</span> be block diagonal with <span class="math inline">\(\Sigma_{ij} = \rho\beta_i\beta_j\)</span> when <span class="math inline">\(i \ne j\)</span> and <span class="math inline">\(\Sigma_{ii} = 1\)</span>.</p>
+<p>In each of the parts below, let <span class="math inline">\(\beta \in \mathbb{R}^{100}\)</span> be defined so that <span class="math display">\[
+\beta_i = \begin{cases} .1, &amp; i \le 10, \\ 0, &amp; \textrm{else.} \end{cases}
+\]</span> and <span class="math inline">\(\Sigma\)</span> be block diagonal with <span class="math inline">\(\Sigma_{ij} = \rho\beta_i\beta_j\)</span> when <span class="math inline">\(i \ne j\)</span> and <span class="math inline">\(\Sigma_{ii} = 1\)</span>. (You may also use <span class="math inline">\(\beta\)</span> as in PS3 Q2 and rescale in any other way that results in a positive definite <span class="math inline">\(\Sigma\)</span>.)</p>
 <p>Create a table or plot for your results from each part.</p>
 <ol style="list-style-type: lower-alpha">
 <li><p>Write an R script <code>ps4_q2a.R</code> that sources <code>ps4_q2_funcs.R</code>, and then uses <code>mclapply</code> to run parallel simulations for <span class="math inline">\(\rho \in \{.25i\}_{i=-3}^{3}\)</span>.<br />
