@@ -951,7 +951,7 @@ data p_stucco_r;
 /* compute standard errors */
 proc sql;
  create table p_stucco as
- select first(p_stucco) as p_stucco,
+ select min(p_stucco) as p_stucco,
         mean(residual) as  v_stucco
  from p_stucco_r
  group by division; 
