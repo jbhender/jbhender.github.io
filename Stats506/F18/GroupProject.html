@@ -54,9 +54,7 @@ h6 {
 
 <link href="data:text/css;charset=utf-8,footer%2Ebottom%2Dfooter%7B%0Afont%2Dsize%3A%2075%25%0A%7D%0Adiv%2Ecopyright%7B%0Afont%2Dsize%3A%20100%25%0A%7D%0Adiv%2Enote%7B%0Afont%2Dsize%3A%20100%25%0A%7D" rel="stylesheet" type="text/css" />
 
-</head>
 
-<body>
 
 <style type="text/css">
 .main-container {
@@ -75,25 +73,98 @@ img {
 .tabbed-pane {
   padding-top: 12px;
 }
+.html-widget {
+  margin-bottom: 20px;
+}
 button.code-folding-btn:focus {
   outline: none;
+}
+summary {
+  display: list-item;
 }
 </style>
 
 
 
-<div class="container-fluid main-container">
-
 <!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
 <script>
 $(document).ready(function () {
   window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
 });
 </script>
 
 <!-- code folding -->
 
 
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
 
 
 
@@ -103,7 +174,7 @@ $(document).ready(function () {
 
 
 <h1 class="title toc-ignore">Group Project</h1>
-<h4 class="author"><em><a href="./index.html">Statistics 506, Fall 2018</a></em></h4>
+<h4 class="author"><a href="./index.html">Statistics 506, Fall 2018</a></h4>
 
 </div>
 
@@ -204,30 +275,157 @@ Please make edits in response to peer feedback.</p></li>
 <div id="approved" class="section level4">
 <h4>Approved</h4>
 <ol style="list-style-type: decimal">
-<li><p><strong>Group 1</strong> - Topic: Ridge Regression; Data: <a href="https://cran.r-project.org/web/packages/faraway/faraway.pdf">meatspec</a>; Languages: Matlab, R, Stata</p></li>
-<li><p><strong>Group 2</strong> - Topic: Factor Analysis; Data: <a href="https://www.personality-project.org/r/html/bfi.html">bfi</a>; Languages: Python (sklearn), R (psych), Stata</p></li>
-<li><p><strong>Group 3</strong> - Topic: Parametric and Non-Parametric ANOVA; Data: <a href="http://sia.webpopix.org/statisticalTests2.html">Rat Survival</a>; Languages: Matlab, R, Stata</p></li>
-<li><p><strong>Group 4</strong> - Topic: Ordinal Logistic Regression; Data: <a href="https://rdrr.io/rforge/ordinal/man/soup.html">Soup</a>; Languages: R (ordinal), SAS, Stata</p></li>
-<li><p><strong>Group 5</strong> - Topic: Logistic Regression with Model Diagnostics; Data: <a href="https://stat.ethz.ch/R-manual/R-devel/library/MASS/html/Pima.tr.html">Pima</a>; Languages: Python (sklearn, pysal), R, Stata</p></li>
-<li><p><strong>Group 6</strong> - Topic: Truncated negative binomial regression; Data: <a href="https://archive.ics.uci.edu/ml/datasets/abalone">Abalone</a>; Languages: R, SAS, Stata</p></li>
-<li><p><strong>Group 7</strong> - Topic: Clustering using Finite Mixture Models; Data: <a href="https://archive.ics.uci.edu/ml/datasets/wine">Wine</a>; Languages: Python, R, Stata</p></li>
-<li><p><strong>Group 8</strong> - Topic: Fixed effects models; Data: <a href="https://rdrr.io/rforge/plm/man/Cigar.html">Cigar</a>; Languages: R (plm), SAS (proc reg), Stata (xtreg, areg, reghdfe)</p></li>
-<li><p><strong>Group 9</strong> - Topic: Cubic splines regression; Data: <a href="https://rdrr.io/cran/faraway/man/uswages.html">uswages</a>; Languages: Python (statsmodels), R (splines), Stata (mkspline)</p></li>
-<li><p><strong>Group 10</strong> - Topic: (Divisive) Hierachical Clustering; Data: <a href="https://www.kaggle.com/mehdidag/black-friday">black-friday</a>; Languages: Python (sklearn.cluster), R (hclust), Stata (cluster)</p></li>
-<li><p><strong>Group 11</strong> -</p></li>
+<li><p><strong>Group 1</strong> -</p>
+<ul>
+<li>Topic: Ridge Regression;</li>
+<li>Data: <a href="https://cran.r-project.org/web/packages/faraway/faraway.pdf">meatspec</a>;</li>
+<li>Languages: Matlab, R, Stata</li>
+<li><a href="./GP/Group1.html">Tutorial</a></li>
+</ul></li>
+<li><strong>Group 2</strong> -
+<ul>
+<li>Topic: Factor Analysis;</li>
+<li>Data: <a href="https://www.personality-project.org/r/html/bfi.html">bfi</a>;</li>
+<li>Languages: Python (sklearn), R (psych), Stata</li>
+<li><a href="./GP/Group2.html">Tutorial</a></li>
+</ul></li>
+<li><strong>Group 3</strong> -
+<ul>
+<li>Topic: Parametric and Non-Parametric ANOVA;</li>
+<li>Data: <a href="http://sia.webpopix.org/statisticalTests2.html">Rat Survival</a>;</li>
+<li>Languages: Matlab, R, Stata</li>
+<li><a href="./GP/Group3.html">Tutorial</a></li>
+</ul></li>
+<li><strong>Group 4</strong> -
+<ul>
+<li>Topic: Ordinal Logistic Regression;</li>
+<li>Data: <a href="https://rdrr.io/rforge/ordinal/man/soup.html">Soup</a>;</li>
+<li>Languages: R (ordinal), SAS, Stata</li>
+<li><a href="./GP/Group4.html">Tutorial</a></li>
+</ul></li>
+<li><strong>Group 5</strong> -
+<ul>
+<li>Topic: Logistic Regression with Model Diagnostics;</li>
+<li>Data: <a href="https://stat.ethz.ch/R-manual/R-devel/library/MASS/html/Pima.tr.html">Pima</a>;</li>
+<li>Languages: Python (sklearn, pysal), R, Stata</li>
+<li><a href="./GP/Group5.html">Tutorial</a></li>
+</ul></li>
+<li><strong>Group 6</strong> -
+<ul>
+<li>Topic: Truncated negative binomial regression;</li>
+<li>Data: <a href="https://archive.ics.uci.edu/ml/datasets/abalone">Abalone</a>;</li>
+<li>Languages: R, SAS, Stata</li>
+<li><a href="./GP/Group6.html">Tutorial</a></li>
+</ul></li>
+<li><strong>Group 7</strong> -
+<ul>
+<li>Topic: Clustering using Finite Mixture Models;</li>
+<li>Data: <a href="https://archive.ics.uci.edu/ml/datasets/wine">Wine</a>;</li>
+<li>Languages: Python, R, Stata</li>
+<li><a href="./GP/Group7.html">Tutorial</a></li>
+</ul></li>
+<li><strong>Group 8</strong> -
+<ul>
+<li>Topic: Fixed effects models;</li>
+<li>Data: <a href="https://rdrr.io/rforge/plm/man/Cigar.html">Cigar</a>;</li>
+<li>Languages: R (plm), SAS (proc reg), Stata (xtreg, areg, reghdfe)</li>
+</ul></li>
 </ol>
-<p>Topic: Linear Discriminant Analysis (LDA); Data: <a href="https://archive.ics.uci.edu/ml/datasets/seeds">Seeds</a>; Languages: R, SAS, Stata</p>
+<ul>
+<li><a href="./GP/Group8.html">Tutorial</a></li>
+</ul>
 <ol style="list-style-type: decimal">
-<li><p><strong>Group 12</strong> - Topic: Multinomial Logistic Regression (all vs reference); Data: iris; Languages: R (multinom), SAS (proc logistic), Stata (mlogit)</p></li>
-<li><p><strong>Group 13</strong> - Topic: Comparing logit and probit regression; Data: <a href="https://archive.ics.uci.edu/ml/datasets/Communities+and+Crime">Communities and Crime</a> ?? Languages: Python (sklearn, pysal), R, Stata</p></li>
-<li><p><strong>Group 14</strong> - Topic: Probit Regression; Data: <a href="https://vincentarelbundock.github.io/Rdatasets/datasets.html">Mroz</a>; Languages: Python (StatsModels), R (glm), SAS, Stata</p></li>
-<li><p><strong>Group 15</strong> - Topic: (Agglomertive) Hierarchical Clustering using Average Linkage; Data: <a href="https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/USArrests.html">USArrests</a>; Languages: Python (sklearn, scipy), R (cluster), Stata (cluster)</p></li>
-<li><p><strong>Group 16</strong> - Topic: Linear Mixed Effects Models; Data: <a href="https://archive.ics.uci.edu/ml/datasets/PM2.5+Data+of+Five+Chinese+Cities">PM2.5</a>; Languages: Python (Statsmodels), R (lme4 and glmmADMB)</p></li>
-<li><p><strong>Group 17</strong> - Topic: Multidimesional Scaling; Data: <a href="http://jse.amstat.org/datasets/93cars.dat.txt?fbclid=IwAR19EJDNQzMMQOBe6ZC4t4li0zx0UpkDBAoSWDNWa3T54JXc-yfpPiPIqsk">93cars</a> Languages: Stata, R (dplyr + cmdscale, data.table + smacof)</p></li>
-<li><p><strong>Group 18</strong> - Topic: Multilayer Perceptron Models; Data: <a href="https://www.kaggle.com/blastchar/telco-customer-churn">Telco Customer Churn</a>; Languages: Python (tensorflow and base), R (MXNet)</p></li>
-<li><p><strong>Group 19</strong> - Topic: Model Selection and Diagnostics in Linear Regression; Data: <a href="https://www.kaggle.com/mirichoi0218/insurance">Insurance</a>; Languages: Matlab, Python, R</p></li>
-<li><p><strong>Group 20</strong> - Topic: Canonical Correlation Analysis Data: <a href="https://wwwn.cdc.gov/nchs/nhanes/continuousnhanes/default.aspx?BeginYear=2003">NHANES 2003-2004</a> Languages: R, SAS, Stata; Reference: <a href="https://www.ncbi.nlm.nih.gov/pubmed/?term=Examination+of+the+relationships+between+environmental+exposures+to+volatile+organic+compounds+and+biochemical+liver+tests">Liu et al 2009</a></p></li>
-<li><p><strong>Group 21</strong> - Topic: Monte-Carlo simulation of Portfolio Stock Returns; Data: Stock prices for Apple, Facebook, and Google 11/14/2017 - 11/14/2018; Languages: Matlab, Python, R</p></li>
+<li><strong>Group 9</strong> -
+<ul>
+<li>Topic: Cubic splines regression;</li>
+<li>Data: <a href="https://rdrr.io/cran/faraway/man/uswages.html">uswages</a>;</li>
+<li>Languages: Python (statsmodels), R (splines), Stata (mkspline)</li>
+<li><a href="./GP/Group9.html">Tutorial</a></li>
+</ul></li>
+<li><strong>Group 10</strong> -
+<ul>
+<li>Topic: (Divisive) Hierachical Clustering;</li>
+<li>Data: <a href="https://www.kaggle.com/mehdidag/black-friday">black-friday</a>;</li>
+<li>Languages: Python (sklearn.cluster), R (hclust), Stata (cluster)</li>
+<li><a href="./GP/Group10.html">Tutorial</a></li>
+</ul></li>
+<li><p><strong>Group 11</strong> -</p>
+<ul>
+<li>Topic: Linear Discriminant Analysis (LDA);</li>
+<li>Data: <a href="https://archive.ics.uci.edu/ml/datasets/seeds">Seeds</a>;</li>
+<li>Languages: R, SAS, Stata</li>
+<li><a href="./GP/Group11.html">Tutorial</a></li>
+</ul></li>
+<li><strong>Group 12</strong> -
+<ul>
+<li>Topic: Multinomial Logistic Regression (all vs reference);</li>
+<li>Data: iris;</li>
+<li>Languages: R (multinom), SAS (proc logistic), Stata (mlogit)</li>
+<li><a href="./GP/Group12.html">Tutorial</a></li>
+</ul></li>
+<li><strong>Group 13</strong> -
+<ul>
+<li>Topic: Comparing logit and probit regression;</li>
+<li>Data: <a href="https://archive.ics.uci.edu/ml/datasets/Communities+and+Crime">Communities and Crime</a>;</li>
+<li>Languages: Python (sklearn, pysal), R, Stata</li>
+<li><a href="./GP/Group13.html">Tutorial</a></li>
+</ul></li>
+<li><strong>Group 14</strong> -
+<ul>
+<li>Topic: Probit Regression;</li>
+<li>Data: <a href="http://www.econometrics.com/comdata/wooldridge/data.html">Mroz</a>;</li>
+<li>Languages: Python (StatsModels), R (glm), SAS, Stata</li>
+<li><a href="./GP/Group14.html">Tutorial</a></li>
+</ul></li>
+<li><strong>Group 15</strong> -
+<ul>
+<li>Topic: (Agglomertive) Hierarchical Clustering using Average Linkage;</li>
+<li>Data: <a href="https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/USArrests.html">USArrests</a>;</li>
+<li>Languages: Python (sklearn, scipy), R (cluster), Stata (cluster)</li>
+<li><a href="./GP/Group15.html">Tutorial</a></li>
+</ul></li>
+<li><strong>Group 16</strong> -
+<ul>
+<li>Topic: Linear Mixed Effects Models;</li>
+<li>Data: <a href="https://archive.ics.uci.edu/ml/datasets/PM2.5+Data+of+Five+Chinese+Cities">PM2.5</a>;</li>
+<li>Languages: Python (Statsmodels), R (lme4 and glmmADMB)</li>
+<li><a href="./GP/Group16.html">Tutorial</a></li>
+</ul></li>
+<li><strong>Group 17</strong> -
+<ul>
+<li>Topic: Multidimesional Scaling;</li>
+<li>Data: <a href="http://jse.amstat.org/datasets/93cars.dat.txt?fbclid=IwAR19EJDNQzMMQOBe6ZC4t4li0zx0UpkDBAoSWDNWa3T54JXc-yfpPiPIqsk">93cars</a></li>
+<li>Languages: Stata, R (dplyr + cmdscale, data.table + smacof)</li>
+<li><a href="./GP/Group17.html">Tutorial</a></li>
+</ul></li>
+<li><strong>Group 18</strong> -
+<ul>
+<li>Topic: Multilayer Perceptron Models;</li>
+<li>Data: <a href="https://www.kaggle.com/blastchar/telco-customer-churn">Telco Customer Churn</a>;</li>
+<li>Languages: Python (tensorflow and base), R (MXNet)</li>
+<li><a href="./GP/Group18/introduction.html">Tutorial</a></li>
+</ul></li>
+<li><strong>Group 19</strong> -
+<ul>
+<li>Topic: Model Selection and Diagnostics in Linear Regression;</li>
+<li>Data: <a href="https://www.kaggle.com/mirichoi0218/insurance">Insurance</a>;</li>
+<li>Languages: Matlab, Python, R</li>
+<li><a href="./GP/Group19.html">Tutorial</a></li>
+</ul></li>
+<li><strong>Group 20</strong> -
+<ul>
+<li>Topic: Canonical Correlation Analysis</li>
+<li>Data: <a href="https://wwwn.cdc.gov/nchs/nhanes/continuousnhanes/default.aspx?BeginYear=2003">NHANES 2003-2004</a></li>
+<li>Languages: R, SAS, Stata; Reference: <a href="https://www.ncbi.nlm.nih.gov/pubmed/?term=Examination+of+the+relationships+between+environmental+exposures+to+volatile+organic+compounds+and+biochemical+liver+tests">Liu et al 2009</a></li>
+<li><a href="./GP/Group20.html">Tutorial</a></li>
+</ul></li>
+<li><strong>Group 21</strong> -
+<ul>
+<li>Topic: Monte-Carlo simulation of Portfolio Stock Returns;</li>
+<li>Data: Stock prices for Apple, Facebook, and Google 11/14/2017 - 11/14/2018;</li>
+<li>Languages: Matlab, Python, R</li>
+<li><a href="./GP/Group21.html">Tutorial</a></li>
+</ul></li>
 </ol>
 </div>
 </div>
