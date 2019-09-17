@@ -408,6 +408,8 @@ $(document).ready(function () {
 <p>In this question you will extend your knowledge of the Linux shell by modifying your solution to question 1 to write a short command line program to be named <code>cutnames</code>. This program should extract those columns from a csv file having headers matching a regular expression.</p>
 <p>Your command/script should accept the arguments “file” and “expression” by position. It should reproduce the output from question 1 if called as below:</p>
 <pre class="bash"><code>bash ./cutnames ./recs2015_public_v4.csv 'DOEID|^BRR' &gt; recs_weights.csv</code></pre>
+<p>It is also acceptable if it works instead if called as below:</p>
+<pre class="bash"><code>bash ./cutnames ./recs2015_public_v4.csv 'DOEID\|^BRR' &gt; recs_weights.csv</code></pre>
 <p>Name your script <code>cutnames.sh</code> and, as before, submit to Canvas as both <code>cutnames.sh</code> and <code>cutnames.txt</code>.</p>
 <p><strong>Challenge:</strong> Modify your script to recognize and work with gzip compressed files when the file name passed has extension ‘.gz’. <em>This is ungraded and should not be submitted.</em></p>
 </div>
