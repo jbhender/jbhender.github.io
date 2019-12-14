@@ -563,7 +563,7 @@ proc summary data = pneum;
  by hosp_id;
  output out = totals
    sum(n14) = tot14
-   sum(n16) as tot16;
+   sum(n16) = tot16;
    
 /* Remerge and create pooled estimate*/
 data pneum;
