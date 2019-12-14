@@ -481,7 +481,7 @@ $(document).ready(function () {
 <div id="key-concepts" class="section level3">
 <h3>Key Concepts</h3>
 <ol style="list-style-type: decimal">
-<li>storage for types: logical/integer 4B each, double/pointer 4B each</li>
+<li>storage for types: logical/integer 4B each, double/pointer 8B each</li>
 <li>SI units: “B”, “kB”, “MB”, “GB”, “TB”, …</li>
 <li>R’s global string pool: character vectors are pointers to this pool</li>
 <li>Empty vectors take 48B, increments are always multiples of 8</li>
@@ -583,7 +583,7 @@ run;
 
 /* [Comment 2]: ----------------------------------------- */
 proc sort data=reslib.result;
- by -z; 
+ by descending z; 
 run;
 
 /* 60: -------------------------------------------------- */</code></pre>
