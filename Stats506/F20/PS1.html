@@ -359,9 +359,9 @@ summary {
 <div id="instructions" class="section level2">
 <h2>Instructions</h2>
 <ul>
-<li><p>Submit the assignment by the due date via canvas. Assignments may be submitted up to 72 hours late for a 5 point reduction.</p></li>
+<li><p>Submit the assignment by the due date via Canvas. Assignments may be submitted up to 72 hours late for a 5 point reduction.</p></li>
 <li><p>All files read, sourced, or referred to within scripts should be assumed to be in the same working directory (<code>./</code>).</p></li>
-<li><p>Your code should be clearly written and it should be possible to assess it by reading it. Use appropriate variable names and comments. Your style will be graded using the <a href="./StyleRubric.html">style rubric</a> [10 points].</p></li>
+<li><p>Your code should be clearly written and it should be possible to assess it by reading it. Use appropriate variable names and comments. Your style will be graded using the <a href="./StyleRubric.html">style rubric</a> [15 points].</p></li>
 <li><p>Some of these exercises may require you to use commands or techniques that were not covered in class or in the course notes. You can use the web as needed to identify appropriate approaches. Part of the purpose of these exercises is for you to learn to be resourceful and self sufficient. Questions are welcome at all times, but please make an attempt to locate relevant information yourself first.</p></li>
 <li><p>Please use the provided <a href="https://github.com/jbhender/Stats506_F20/tree/master/problem_sets/templates/">templates</a>.</p></li>
 <li><p>Your submission should include a write-up as a pdf or HTML document and all scripts needed to reproduce. In your document, describe how the files submitted related to one another and be sure to answer the questions.<br />
@@ -402,22 +402,22 @@ Scripts for this assignment you should submit: shell (<code>.sh</code>), R (<cod
 </ol>
 </div>
 </div>
-<div id="question-2-30-points" class="section level3">
-<h3>Question 2 [30 points]</h3>
+<div id="question-2-40-points" class="section level3">
+<h3>Question 2 [40 points]</h3>
 <p>In this question you will write functions in R to evaluate binary predictions models using the receiver operator characteristic <a href="https://en.wikipedia.org/wiki/Receiver_operating_characteristic">ROC</a> and precision recall curve <a href="https://en.wikipedia.org/wiki/Precision_and_recall">PR</a>. You should write your own functions using default packages and/or tidyverse, but not just write “wrappers” to existing functions for these specific tasks. Try to write <em>vectorized</em> code avoiding loops – a concept we will discuss further in the next few weeks.</p>
 <ol style="list-style-type: lower-alpha">
-<li><p>[10 points] Write a function <code>perf_roc()</code> taking two required arguments: <code>y</code> for the true binary labels and <code>yhat</code> for a continuous or ordinal predictor which, when combined with a threshold <code>tau</code>, predicts <code>y</code> via <code>yhat &gt;= tau</code>. Also include an argument <code>plot = c(&quot;none&quot;, &quot;base&quot;, &quot;ggplot2&quot;)</code>indicating whether to produce a plot showing the ROC curve, and, if so, whether it should be produced with base R graphics or ggplot2. Your function should return a named list containing:</p>
+<li><p>[15 points] Write a function <code>perf_roc()</code> taking two required arguments: <code>y</code> for the true binary labels and <code>yhat</code> for a continuous or ordinal predictor which, when combined with a threshold <code>tau</code>, predicts <code>y</code> via <code>yhat &gt;= tau</code>. Also include an argument <code>plot = c(&quot;none&quot;, &quot;base&quot;, &quot;ggplot2&quot;)</code>indicating whether to produce a plot showing the ROC curve, and, if so, whether it should be produced with base R graphics or ggplot2. Your function should return a named list containing:</p>
 <ol style="list-style-type: lower-roman">
 <li><p>a 7-column <code>data.frame</code> (or <code>tibble</code>) with sorted, unique values of <code>yhat</code>, counts of true/false positives/negatives when <code>tau == yhat</code> for the value of <code>yhat</code> in that row, and the sensitivity and specificity associated with each threshold.</p></li>
 <li><p>The area under the ROC curve, evaluated using the <a href="https://en.wikipedia.org/wiki/Trapezoidal_rule">trapezoidal rule</a>.</p></li>
 </ol></li>
-<li><p>[10 points] Write a function <code>perf_pr()</code> similar to <code>perf_roc()</code> but replacing specificity with precision and renaming sensitivity as recall. This function should also compute the area under the precision recall curve.</p></li>
+<li><p>[15 points] Write a function <code>perf_pr()</code> similar to <code>perf_roc()</code> but replacing specificity with precision and renaming sensitivity as recall. This function should also compute the area under the precision recall curve.</p></li>
 <li><p>[10 points] Use your functions to evaluate the predictions in the file <code>problem_sets/data/isolet_restults.csv</code> in the <a href="https://github.com/jbhender/Stats506_F20/">Stats506_F20</a> repo. In your write up, report both the AUC-ROC and the AUC-PR and include both the base R and ggplot2 versions of your plots showing the curves.</p></li>
 </ol>
 <div id="hints-1" class="section level4">
 <h4>Hints:</h4>
 <ol style="list-style-type: decimal">
-<li>To avoid repeating yourself, consider writing helper functions, e.g. to sort the predictions and count the true/false positive/negative.</li>
+<li>To avoid repeating yourself, consider writing helper functions, e.g. to sort the predictions and count the true/false positives/negatives.</li>
 <li>Be sure to document each of your functions using a comment in the opening lines of the function body. Use the following format:
 <ol style="list-style-type: lower-alpha">
 <li>Brief 1-line description of what the function does</li>
