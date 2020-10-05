@@ -513,7 +513,6 @@ summary {
 <span id="cb1-12"><a href="#cb1-12"></a><span class="co">## Do we get the same sum?</span></span>
 <span id="cb1-13"><a href="#cb1-13"></a>s0 <span class="op">==</span><span class="st"> </span>s1</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<hr />
 <p>The vectorized code is not only easier to type and read but is also faster.</p>
 <hr />
 </div>
@@ -601,22 +600,22 @@ neval
 f0
 </td>
 <td style="text-align:right;">
-359059
+359121
 </td>
 <td style="text-align:right;">
-361264.0
+361438.0
 </td>
 <td style="text-align:right;">
-402921.8
+400343.2
 </td>
 <td style="text-align:right;">
-364048.5
+363716
 </td>
 <td style="text-align:right;">
-401740.0
+389742.5
 </td>
 <td style="text-align:right;">
-4696265
+15508615
 </td>
 <td style="text-align:right;">
 1000
@@ -627,22 +626,22 @@ f0
 f1
 </td>
 <td style="text-align:right;">
-203038
+203327
 </td>
 <td style="text-align:right;">
-205351.5
+205141.5
 </td>
 <td style="text-align:right;">
-225508.1
+228678.8
 </td>
 <td style="text-align:right;">
-206302.0
+206451
 </td>
 <td style="text-align:right;">
-225592.5
+222535.5
 </td>
 <td style="text-align:right;">
-3426302
+8563194
 </td>
 <td style="text-align:right;">
 1000
@@ -653,22 +652,22 @@ f1
 f2
 </td>
 <td style="text-align:right;">
-677
+665
 </td>
 <td style="text-align:right;">
-828.5
+876.5
 </td>
 <td style="text-align:right;">
-5403.4
+5322.5
 </td>
 <td style="text-align:right;">
-1018.5
+1113
 </td>
 <td style="text-align:right;">
-2346.5
+2403.0
 </td>
 <td style="text-align:right;">
-2076203
+2841135
 </td>
 <td style="text-align:right;">
 1000
@@ -793,7 +792,7 @@ E[(\sin(X)-\cos(x))^2],
 \end{align}
 \]</span></p>
 <p>The code below will produce a plot that illustrates why <span class="math inline">\(E[\sin(a*X)] = 0\)</span> for <span class="math inline">\(X \sim N(0,1)\)</span></p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a>cap=<span class="st">&quot;**Figure 1.** *Illustrating why E[sin(X)] = 0 for X ~ N(0,1).*&quot;</span></span>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a>cap =<span class="st"> &quot;**Figure 1.** *Illustrating why E[sin(X)] = 0 for X ~ N(0,1).*&quot;</span></span>
 <span id="cb16-2"><a href="#cb16-2"></a><span class="kw">curve</span>(sin, <span class="dv">-2</span> <span class="op">*</span><span class="st"> </span>pi, <span class="dv">2</span> <span class="op">*</span><span class="st"> </span>pi, <span class="dt">n =</span> <span class="fl">1e3</span> <span class="op">+</span><span class="st"> </span><span class="dv">1</span>, <span class="dt">lwd =</span> <span class="dv">2</span>, <span class="dt">las =</span> <span class="dv">1</span>, <span class="dt">xaxt =</span> <span class="st">&#39;n&#39;</span>)</span>
 <span id="cb16-3"><a href="#cb16-3"></a><span class="kw">curve</span>(dnorm, <span class="dv">-2</span> <span class="op">*</span><span class="st"> </span>pi, <span class="dv">2</span> <span class="op">*</span><span class="st"> </span>pi, <span class="dt">n =</span> <span class="fl">1e3</span> <span class="op">+</span><span class="st"> </span><span class="dv">1</span>, <span class="dt">lwd =</span> <span class="dv">2</span>, <span class="dt">col =</span> <span class="st">&#39;red&#39;</span>, <span class="dt">add =</span> <span class="ot">TRUE</span>)</span>
 <span id="cb16-4"><a href="#cb16-4"></a><span class="kw">curve</span>(<span class="kw">dnorm</span>(x) <span class="op">*</span><span class="st"> </span><span class="kw">sin</span>(x), <span class="dv">-2</span> <span class="op">*</span><span class="st"> </span>pi, <span class="dv">2</span> <span class="op">*</span><span class="st"> </span>pi, <span class="dt">n =</span> <span class="fl">1e3</span> <span class="op">+</span><span class="st"> </span><span class="dv">1</span>, </span>
@@ -802,7 +801,7 @@ E[(\sin(X)-\cos(x))^2],
 <span id="cb16-7"><a href="#cb16-7"></a></span>
 <span id="cb16-8"><a href="#cb16-8"></a><span class="kw">legend</span>(<span class="st">&#39;topright&#39;</span>, <span class="dt">col =</span> <span class="kw">c</span>(<span class="st">&#39;black&#39;</span>, <span class="st">&#39;red&#39;</span>, <span class="st">&#39;blue&#39;</span>), </span>
 <span id="cb16-9"><a href="#cb16-9"></a>       <span class="dt">lwd =</span> <span class="dv">2</span>, <span class="dt">bty =</span> <span class="st">&#39;n&#39;</span>, <span class="dt">cex =</span> <span class="fl">1.2</span>,</span>
-<span id="cb16-10"><a href="#cb16-10"></a>       <span class="dt">legend=</span><span class="kw">c</span>(<span class="st">&#39;sin(x)&#39;</span>, <span class="kw">expression</span>(phi<span class="op">*</span><span class="st">&#39;(x)&#39;</span>), <span class="kw">expression</span>(phi<span class="op">*</span><span class="st">&#39;(x)sin(x)&#39;</span>))</span>
+<span id="cb16-10"><a href="#cb16-10"></a>       <span class="dt">legend =</span> <span class="kw">c</span>(<span class="st">&#39;sin(x)&#39;</span>, <span class="kw">expression</span>(phi<span class="op">*</span><span class="st">&#39;(x)&#39;</span>), <span class="kw">expression</span>(phi<span class="op">*</span><span class="st">&#39;(x)sin(x)&#39;</span>))</span>
 <span id="cb16-11"><a href="#cb16-11"></a>      )</span>
 <span id="cb16-12"><a href="#cb16-12"></a></span>
 <span id="cb16-13"><a href="#cb16-13"></a><span class="kw">axis</span>(<span class="dv">1</span>, <span class="dt">at =</span> pi <span class="op">*</span><span class="st"> </span><span class="kw">seq</span>(<span class="op">-</span><span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>), </span>
@@ -899,7 +898,7 @@ E[(\sin(X)-\cos(x))^2],
 <span id="cb29-16"><a href="#cb29-16"></a><span class="co">## Report on the difference</span></span>
 <span id="cb29-17"><a href="#cb29-17"></a><span class="kw">cat</span>(<span class="st">&quot;Apply: &quot;</span>, tm1[<span class="dv">3</span>], <span class="st">&quot;s, Vectorized: &quot;</span>, tm2[<span class="dv">3</span>], <span class="st">&quot;s, Ratio: &quot;</span>,</span>
 <span id="cb29-18"><a href="#cb29-18"></a>    <span class="kw">round</span>( tm1[<span class="dv">3</span>] <span class="op">/</span><span class="st"> </span>tm2[<span class="dv">3</span>], <span class="dv">1</span>), <span class="st">&#39;.</span><span class="ch">\n</span><span class="st">&#39;</span>, <span class="dt">sep =</span> <span class="st">&#39;&#39;</span> )</span></code></pre></div>
-<pre><code>## Apply: 1.551s, Vectorized: 0.028s, Ratio: 55.4.</code></pre>
+<pre><code>## Apply: 1.53s, Vectorized: 0.031s, Ratio: 49.4.</code></pre>
 <div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a><span class="co">## Check that both versions are equal</span></span>
 <span id="cb31-2"><a href="#cb31-2"></a><span class="kw">all.equal</span>(rowvar1, rowvar2)</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
@@ -959,9 +958,9 @@ E[(\sin(X)-\cos(x))^2],
 <span id="cb40-3"><a href="#cb40-3"></a>            tm1[<span class="dv">3</span>], tm2[<span class="dv">3</span>], tm3[<span class="dv">3</span>], tm4[<span class="dv">3</span>]</span>
 <span id="cb40-4"><a href="#cb40-4"></a>            )</span>
 <span id="cb40-5"><a href="#cb40-5"></a>    )</span></code></pre></div>
-<pre><code>## 1: 0.274 s 
-## 2: 0.275 s 
-## 3: 0.222 s 
+<pre><code>## 1: 0.301 s 
+## 2: 0.271 s 
+## 3: 0.218 s 
 ## 4: 0.024 s</code></pre>
 <p>The fourth approach using linear algebra and broadcasting is by far the most efficient here. All approaches are much more efficient than computing <span class="math inline">\({10,001 \choose 2}\)</span> correlations when we only need 10,000.</p>
 <p>While we should keep in mind that this was a single trial and not a formal comparison with replicates, a difference of this size is still meaningful. We should also be aware that one of the reasons the other approaches are slower is the time needed to allocate memory for (larger) intermediate objects.</p>
@@ -971,8 +970,8 @@ E[(\sin(X)-\cos(x))^2],
 <p>Garbage collection is triggered automatically when <strong>R</strong> needs more memory. As this could happen in the middle of something you are timing, you may get more consistent results if you explicitly force garbage collection prior to starting the timer. However, you rarely need to consider this elsewhere and not everyone agrees it is a best practice for timing comparisons.</p>
 <div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1"></a><span class="kw">gc</span>()</span></code></pre></div>
 <pre><code>##           used (Mb) gc trigger  (Mb) limit (Mb) max used  (Mb)
-## Ncells 1076908 57.6    2091708 111.8         NA  2091708 111.8
-## Vcells 3167675 24.2   13239627 101.1      16384 12968223  99.0</code></pre>
+## Ncells 1076907 57.6    2091704 111.8         NA  2091704 111.8
+## Vcells 3167661 24.2   13239857 101.1      16384 12968347  99.0</code></pre>
 <div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1"></a><span class="co"># First approach, calculate as a loop</span></span>
 <span id="cb44-2"><a href="#cb44-2"></a>tm1 =<span class="st"> </span><span class="kw">proc.time</span>()</span>
 <span id="cb44-3"><a href="#cb44-3"></a>r1 =<span class="st"> </span><span class="ot">NULL</span></span>
@@ -983,8 +982,8 @@ E[(\sin(X)-\cos(x))^2],
 <span id="cb44-8"><a href="#cb44-8"></a></span>
 <span id="cb44-9"><a href="#cb44-9"></a><span class="kw">gc</span>()</span></code></pre></div>
 <pre><code>##           used (Mb) gc trigger  (Mb) limit (Mb) max used  (Mb)
-## Ncells 1076882 57.6    2091708 111.8         NA  2091708 111.8
-## Vcells 3167610 24.2   13239627 101.1      16384 12968223  99.0</code></pre>
+## Ncells 1076881 57.6    2091704 111.8         NA  2091704 111.8
+## Vcells 3167596 24.2   13239857 101.1      16384 12968347  99.0</code></pre>
 <div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1"></a><span class="co"># Second approach, functional style with apply</span></span>
 <span id="cb46-2"><a href="#cb46-2"></a>tm2 =<span class="st"> </span><span class="kw">proc.time</span>()</span>
 <span id="cb46-3"><a href="#cb46-3"></a>r2 =<span class="st"> </span><span class="kw">apply</span>(xmat, <span class="dv">1</span>, <span class="cf">function</span>(v) <span class="kw">cor</span>(v, yvec))</span>
@@ -992,8 +991,8 @@ E[(\sin(X)-\cos(x))^2],
 <span id="cb46-5"><a href="#cb46-5"></a></span>
 <span id="cb46-6"><a href="#cb46-6"></a><span class="kw">gc</span>()</span></code></pre></div>
 <pre><code>##           used (Mb) gc trigger  (Mb) limit (Mb) max used  (Mb)
-## Ncells 1076944 57.6    2091708 111.8         NA  2091708 111.8
-## Vcells 3167732 24.2   13239627 101.1      16384 12968223  99.0</code></pre>
+## Ncells 1076943 57.6    2091704 111.8         NA  2091704 111.8
+## Vcells 3167718 24.2   13239857 101.1      16384 12968347  99.0</code></pre>
 <div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1"></a><span class="co"># Third approach, use linear algebra</span></span>
 <span id="cb48-2"><a href="#cb48-2"></a>tm3 =<span class="st"> </span><span class="kw">proc.time</span>()</span>
 <span id="cb48-3"><a href="#cb48-3"></a>rmn =<span class="st"> </span><span class="kw">rowMeans</span>(xmat)</span>
@@ -1007,8 +1006,8 @@ E[(\sin(X)-\cos(x))^2],
 <span id="cb48-11"><a href="#cb48-11"></a></span>
 <span id="cb48-12"><a href="#cb48-12"></a><span class="kw">gc</span>()</span></code></pre></div>
 <pre><code>##           used (Mb) gc trigger  (Mb) limit (Mb) max used  (Mb)
-## Ncells 1077030 57.6    2091708 111.8         NA  2091708 111.8
-## Vcells 3167826 24.2   13239627 101.1      16384 12968223  99.0</code></pre>
+## Ncells 1077029 57.6    2091704 111.8         NA  2091704 111.8
+## Vcells 3167812 24.2   13239857 101.1      16384 12968347  99.0</code></pre>
 <div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1"></a><span class="co"># Fourth approach, use linear algebra with broadcasting</span></span>
 <span id="cb50-2"><a href="#cb50-2"></a>tm4 =<span class="st"> </span><span class="kw">proc.time</span>()</span>
 <span id="cb50-3"><a href="#cb50-3"></a>rmn =<span class="st"> </span><span class="kw">rowMeans</span>(xmat)</span>
@@ -1026,10 +1025,10 @@ E[(\sin(X)-\cos(x))^2],
 <span id="cb50-15"><a href="#cb50-15"></a>            tm1[<span class="dv">3</span>],tm2[<span class="dv">3</span>],tm3[<span class="dv">3</span>],tm4[<span class="dv">3</span>]</span>
 <span id="cb50-16"><a href="#cb50-16"></a>            )</span>
 <span id="cb50-17"><a href="#cb50-17"></a>    )</span></code></pre></div>
-<pre><code>## 1: 0.240 s 
-## 2: 0.281 s 
-## 3: 0.146 s 
-## 4: 0.017 s</code></pre>
+<pre><code>## 1: 0.261 s 
+## 2: 0.335 s 
+## 3: 0.164 s 
+## 4: 0.062 s</code></pre>
 </div>
 </div>
 <div id="exercises" class="section level3">
