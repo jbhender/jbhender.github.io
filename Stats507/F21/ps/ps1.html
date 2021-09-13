@@ -178,7 +178,7 @@ pre code {
 <h2>Question 0 - Markdown warmup [10 points]</h2>
 <p>Use markdown syntax to <em>exactly</em> reproduce the text below. In your paired notebook and script, in addition to regular (formatted) markdown, include the “raw” markdown by writing it between code fences “```”. Use markdown and <span class="math inline">\(\LaTeX\)</span> only, no raw HTML. The code to be reproduced appears between horizontal rules – include these in your solution.</p>
 <hr />
-<p>This is <em>question 0</em> for <a href="https://jbhender.github.io/Stats507/F21/ps/ps1.html">problem set 1</a> of <a href="https://jbhender.github.io/Stats507/F21/">Stats 507</a>.</p>
+<p>This is <em>question 0</em> for <a href="https://jbhender.github.io/Stats507/F21/ps1.html">problem set 1</a> of <a href="https://jbhender.github.io/Stats507/F21/">Stats 507</a>.</p>
 <blockquote>
 <p>Question 0 is about Markdown.</p>
 </blockquote>
@@ -213,9 +213,9 @@ pre code {
 <p><span class="math display">\[
 F_n = F_{n-2} + F_{n-1}, \qquad \textrm{with}\qquad F_0 = 0, F_1 = 1. 
 \]</span></p>
-<p>A common question in a code interview asks the interviewee to sketch a program generating Fibonnaci numbers at a board. In this quesiton, you will write and compare several such programs. After each function definition, write a test to ensure your function returns the following vlaues: <span class="math inline">\(F_7 = 13, F_11 = 89, and F_13 = 233\)</span>.</p>
+<p>A common question in code interviews asks the interviewee to sketch a program generating Fibonnaci numbers at a board. In this quesiton, you will write and compare several such programs. After each function definition, write a test to ensure your function returns the following values: <span class="math inline">\(F_{7} = 13\)</span>, <span class="math inline">\(F_{11} = 89\)</span>, and <span class="math inline">\(F_{13} = 233\)</span>.</p>
 <ol style="list-style-type: lower-alpha">
-<li><p>Write a <em>recursive</em> function <code>fib_rec()</code> that takes a single input <code>n</code> and returns the value of <span class="math inline">\(F_n\)</span>.</p></li>
+<li><p>Write a <em>recursive</em> function <code>fib_rec()</code> that takes input <code>n</code>, <code>a=0</code>, and <code>b=1</code> and returns the value of <span class="math inline">\(F_n\)</span> for <code>F_0 = a</code>, and <code>F_1 = b</code>.</p></li>
 <li><p>Write a function <code>fib_for()</code> with the same signature that computes <span class="math inline">\(F_n\)</span> by summation using a <code>for</code> loop.</p></li>
 <li><p>Write a function <code>fib_whl()</code> with the same signature that computes <span class="math inline">\(F_n\)</span> by summation using a <code>while</code> loop.</p></li>
 <li><p>Write a function <code>fib_rnd()</code> with the same signature that computes <span class="math inline">\(F_n\)</span> using the rounding method described on the Wikipedia page linked above.</p></li>
