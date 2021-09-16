@@ -182,7 +182,7 @@ pre code {
 <blockquote>
 <p>Question 0 is about Markdown.</p>
 </blockquote>
-<p>The next question is about the <strong>Fibonnaci sequence</strong>, <span class="math inline">\(F_n = F_{n-2} + F_{n-1}\)</span>. In part <strong>a</strong> we will define a Python function <code>fib_rec()</code>.</p>
+<p>The next question is about the <strong>Fibonacci sequence</strong>, <span class="math inline">\(F_n = F_{n-2} + F_{n-1}\)</span>. In part <strong>a</strong> we will define a Python function <code>fib_rec()</code>.</p>
 <p>Below is a …</p>
 <div id="level-3-header" class="section level3">
 <h3>Level 3 Header</h3>
@@ -207,15 +207,15 @@ pre code {
 <hr />
 </div>
 </div>
-<div id="question-1---fibonnaci-sequence-30" class="section level2">
-<h2>Question 1 - Fibonnaci Sequence [30]</h2>
-<p>The <a href="https://en.wikipedia.org/wiki/Fibonacci_number">Fibonnaci seuqence</a> <span class="math inline">\(F_n\)</span> begins with the numbers $ <span class="math inline">\(0, 1, 1, ...\)</span> and continues so that each entry is the sum of adding its two immediate predecessors. The sequence can be defined as follows,</p>
+<div id="question-1---fibonacci-sequence-30" class="section level2">
+<h2>Question 1 - Fibonacci Sequence [30]</h2>
+<p>The <a href="https://en.wikipedia.org/wiki/Fibonacci_number">Fibonacci seuqence</a> <span class="math inline">\(F_n\)</span> begins with the numbers <span class="math inline">\(0, 1, 1, ...\)</span> and continues so that each entry is the sum of adding its two immediate predecessors. The sequence can be defined as follows,</p>
 <p><span class="math display">\[
 F_n = F_{n-2} + F_{n-1}, \qquad \textrm{with}\qquad F_0 = 0, F_1 = 1. 
 \]</span></p>
-<p>A common question in a code interview asks the interviewee to sketch a program generating Fibonnaci numbers at a board. In this quesiton, you will write and compare several such programs. After each function definition, write a test to ensure your function returns the following vlaues: <span class="math inline">\(F_7 = 13, F_11 = 89, and F_13 = 233\)</span>.</p>
+<p>A common question in code interviews asks the interviewee to sketch a program generating Fibonacci numbers at a board. In this quesiton, you will write and compare several such programs. After each function definition, write a test to ensure your function returns the following values: <span class="math inline">\(F_{7} = 13\)</span>, <span class="math inline">\(F_{11} = 89\)</span>, and <span class="math inline">\(F_{13} = 233\)</span>.</p>
 <ol style="list-style-type: lower-alpha">
-<li><p>Write a <em>recursive</em> function <code>fib_rec()</code> that takes a single input <code>n</code> and returns the value of <span class="math inline">\(F_n\)</span>.</p></li>
+<li><p>Write a <em>recursive</em> function <code>fib_rec()</code> that takes input <code>n</code>, <code>a=0</code>, and <code>b=1</code> and returns the value of <span class="math inline">\(F_n\)</span> for <code>F_0 = a</code>, and <code>F_1 = b</code>. [You can call <code>a</code> and <code>b</code> something else, e.g. <code>f0</code> and <code>f1</code> or collect them in a list/tuple if you prefer.]</p></li>
 <li><p>Write a function <code>fib_for()</code> with the same signature that computes <span class="math inline">\(F_n\)</span> by summation using a <code>for</code> loop.</p></li>
 <li><p>Write a function <code>fib_whl()</code> with the same signature that computes <span class="math inline">\(F_n\)</span> by summation using a <code>while</code> loop.</p></li>
 <li><p>Write a function <code>fib_rnd()</code> with the same signature that computes <span class="math inline">\(F_n\)</span> using the rounding method described on the Wikipedia page linked above.</p></li>
@@ -243,10 +243,10 @@ F_n = F_{n-2} + F_{n-1}, \qquad \textrm{with}\qquad F_0 = 0, F_1 = 1.
 <p>Your functions should accept the data as a 1d Numpy array or any object coercable to such an array using <code>np.array()</code> and raise an informative exception if not.</p>
 <p>In this question you may use any function from Numpy, but may only use Scipy for the distribution functions found in the <code>stats</code> library. Your functions should not rely on any other modules.</p>
 <ol style="list-style-type: lower-alpha">
-<li><p>The standard point and interval estimate for the populaiton mean based on Normal theory takes the form <span class="math inline">\(\bar x \pm z \times \textrm{se}(x)\)</span> where <span class="math inline">\(\bar x\)</span> is the mean, <span class="math inline">\(\textrm{se}(x)\)</span> is the standard error, and <span class="math inline">\(z\)</span> is a Gaussian multiplier that depends on the desired confidence level. Write a function to return a point and interval estimate for the mean based on these statistics.</p></li>
+<li><p>The standard point and interval estimate for the population mean based on Normal theory takes the form <span class="math inline">\(\bar x \pm z \times \textrm{se}(x)\)</span> where <span class="math inline">\(\bar x\)</span> is the mean, <span class="math inline">\(\textrm{se}(x)\)</span> is the standard error, and <span class="math inline">\(z\)</span> is a Gaussian multiplier that depends on the desired confidence level. Write a function to return a point and interval estimate for the mean based on these statistics.</p></li>
 <li><p>There are a number of methods for computing a <a href="https://en.wikipedia.org/wiki/Binomial_proportion_confidence_interval">confidence interval</a> for a population proportion arising from a Binomial experiment consisting of <span class="math inline">\(n\)</span> independent and identically distributed (iid) Bernoulli trials. Let <span class="math inline">\(x\)</span> be the number of successes in thes trials. In this question you will write a function to return point and interval estimates based on several of these methods. Your function should have a parameter <code>method</code> that controls the method used. Include functionality for each of the following methods.</p>
 <ol style="list-style-type: lower-roman">
-<li><p>The standard point and interval estimates for a population parameter based on the Normal approximation to the Binomial distribution takes the form <span class="math inline">\(\hat{p} \pm z \times \sqrt{\hat{p}(1 - \hat{p})}\)</span> with <span class="math inline">\(\hat p\)</span> the sample proportion and <span class="math inline">\(z\)</span> as in part a. The approximation is conventionally considered adequate when <span class="math inline">\(n\hat{p} \wedge n(1 - \hat{p}) &gt; 12\)</span>. When this method is selected, your function should raise an informative warning if this condition is not satisfied.</p></li>
+<li><p>The standard point and interval estimates for a population parameter based on the Normal approximation to the Binomial distribution takes the form <span class="math inline">\(\hat{p} \pm z \times \sqrt{\hat{p}(1 - \hat{p})/n}\)</span> with <span class="math inline">\(\hat p\)</span> the sample proportion and <span class="math inline">\(z\)</span> as in part a. The approximation is conventionally considered adequate when <span class="math inline">\(n\hat{p} \wedge n(1 - \hat{p}) &gt; 12\)</span>. When this method is selected, your function should raise an informative warning if this condition is not satisfied.</p></li>
 <li><p>The Clopper-Pearson interval for a population proportion can be expressed using quantiles from Beta distributions. Specifically, for a sample of size <span class="math inline">\(n\)</span> with <span class="math inline">\(x\)</span> successes and <span class="math inline">\(\alpha\)</span> 1 minus the confidence level the interval is,</p></li>
 </ol>
 <p><span class="math display">\[ \left( \hat{\theta}_L, \hat{\theta}_U\right) = 
