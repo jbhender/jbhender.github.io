@@ -396,12 +396,12 @@ pre code {
 <h2>Question 2 - Construct and report the estimates [45 points]</h2>
 <div id="part-a-1" class="section level3">
 <h3>part a)</h3>
-<p>Estimate the average number of heating and cooling degree days for residences in each Census region for both 2009 and 2015. You should construct both point estimates (using the wegihts) and 95% confidece intervals (using standard errors estiamted with the repliacte weights). Report your results in a nicely formatted table.</p>
+<p>Estimate the average number of heating and cooling degree days for residences in each Census region for both 2009 and 2015. You should construct both point estimates (using the weights) and 95% confidece intervals (using standard errors estiamted with the repliacte weights). Report your results in a nicely formatted table.</p>
 <p>For this question, you should use pandas DataFrame methods wherever possible. Do <em>not</em> use a module specifically supporting survey weighting.</p>
 </div>
 <div id="part-b-1" class="section level3">
 <h3>part b)</h3>
-<p>Using the estimates and standard errors from part a, estimate the change in heating and cooling degree days between 2009 and 2015 for each Census region. In constructing interval estimates, use the facts that the estimators for each year are independent and that,</p>
+<p>Using the estimates and standard errors from part a, estimate the change in heating and cooling degree days (base temperature °F) between 2009 and 2015 for each Census region. In constructing interval estimates, use the facts that the estimators for each year are independent and that,</p>
 <p><span class="math display">\[
 \mathrm{var}\left(\hat{\theta}_0, \hat{\theta}_1\right) = 
     \mathrm{var}\left(\hat{\theta}_0\right) +
