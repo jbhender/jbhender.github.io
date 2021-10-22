@@ -171,14 +171,14 @@ pre code {
 </div>
 <div id="question-0---r-squared-warmup-20-points" class="section level2">
 <h2>Question 0 - R-Squared Warmup [20 points]</h2>
-<p>In this question you will fit a model to the ToothGrowth data used in the notes on [Resampling][] and [Statsmodels-OLS][]. Read the data, log transform tooth length, and then fit a model with indpendent variables for supplement type, dose (as categorical), and their interaction. Demonstrate how to compute the R-Squared and Adjusted R-Squared values and compare your compuations to the attributes (or properties) already present in the result object.</p>
+<p>In this question you will fit a model to the ToothGrowth data used in the notes on <a href="https://jbhender.github.io/Stats507/F21/slides/resampling.slides.html">Resampling</a> and <a href="https://jbhender.github.io/Stats507/F21/slides/statsmodels_ols.slides.html">Statsmodels-OLS</a>. Read the data, log transform tooth length, and then fit <em>a model</em> with indpendent variables for supplement type, dose (as categorical), and their interaction. Demonstrate how to compute the R-Squared and Adjusted R-Squared values and compare your compuations to the attributes (or properties) already present in the result object.</p>
 </div>
 <div id="question-1---nhanes-dentition-50-points" class="section level2">
 <h2>Question 1 - NHANES Dentition [50 points]</h2>
 <p>In this question you will use the NHANES dentition and demographics data from problem sets 2 and 4.</p>
 <ol style="list-style-type: lower-alpha">
 <li><p>[30 points] Pick a single tooth (<code>OHXxxTC</code>) and model the probability that a permanent tooth is present (look up the corresponding statuses) as a function of age using logistic regression. For simplicity, assume the data are iid and ignore the survey weights and design. Use a <a href="https://patsy.readthedocs.io/en/latest/spline-regression.html">B-Spline</a> basis to allow the probability to vary smoothly with age. Perform model selection using AIC or another method to choose the location of knots and the order of the basis (or just use <code>order=3</code> and focus on knots).</p>
-<p>Control for other demographics included the data as warranted. You may aslo select these by minimizing AIC or you may choose to include some demographics regardless of whether they improve model fit. Describe your model building decsions and/or selection process and the seris of models fit.</p></li>
+<p>Control for other demographics included in the data as warranted. You may also select these by minimizing AIC or you may choose to include some demographics regardless of whether they improve model fit. Describe your model building decsions and/or selection process and the seris of models fit.</p></li>
 <li><p>[10 points] Fit the best model you find in part a to all other teeth in the data and create columns in your DataFrame for the fitted values.</p></li>
 <li><p>[10 points] Create a visualization showing how the predicted probability that a permanent tooth is present varies with age for each tooth.</p></li>
 </ol>
