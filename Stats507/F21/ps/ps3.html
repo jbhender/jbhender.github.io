@@ -166,32 +166,33 @@ pre code {
 <p>Questions on this and future problem sets may ask you to use concepts or ideas that have not been discussed in class. One of the goals of these assignments is to help you learn to be independent, read documentation, and otherwise make reasonable decisions about how to analyze and present data, code, or other data science material.</p>
 <p>You may discuss the problem set and its solution with your peers, but you are required to work independently on the files to be submitted and to submit your own original work. If you use or closely follow patterns or code from sources other than the course notes or texts you should cite the source.</p>
 <p>In addition to the content of your submission, you will be graded on the quality of your source code and the professionalism of your notebook file.</p>
-<p>Maintain a consistent and literate style in your Python script and work to make your notebook look professional and well polished. Follow all style rules from previous problem sets. Here are 3 additional style rules focused on naming and indentation you should follow to recieve full credit:</p>
+<p>Maintain a consistent and literate style in your Python script and work to make your notebook look professional and well polished. Follow all style rules from previous problem sets. Here are 3 additional style rules focused on naming and indentation you should follow to receive full credit:</p>
 <ol style="list-style-type: decimal">
 <li>Name all variables using all lower-case,</li>
 <li>Use <code>snake_case</code> for variable names with multiple words,</li>
 <li>When chaining 3 or more method calls, put each on its own line with leading periods aligned. (You <em>may</em> but are <em>not required</em> to do this for fewer method calls).</li>
 </ol>
 <p>When asked for a nicely formatted table you should produce one using HTML (perhaps via Markdown) and it should follow standards suitable for publication, e.g. columns should be named in English rather than <code>code_speak</code>. <em>Tables should also be produced using code</em> so that minimal manual work would be needed to update the tables if the results were to change.</p>
+<p><strong>Addendum</strong> (October 5): You may have Markdown lines longer than 79 characters for long URLS if you use <em>reference style</em> links.</p>
 </div>
 <div id="question-0---recs-and-replicate-weights-15-points" class="section level2">
 <h2>Question 0 - RECS and Replicate Weights [15 points]</h2>
-<p>In this problem set, you will analyze data from the 2009 and 2015 Residential Energy Consumpion Surveys <a href="https://www.eia.gov/consumption/residential/">RECS</a> put out by the US Energy Information Agency. In this warm up question, you will:</p>
+<p>In this problem set, you will analyze data from the 2009 and 2015 Residential Energy Consumption Surveys <a href="https://www.eia.gov/consumption/residential/">RECS</a> put out by the US Energy Information Agency. In this warm up question, you will:</p>
 <ul>
 <li>find URLs from which to download the data for subsequent questions,</li>
-<li>determine variables you will need by examining the codebooks, and<br />
+<li>determine variables you will need by examining the code-books, and<br />
 </li>
 <li>familiarize yourself with the replicate weight method used for computing standard errors and constructing confidence intervals.</li>
 </ul>
 <div id="data-files" class="section level3">
 <h3>Data Files</h3>
-<p>Find links to the 2009 and 2015 <a href="https://www.eia.gov/consumption/residential/">RECS</a> microdata files and report them here. In the 2009 data year the replicate weights (see below) are distributed in a separate file. Find and report the link to that file as well.</p>
+<p>Find links to the 2009 and 2015 <a href="https://www.eia.gov/consumption/residential/">RECS</a> micro-data files and report them here. In the 2009 data year the replicate weights (see below) are distributed in a separate file. Find and report the link to that file as well.</p>
 </div>
 <div id="variables" class="section level3">
 <h3>Variables</h3>
-<p>Using the codebooks for the assoicated data files, determine what variables you will need to answer the following question. Be sure to include variables like the unit id and sample weights.</p>
+<p>Using the code-books for the associated data files, determine what variables you will need to answer the following question. Be sure to include variables like the unit id and sample weights.</p>
 <blockquote>
-<p>Estimate the average number of heating and cooling degree days for residences in each Census region for both 2009 and 2015.</p>
+<p>Estimate the average number of heating and cooling degree days (base temperature 65 °F) for residences in each Census region for both 2009 and 2015.</p>
 </blockquote>
 </div>
 <div id="weights-and-replicate-weights" class="section level3">
@@ -202,26 +203,26 @@ pre code {
 </div>
 <div id="question-1---data-preparation-20-points" class="section level2">
 <h2>Question 1 - Data Preparation [20 points]</h2>
-<p>In this question you will use Pandas to download, read, and clean the RECS data needed for subsequent questions. Use pandas to read data directly from the URLs you documented in the warmup when local versions of the files are not available. After download and/or clearning, write local copies of the datasets. Structure your code to use <code>exists</code> from the (built-in) <code>sys</code> module so the data are only downloaded when not already available locally.</p>
+<p>In this question you will use Pandas to download, read, and clean the RECS data needed for subsequent questions. Use pandas to read data directly from the URLs you documented in the warmup when local versions of the files are not available. After download and/or cleaning, write local copies of the datasets. Structure your code to use <code>exists</code> from the (built-in) <code>os</code> module so the data are only downloaded when not already available locally.</p>
 <div id="part-a" class="section level3">
 <h3>part a)</h3>
 <p>Separately for 2009 and 2015, construct datasets containing just the minimal necessary variables identified in the warmup, excluding the replicate weights. Choose an appropriate format for each of the remaining columns, particularly by creating categorical types where appropriate.</p>
 </div>
 <div id="part-b" class="section level3">
 <h3>part b)</h3>
-<p>Separatley for 2009 and 2015, construct datasets containing just the unique case ids and the replicate weights (<em>not</em> the primary final weight) in a “long” format with one weight and residence per row.</p>
+<p>Separately for 2009 and 2015, construct datasets containing just the unique case ids and the replicate weights (<em>not</em> the primary final weight) in a “long” format with one weight and residence per row.</p>
 </div>
 </div>
 <div id="question-2---construct-and-report-the-estimates-45-points" class="section level2">
 <h2>Question 2 - Construct and report the estimates [45 points]</h2>
 <div id="part-a-1" class="section level3">
 <h3>part a)</h3>
-<p>Estimate the average number of heating and cooling degree days for residences in each Census region for both 2009 and 2015. You should construct both point estimates (using the wegihts) and 95% confidece intervals (using standard errors estiamted with the repliacte weights). Report your results in a nicely formatted table.</p>
+<p>Estimate the average number of heating and cooling degree days for residences in each Census region for both 2009 and 2015. You should construct both point estimates (using the weights) and 95% confidence intervals (using standard errors estimated with the replicate weights). Report your results in a nicely formatted table.</p>
 <p>For this question, you should use pandas DataFrame methods wherever possible. Do <em>not</em> use a module specifically supporting survey weighting.</p>
 </div>
 <div id="part-b-1" class="section level3">
 <h3>part b)</h3>
-<p>Using the estimates and standard errors from part a, estimate the change in heating and cooling degree days between 2009 and 2015 for each Census region. In constructing interval estimates, use the facts that the estimators for each year are independent and that,</p>
+<p>Using the estimates and standard errors from part a, estimate the change in heating and cooling degree days (base temperature °F) between 2009 and 2015 for each Census region. In constructing interval estimates, use the facts that the estimators for each year are independent and that,</p>
 <p><span class="math display">\[
 \mathrm{var}\left(\hat{\theta}_0, \hat{\theta}_1\right) = 
     \mathrm{var}\left(\hat{\theta}_0\right) +
