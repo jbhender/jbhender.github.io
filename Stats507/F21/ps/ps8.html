@@ -206,12 +206,14 @@ pre code {
 <div id="question-2---pyspark-and-hdfs-30-points" class="section level2">
 <h2>Question 2 - PySpark and hdfs [30 points]</h2>
 <p>In this question you will use PySpark on the Cavium-ThunderX cluster to compute descriptive statistics from a collection of data files.</p>
-<p>The following files should be readable to you in the Cavium hdfs file system at <code>/home/jbhender/stats507/</code>:</p>
+<p>The following files should be readable to you in the Cavium hdfs file system at <code>/user/jbhender/stats507/</code>:</p>
 <ol style="list-style-type: decimal">
 <li><p><code>user_key.csv</code> - is a two-column table with columns <code>user</code> containing student unique names and <code>key</code> containing associated keys used for identifying ownership in the other tables. A user may be associated with more than 1 key.</p></li>
-<li><p><code>triangles</code> - is a 4-column table with columns <code>triangle_id</code>, <code>key</code>, <code>base</code>, and <code>height</code>. The <code>key</code> column can be used to join against <code>user_key.csv</code> to identify users; <code>base</code> and <code>height</code> can be used to compute area.</p></li>
-<li><p><code>rectangles</code> - is a 4-column table with columns <code>rectangle_id</code>, <code>key</code>, <code>length</code>, and <code>width</code>. The <code>key</code> column can be used to join against <code>user_key.csv</code> to identify users; <code>length</code> and <code>width</code> can be used to compute area.</p></li>
+<li><p><code>triangles.csv</code> - is a 4-column table with columns <code>triangle_id</code>, <code>key</code>, <code>base</code>, and <code>height</code>. The <code>key</code> column can be used to join against <code>user_key.csv</code> to identify users; <code>base</code> and <code>height</code> can be used to compute area.</p></li>
+<li><p><code>rectangles.csv</code> - is a 4-column table with columns <code>rectangle_id</code>, <code>key</code>, <code>length</code>, and <code>width</code>. The <code>key</code> column can be used to join against <code>user_key.csv</code> to identify users; <code>length</code> and <code>width</code> can be used to compute area.</p></li>
 </ol>
+<p>Check access permissions to these files using the following from your Cavium home directory:</p>
+<pre><code>hdfs dfs -ls /user/jbhender/stats507/</code></pre>
 <p>Use these files to compute the following quantities related to the shapes assigned to you:</p>
 <ol style="list-style-type: decimal">
 <li>the total numbers of triangles and (separately) rectangles assigned to you,</li>
